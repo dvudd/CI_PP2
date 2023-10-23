@@ -37,3 +37,6 @@ You can now use the `heroku` CLI program - try running `heroku apps` to confirm 
 ---
 
 Happy coding!
+
+### Credits
+Monster assets comes from [itch.io](https://fatcatgamesstudio.itch.io/10-jrpg-pixelart-battlers)
