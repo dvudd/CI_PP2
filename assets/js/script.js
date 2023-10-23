@@ -20,3 +20,7 @@ function rollDice() {
     displayresult(dice);
     console.log(`Dice roll: ${dice}`);
 };
+
+function displayresult(dice) {
+    document.getElementById('result').textContent = `You rolled a ${dice}`;
+};
