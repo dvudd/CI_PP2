@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function() {
 function rollDice() {
     let dice = Math.floor(Math.random() * 20) + 1;
     displayresult(dice);
-    console.log(`Dice roll: ${dice}`);
+    console.log(`Dice roll: ${dice}`); // REMOVE THIS
 };
 
 function displayresult(dice) {
