@@ -36,3 +36,9 @@ body {
     top: 50vh;
     margin-top: 10px;
 }
+.dice {
+    font-size: 48px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
