@@ -48,9 +48,10 @@ body {
 }
 .btn-area {
     display: flex;
-    position: relative;
+    position: absolute;
     width: 100%;
     justify-content: center;
+    bottom: 5%;
 }
 .btn {
     font-size: 48px;
