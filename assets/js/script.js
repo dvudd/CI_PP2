@@ -84,6 +84,7 @@ function gameLoop() {
     if (currentMonster === null) {
         // If there's no current monster, select a random one
         currentMonster = copyMonster(selectRandomMonster());
+        console.log(`=======================================`) // REMOVE THIS
         console.log(`You are facing a ${currentMonster.name}`) // REMOVE THIS
       }
     if (isPlayerTurn) {
