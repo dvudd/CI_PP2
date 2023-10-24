@@ -22,14 +22,20 @@ const monsters = [
         hitPoints: 7,
         currentHitPoints: 7,
         armorClass: 15,
-        attackPower: 5,
+        toHit: 4,
+        numDices: 1,
+        hitDice: d6,
+        plusDmg: 2,
     },
     {
         name: "Orc",
         hitPoints: 15,
         currentHitPoints: 15,
         armorClass: 13,
-        attackPower: 9,
+        toHit: 5,
+        numDices: 1,
+        hitDice: d12,
+        plusDmg: 3,
     },
 ];
 
@@ -68,9 +74,23 @@ function monsterTurn() {
         currentMonster = null;
         isPlayerTurn = true;
     } else {
+        // It is now the monsters turn, it will attack you!
         console.log("MONSTERS TURN") // REMOVE THIS
-        let dice = d20();
-        console.log(`Dice roll: ${dice}`); // REMOVE THIS
+        let crit = false;
+        let diceRoll = d20()
+        if (diceRoll === 20) {
+            console.log("CRITICAL HIT!") // REMOVE THIS
+            crit = true;
+        }
+        let attackRoll = diceRoll + player.toHit;
+        console.log(`Dice roll: ${diceRoll}`); // REMOVE THIS
+        if (attackRoll > player.armorClass) {
+            let damage = rollForDamage(currentMonster, crit);
+            console.log(`HIT! ${currentMonster.name} dealt ${damage} in damage`) // REMOVE THIS
+            player.hitPoints -= damage;
+        } else {
+            console.log("MISS!") // REMOVE THIS
+        }
     };
     isPlayerTurn = true;
     gameLoop();
