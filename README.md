@@ -40,3 +40,4 @@ Happy coding!
 
 ### Credits
 Monster assets comes from [itch.io](https://fatcatgamesstudio.itch.io/10-jrpg-pixelart-battlers)
+Favicon was downloaded from [flaticon](https://www.flaticon.com/) and converted with [favicon.io](https://favicon.io/favicon-converter/)
