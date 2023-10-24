@@ -51,6 +51,7 @@ function playerTurn() {
     if (attackRoll > currentMonster.armorClass) {
         let damage = rollForDamage(player, crit);
         console.log(`HIT! You dealt ${damage} in damage`)
+        currentMonster.hitPoints -= damage;
     } else {
         console.log("MISS!")
     }
@@ -61,9 +62,16 @@ function playerTurn() {
 
 // Monsters turn function
 function monsterTurn() {
-    console.log("MONSTERS TURN")
-    let dice = d20();
-    console.log(`Dice roll: ${dice}`); // REMOVE THIS
+    // First lets check if the monster is still alive.
+    if (currentMonster.hitPoints <= 0) {
+        console.log(`${currentMonster.name} was defeated!`);
+        currentMonster = null;
+        isPlayerTurn = true;
+    } else {
+        console.log("MONSTERS TURN")
+        let dice = d20();
+        console.log(`Dice roll: ${dice}`); // REMOVE THIS
+    };
     isPlayerTurn = true;
     gameLoop();
 }
@@ -84,9 +92,9 @@ function gameLoop() {
     let playerActionBtn = document.getElementById('attack');
     playerActionBtn.addEventListener('click', playerTurn);
     } else {
-    // It's the monster's turn
-    monsterTurn(); // Trigger the monster's turn
-    }
+        // It's the monster's turn
+        monsterTurn(); // Trigger the monster's turn
+    };
 
     // Here the game shoud update the UI
     // and check for game over conditions
