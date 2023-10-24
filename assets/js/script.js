@@ -36,7 +36,7 @@ let isPlayerTurn = true;
 // Player turn function
 function playerTurn() {
     console.log("PLAYERS TURN")
-    let dice = rollDice();
+    let dice = d20();
     console.log(`Dice roll: ${dice}`); // REMOVE THIS
     displayresult(dice);
     isPlayerTurn = false;
@@ -46,29 +46,36 @@ function playerTurn() {
 // Monsters turn function
 function monsterTurn() {
     console.log("MONSTERS TURN")
-    let dice = rollDice();
+    let dice = d20();
     console.log(`Dice roll: ${dice}`); // REMOVE THIS
     isPlayerTurn = true;
     gameLoop();
 }
 
-// Main game function
+/**
+ * The main game loop, called when the script is first loaded
+ * and after the the player of monster has taken its turn
+ */
 function gameLoop() {
-  if (isPlayerTurn) {
+    if (isPlayerTurn) {
     // It's the player's turn
     // Wait for the player to take it's action
     let playerActionBtn = document.getElementById('attack');
     playerActionBtn.addEventListener('click', playerTurn);
-  } else {
+    } else {
     // It's the monster's turn
     monsterTurn(); // Trigger the monster's turn
-  }
+    }
 
-  // Here the game shoud update the UI
-  // and check for game over conditions
+    // Here the game shoud update the UI
+    // and check for game over conditions
 }
 
-function rollDice() {
+/**
+ * Simulates a roll of a d20 dice,
+ * gives a random number between 1-20
+ */
+function d20() {
     let dice = Math.floor(Math.random() * 20) + 1;
     return dice;
 };
