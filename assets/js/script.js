@@ -9,7 +9,7 @@ const player = {
     hitPoints: 100,
     currentHitPoints: 100,
     armorClass: 13,
-    attackPower: 10,
+    attackPower: d20,
 };
   
 // Monster stats
@@ -39,6 +39,12 @@ function playerTurn() {
     console.log("PLAYERS TURN")
     let dice = d20();
     console.log(`Dice roll: ${dice}`); // REMOVE THIS
+    if (dice > currentMonster.armorClass) {
+        let damage = rollForDamage(player);
+        console.log(`HIT! You dealt ${damage} in damage`)
+    } else {
+        console.log("MISS!")
+    }
     displayresult(dice);
     isPlayerTurn = false;
     gameLoop();
@@ -84,6 +90,15 @@ function selectRandomMonster() {
     return monsters[Math.floor(Math.random() * monsters.length)];
 }
 
+/**
+ * Reads the hit dice(s) of the creature and adds them together
+ * @param {*} creature 
+ * @returns a INT of the total damage dealt.
+ */
+function rollForDamage(creature) {
+    let damage = creature.attackPower();
+    return damage;
+}
 /**
  * Simulates a roll of a d20 dice,
  * gives a random number between 1-20
