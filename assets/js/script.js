@@ -40,15 +40,21 @@ let currentMonster = null;
 // Player turn function
 function playerTurn() {
     console.log("PLAYERS TURN")
-    let dice = d20() + player.toHit;
-    console.log(`Dice roll: ${dice}`); // REMOVE THIS
-    if (dice > currentMonster.armorClass) {
-        let damage = rollForDamage(player);
+    let crit = false;
+    let diceRoll = d20()
+    if (diceRoll === 20) {
+        console.log("CRITICAL HIT!")
+        crit = true;
+    }
+    let attackRoll = diceRoll + player.toHit;
+    console.log(`Dice roll: ${diceRoll}`); // REMOVE THIS
+    if (attackRoll > currentMonster.armorClass) {
+        let damage = rollForDamage(player, crit);
         console.log(`HIT! You dealt ${damage} in damage`)
     } else {
         console.log("MISS!")
     }
-    displayresult(dice);
+    displayresult(diceRoll);
     isPlayerTurn = false;
     gameLoop();
 }
@@ -98,8 +104,14 @@ function selectRandomMonster() {
  * @param {*} creature 
  * @returns a INT of the total damage dealt.
  */
-function rollForDamage(creature) {
-    let damage = creature.hitDice() + creature.plusDmg;
+function rollForDamage(creature, crit) {
+    let damage = 0;
+    for (let i=0; i <= creature.numDices; i++) {
+        damage += creature.hitDice() + creature.plusDmg;
+    }
+    if (crit) {
+        damage = damage * 2;
+    }
     return damage;
 }
 
