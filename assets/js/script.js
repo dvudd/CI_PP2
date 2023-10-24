@@ -39,21 +39,21 @@ let currentMonster = null;
 
 // Player turn function
 function playerTurn() {
-    console.log("PLAYERS TURN")
+    console.log("PLAYERS TURN") // REMOVE THIS
     let crit = false;
     let diceRoll = d20()
     if (diceRoll === 20) {
-        console.log("CRITICAL HIT!")
+        console.log("CRITICAL HIT!") // REMOVE THIS
         crit = true;
     }
     let attackRoll = diceRoll + player.toHit;
     console.log(`Dice roll: ${diceRoll}`); // REMOVE THIS
     if (attackRoll > currentMonster.armorClass) {
         let damage = rollForDamage(player, crit);
-        console.log(`HIT! You dealt ${damage} in damage`)
+        console.log(`HIT! You dealt ${damage} in damage`) // REMOVE THIS
         currentMonster.hitPoints -= damage;
     } else {
-        console.log("MISS!")
+        console.log("MISS!") // REMOVE THIS
     }
     displayresult(diceRoll);
     isPlayerTurn = false;
@@ -64,11 +64,11 @@ function playerTurn() {
 function monsterTurn() {
     // First lets check if the monster is still alive.
     if (currentMonster.hitPoints <= 0) {
-        console.log(`${currentMonster.name} was defeated!`);
+        console.log(`${currentMonster.name} was defeated!`); // REMOVE THIS
         currentMonster = null;
         isPlayerTurn = true;
     } else {
-        console.log("MONSTERS TURN")
+        console.log("MONSTERS TURN") // REMOVE THIS
         let dice = d20();
         console.log(`Dice roll: ${dice}`); // REMOVE THIS
     };
@@ -84,7 +84,7 @@ function gameLoop() {
     if (currentMonster === null) {
         // If there's no current monster, select a random one
         currentMonster = selectRandomMonster();
-        console.log(`You are facing a ${currentMonster.name}`)
+        console.log(`You are facing a ${currentMonster.name}`) // REMOVE THIS
       }
     if (isPlayerTurn) {
     // It's the player's turn
