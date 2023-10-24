@@ -83,7 +83,7 @@ function monsterTurn() {
 function gameLoop() {
     if (currentMonster === null) {
         // If there's no current monster, select a random one
-        currentMonster = selectRandomMonster();
+        currentMonster = copyMonster(selectRandomMonster());
         console.log(`You are facing a ${currentMonster.name}`) // REMOVE THIS
       }
     if (isPlayerTurn) {
@@ -98,6 +98,15 @@ function gameLoop() {
 
     // Here the game shoud update the UI
     // and check for game over conditions
+}
+
+/**
+ * Copies the stats from a monster in the monster array
+ * @param {*} monster 
+ * @returns 
+ */
+function copyMonster(monster) {
+    return Object.assign({}, monster);
 }
 
 /**
