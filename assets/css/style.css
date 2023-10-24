@@ -36,9 +36,25 @@ body {
     top: 50vh;
     margin-top: 10px;
 }
-.dice {
+.result-area {
+    position: absolute;
+    width: 70%;
+    height: 20vh;
+    background-color: beige;
+    display: flex;
+    justify-content: center;
+    margin-left: 7vh;
+    margin-right: 7vh;
+}
+/* #result {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+} */
+.btn {
     font-size: 48px;
     display: block;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 70%;
 }
