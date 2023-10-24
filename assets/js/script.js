@@ -124,6 +124,33 @@ function rollForDamage(creature, crit) {
 }
 
 /**
+ * Simulates a roll of a d4 dice,
+ * gives a random number between 1-4
+ */
+function d4() {
+    let dice = Math.floor(Math.random() * 4) + 1;
+    return dice;
+};
+
+/**
+ * Simulates a roll of a d6 dice,
+ * gives a random number between 1-6
+ */
+function d6() {
+    let dice = Math.floor(Math.random() * 6) + 1;
+    return dice;
+};
+
+/**
+ * Simulates a roll of a d10 dice,
+ * gives a random number between 1-10
+ */
+function d10() {
+    let dice = Math.floor(Math.random() * 10) + 1;
+    return dice;
+};
+
+/**
  * Simulates a roll of a d12 dice,
  * gives a random number between 1-12
  */
