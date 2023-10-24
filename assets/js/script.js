@@ -32,6 +32,7 @@ const monsters = [
 
 // Flag to indicate whose turn it is
 let isPlayerTurn = true;
+currentMonster = null;
 
 // Player turn function
 function playerTurn() {
@@ -57,6 +58,11 @@ function monsterTurn() {
  * and after the the player of monster has taken its turn
  */
 function gameLoop() {
+    if (currentMonster === null) {
+        // If there's no current monster, select a random one
+        currentMonster = selectRandomMonster();
+        console.log(`You are facing a ${currentMonster.name}`)
+      }
     if (isPlayerTurn) {
     // It's the player's turn
     // Wait for the player to take it's action
@@ -69,6 +75,13 @@ function gameLoop() {
 
     // Here the game shoud update the UI
     // and check for game over conditions
+}
+
+/**
+ * @returns the stats of a random monster from the monster array
+ */
+function selectRandomMonster() {
+    return monsters[Math.floor(Math.random() * monsters.length)];
 }
 
 /**
