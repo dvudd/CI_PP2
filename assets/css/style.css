@@ -46,15 +46,12 @@ body {
     margin-left: 7vh;
     margin-right: 7vh;
 }
-/* #result {
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
-} */
+.btn-area {
+    display: flex;
+    position: relative;
+    width: 100%;
+    justify-content: center;
+}
 .btn {
     font-size: 48px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 70%;
 }
