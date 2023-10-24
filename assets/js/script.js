@@ -125,7 +125,7 @@ function rollForDamage(creature, crit) {
 
 /**
  * Simulates a roll of a d12 dice,
- * gives a random number between 1-20
+ * gives a random number between 1-12
  */
 function d12() {
     let dice = Math.floor(Math.random() * 12) + 1;
