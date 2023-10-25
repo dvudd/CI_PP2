@@ -48,6 +48,7 @@ let buttonClicked = false;
 async function playerTurn() {
     console.log("PLAYERS TURN") // REMOVE THIS
     document.getElementById("results").classList.add("open-result");
+    document.querySelectorAll(".game-area").forEach((element) => element.classList.add("dim"));
     // Reset the flags for hit, crit and damage
     let hit = false;
     let crit = false;
@@ -76,6 +77,7 @@ async function playerTurn() {
     isPlayerTurn = false;
     await waitForButton("result-btn");
     document.getElementById("results").classList.remove("open-result");
+    document.querySelectorAll(".game-area").forEach((element) => element.classList.remove("dim"));
     resetResults()
     gameLoop();
 }
