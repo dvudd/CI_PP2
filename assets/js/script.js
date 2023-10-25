@@ -71,7 +71,7 @@ async function playerTurn() {
     } else {
         console.log("MISS!") // REMOVE THIS
     }
-    displayresult(diceRoll, hit, crit, damage);
+    displayResult(diceRoll, hit, crit, damage);
     document.getElementById('monster-hp').textContent = currentMonster.hitPoints;
     isPlayerTurn = false;
     await waitForButton("result-btn");
@@ -241,7 +241,14 @@ function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-async function displayresult(dice, hit, crit, damage) {
+/**
+ * Function to present the result to the user on the result card
+ * @param {} dice 
+ * @param {*} hit 
+ * @param {*} crit 
+ * @param {*} damage 
+ */
+async function displayResult(dice, hit, crit, damage) {
     await sleep(700);
     document.getElementById('result-roll').textContent = `You rolled a ${dice}`;
     await sleep(1000);
@@ -258,6 +265,9 @@ async function displayresult(dice, hit, crit, damage) {
     }
 };
 
+/**
+ * Clears the text on the result card
+ */
 function resetResults() {
     document.getElementById('result-roll').textContent = ``;
     document.getElementById('result-hit').textContent = ``;
