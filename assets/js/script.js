@@ -42,28 +42,41 @@ const monsters = [
 // Flag to indicate whose turn it is
 let isPlayerTurn = true;
 let currentMonster = null;
+let buttonClicked = false;
 
 // Player turn function
-function playerTurn() {
+async function playerTurn() {
     console.log("PLAYERS TURN") // REMOVE THIS
+    document.getElementById("results").classList.add("open-result");
+    // Reset the flags for hit, crit and damage
+    let hit = false;
     let crit = false;
+    let damage = 0;
+    // Roll for attack
     let diceRoll = d20()
+    // Check if it's a Critical Roll
     if (diceRoll === 20) {
         console.log("CRITICAL HIT!") // REMOVE THIS
         crit = true;
     }
+    // Check if it hits
     let attackRoll = diceRoll + player.toHit;
     console.log(`Dice roll: ${diceRoll}`); // REMOVE THIS
     if (attackRoll > currentMonster.armorClass) {
-        let damage = rollForDamage(player, crit);
+        // Calculate Damage
+        hit = true;
+        damage = rollForDamage(player, crit);
         console.log(`HIT! You dealt ${damage} in damage`) // REMOVE THIS
         currentMonster.hitPoints -= damage;
-        displayresult(diceRoll, damage);
     } else {
         console.log("MISS!") // REMOVE THIS
     }
+    displayresult(diceRoll, hit, crit, damage);
     document.getElementById('monster-hp').textContent = currentMonster.hitPoints;
     isPlayerTurn = false;
+    await waitForButton("result-btn");
+    document.getElementById("results").classList.remove("open-result");
+    resetResults()
     gameLoop();
 }
 
@@ -205,6 +218,21 @@ function d20() {
 };
 
 /**
+ * Holds execution of code until the provided button is pressed.
+ * @param {*} buttonId 
+ * @returns 
+ */
+function waitForButton(buttonId) {
+    return new Promise(resolve => {
+        document.getElementById(buttonId).addEventListener('click', function onButtonClick() {
+            buttonClicked = true;
+            resolve();
+            document.getElementById(buttonId).removeEventListener('click', onButtonClick);
+        });
+    });
+}
+
+/**
  * Sleep function
  * @param {time} ms 
  * CREDIT: https://stackoverflow.com/questions/951021/what-is-the-javascript-version-of-sleep
@@ -213,6 +241,25 @@ function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-async function displayresult(dice, damage) {
-    document.getElementById('result').textContent = `You rolled a ${dice}`;
+async function displayresult(dice, hit, crit, damage) {
+    await sleep(700);
+    document.getElementById('result-roll').textContent = `You rolled a ${dice}`;
+    await sleep(1000);
+    if (hit) {
+        if (crit) {
+            document.getElementById('result-hit').textContent = `CRITICAL HIT!`;
+        } else {
+            document.getElementById('result-hit').textContent = `HIT!`;
+        }
+        await sleep(1000);
+        document.getElementById('result-damage').textContent = `You dealt ${damage} damage`;
+    } else {
+        document.getElementById('result-hit').textContent = `MISS!`;
+    }
 };
+
+function resetResults() {
+    document.getElementById('result-roll').textContent = ``;
+    document.getElementById('result-hit').textContent = ``;
+    document.getElementById('result-damage').textContent = ``;
+}

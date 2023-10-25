@@ -27,7 +27,7 @@
             </p>
         </div>
     </section>
-    <div class="game-area player-area">
+    <section class="game-area player-area">
         <div>
             <span class="hp">
                 <i class="fa-solid fa-heart"></i>
@@ -38,13 +38,16 @@
                 <span id="player-ac">0</span>
             </span>
         </div>
-        <div class="result-area">
-            <span id="result"></span>
-        </div>
         <div class="btn-area">
             <button id="attack" class="btn" data-type="roll-dice">ATTACK</button>
         </div>
-    </div>
+    </section>
+    <section id="results" class="result-area">
+        <h2>Your Turn</h2>
+        <p id="result-roll"></p>
+        <span id="result-hit"></span>
+        <p id="result-damage"></p>
+        <button id="result-btn" class="btn">END TURN</button>
     </section>
     <script src="https://kit.fontawesome.com/87926df488.js" crossorigin="anonymous"></script>
     <script src="assets/js/script.js"></script>

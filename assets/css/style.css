@@ -38,14 +38,23 @@ body {
 }
 .result-area {
     position: absolute;
-    width: 70%;
-    height: 20vh;
+    width: 80%;
+    height: 60vh;
     background-color: beige;
-    display: flex;
-    justify-content: center;
-    margin-left: 7vh;
-    margin-right: 7vh;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    top: 50%;
+    left: 50%;
+    border-radius: 6px;
+    transform: translate(-50%, -50%);
+    visibility: hidden;
 }
+.open-result {
+    visibility: visible;
+}
+
+
 .btn-area {
     display: flex;
     position: absolute;
@@ -55,4 +64,9 @@ body {
 }
 .btn {
     font-size: 48px;
+}
+
+#result-btn {
+    position: absolute;
+    bottom: 1rem;
 }
