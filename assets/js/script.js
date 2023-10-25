@@ -62,6 +62,7 @@ function playerTurn() {
         console.log("MISS!") // REMOVE THIS
     }
     displayresult(diceRoll);
+    document.getElementById('monster-hp').textContent = currentMonster.hitPoints;
     isPlayerTurn = false;
     gameLoop();
 }
@@ -92,6 +93,7 @@ function monsterTurn() {
             console.log("MISS!") // REMOVE THIS
         }
     };
+    document.getElementById('player-hp').textContent = player.hitPoints;
     isPlayerTurn = true;
     gameLoop();
 }
@@ -107,6 +109,10 @@ function gameLoop() {
         console.log(`=======================================`) // REMOVE THIS
         console.log(`You are facing a ${currentMonster.name}`) // REMOVE THIS
       }
+    document.getElementById('monster-hp').textContent = currentMonster.hitPoints;
+    document.getElementById('monster-ac').textContent = currentMonster.armorClass;
+    document.getElementById('player-hp').textContent = player.hitPoints;
+    document.getElementById('player-ac').textContent = player.armorClass;
     if (isPlayerTurn) {
     // It's the player's turn
     // Wait for the player to take it's action
