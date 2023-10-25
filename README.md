@@ -43,3 +43,4 @@ Monster assets comes from [itch.io](https://fatcatgamesstudio.itch.io/10-jrpg-pi
 Favicon was downloaded from [flaticon](https://www.flaticon.com/) and converted with [favicon.io](https://favicon.io/favicon-converter/)
 Sleep function: https://stackoverflow.com/questions/951021/what-is-the-javascript-version-of-sleep
 popup function: https://www.youtube.com/watch?v=AF6vGYIyV8M
+dim: https://stackoverflow.com/questions/67271053/adding-class-to-an-element-got-by-classname
