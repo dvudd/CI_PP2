@@ -58,10 +58,10 @@ function playerTurn() {
         let damage = rollForDamage(player, crit);
         console.log(`HIT! You dealt ${damage} in damage`) // REMOVE THIS
         currentMonster.hitPoints -= damage;
+        displayresult(diceRoll, damage);
     } else {
         console.log("MISS!") // REMOVE THIS
     }
-    displayresult(diceRoll);
     document.getElementById('monster-hp').textContent = currentMonster.hitPoints;
     isPlayerTurn = false;
     gameLoop();
@@ -204,6 +204,15 @@ function d20() {
     return dice;
 };
 
-function displayresult(dice) {
+/**
+ * Sleep function
+ * @param {time} ms 
+ * CREDIT: https://stackoverflow.com/questions/951021/what-is-the-javascript-version-of-sleep
+ */
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function displayresult(dice, damage) {
     document.getElementById('result').textContent = `You rolled a ${dice}`;
 };
