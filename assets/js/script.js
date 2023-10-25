@@ -46,7 +46,20 @@ let buttonClicked = false;
 
 // Player turn function
 async function playerTurn() {
+    // Prevent the button to be pressed several times
+    function onPlayerActionClick() {
+        playerActionBtn.removeEventListener('click', onPlayerActionClick);
+        playerAttack();
+    }
+    // Listener for attack button
+    let playerActionBtn = document.getElementById('attack');
+    playerActionBtn.addEventListener('click', onPlayerActionClick);
+}
+
+// Player attack function
+async function playerAttack() {
     console.log("PLAYERS TURN") // REMOVE THIS
+    // Open the result card and dim the background
     document.getElementById("results").classList.add("open-result");
     document.querySelectorAll(".game-area").forEach((element) => element.classList.add("dim"));
     // Reset the flags for hit, crit and damage
@@ -72,10 +85,12 @@ async function playerTurn() {
     } else {
         console.log("MISS!") // REMOVE THIS
     }
+    // Display the results
     displayResult(diceRoll, hit, crit, damage);
     document.getElementById('monster-hp').textContent = currentMonster.hitPoints;
     isPlayerTurn = false;
     await waitForButton("result-btn");
+    // Close the result card and brighten the background
     document.getElementById("results").classList.remove("open-result");
     document.querySelectorAll(".game-area").forEach((element) => element.classList.remove("dim"));
     resetResults()
@@ -129,10 +144,8 @@ function gameLoop() {
     document.getElementById('player-hp').textContent = player.hitPoints;
     document.getElementById('player-ac').textContent = player.armorClass;
     if (isPlayerTurn) {
-    // It's the player's turn
-    // Wait for the player to take it's action
-    let playerActionBtn = document.getElementById('attack');
-    playerActionBtn.addEventListener('click', playerTurn);
+        // It's the player's turn
+        playerTurn();
     } else {
         // It's the monster's turn
         monsterTurn(); // Trigger the monster's turn
