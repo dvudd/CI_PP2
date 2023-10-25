@@ -44,3 +44,4 @@ Favicon was downloaded from [flaticon](https://www.flaticon.com/) and converted 
 Sleep function: https://stackoverflow.com/questions/951021/what-is-the-javascript-version-of-sleep
 popup function: https://www.youtube.com/watch?v=AF6vGYIyV8M
 dim: https://stackoverflow.com/questions/67271053/adding-class-to-an-element-got-by-classname
+Card assets comes from: https://cafedraw.itch.io/fantasy-card-assets
