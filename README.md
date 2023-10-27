@@ -45,3 +45,5 @@ Sleep function: https://stackoverflow.com/questions/951021/what-is-the-javascrip
 popup function: https://www.youtube.com/watch?v=AF6vGYIyV8M
 dim: https://stackoverflow.com/questions/67271053/adding-class-to-an-element-got-by-classname
 Card assets comes from: https://cafedraw.itch.io/fantasy-card-assets
+Card flip: https://www.w3schools.com/howto/howto_css_flip_card.asp
+Card Shake: https://www.w3schools.com/howto/howto_css_shake_image.asp
