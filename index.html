@@ -13,9 +13,6 @@
 </head>
 <body>
     <section class="game-area monster-area">
-        <div class="monster">
-
-        </div>
         <div>
             <span class="hp">
                 <i class="fa-solid fa-heart"></i>
@@ -27,27 +24,30 @@
             </p>
         </div>
     </section>
-    <section class="game-area player-area">
-        <div>
-            <span class="hp">
-                <i class="fa-solid fa-heart"></i>
-                <span id="player-hp">0</span>
-            </span>
-            <span class="ac">
-                <i class="fa-solid fa-shield"></i>
-                <span id="player-ac">0</span>
-            </span>
+    <!--  -->
+    <section id="player-card" class="player-card game-area">
+            <div class="player-card-front">
+                <span class="hp">
+                    <i class="fa-solid fa-heart"></i>
+                    <span id="player-hp">0</span>
+                </span>
+                <span class="ac">
+                    <i class="fa-solid fa-shield"></i>
+                    <span id="player-ac">0</span>
+                </span>
+                <div class="btn-area">
+                    <button id="attack" class="btn" data-type="roll-dice">ATTACK</button>
+                </div>
+            </div>
+            <div class="player-card-back">
+                <h2>Your Turn</h2>
+                <p id="result-roll"></p>
+                <span id="result-hit"></span>
+                <p id="result-damage"></p>
+                <div class="btn-area">
+                    <button id="result-btn" class="btn">END TURN</button>
+                </div>
         </div>
-        <div class="btn-area">
-            <button id="attack" class="btn" data-type="roll-dice">ATTACK</button>
-        </div>
-    </section>
-    <section id="results" class="result-area">
-        <h2>Your Turn</h2>
-        <p id="result-roll"></p>
-        <span id="result-hit"></span>
-        <p id="result-damage"></p>
-        <button id="result-btn" class="btn">END TURN</button>
     </section>
     <script src="https://kit.fontawesome.com/87926df488.js" crossorigin="anonymous"></script>
     <script src="assets/js/script.js"></script>
