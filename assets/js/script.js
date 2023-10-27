@@ -115,6 +115,8 @@ async function monsterTurn() {
     if (currentMonster.hitPoints <= 0) {
         console.log(`${currentMonster.name} was defeated!`); // REMOVE THIS
         currentMonster = null;
+        document.getElementById("monster-card").classList.toggle("monster-alive");
+        await sleep(2000)
         isPlayerTurn = true;
     } else {
         // It is now the monsters turn, it will attack you!
@@ -159,6 +161,8 @@ function gameLoop() {
     if (currentMonster === null) {
         // If there's no current monster, select a random one
         currentMonster = copyMonster(selectRandomMonster());
+        document.getElementById('monster-name').textContent = currentMonster.name;
+        document.getElementById("monster-card").classList.toggle("monster-alive");
         console.log(`=======================================`) // REMOVE THIS
         console.log(`You are facing a ${currentMonster.name}`) // REMOVE THIS
       }
