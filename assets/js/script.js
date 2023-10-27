@@ -61,7 +61,7 @@ async function playerAttack() {
     console.log("PLAYERS TURN") // REMOVE THIS
     // Open the result card and dim the background
     document.getElementById("player-card").classList.toggle("player-card-flip");
-    //document.querySelectorAll(".game-area").forEach((element) => element.classList.add("dim"));
+    document.getElementById("monster-card").classList.toggle("dim");
     // Reset the flags for hit, crit and damage
     let hit = false;
     let crit = false;
@@ -91,9 +91,8 @@ async function playerAttack() {
     isPlayerTurn = false;
     await waitForButton("result-btn");
     // Close the result card and brighten the background
-    //document.getElementById("results").classList.remove("open-result");
     document.getElementById("player-card").classList.toggle("player-card-flip");
-    //document.querySelectorAll(".game-area").forEach((element) => element.classList.remove("dim"));
+    document.getElementById("monster-card").classList.toggle("dim");
     resetResults()
     gameLoop();
 }
