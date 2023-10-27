@@ -89,10 +89,21 @@ async function playerAttack() {
     displayResult(diceRoll, hit, crit, damage);
     document.getElementById('monster-hp').textContent = currentMonster.hitPoints;
     isPlayerTurn = false;
-    await waitForButton("result-btn");
+    // await waitForButton("result-btn");
+    await sleep(3000);
     // Close the result card and brighten the background
     document.getElementById("player-card").classList.toggle("player-card-flip");
     document.getElementById("monster-card").classList.toggle("dim");
+    if (hit) {
+        await sleep(1000);
+        document.getElementById("player-card").classList.toggle("player-attack-animation");
+        await sleep(150);
+        document.getElementById("monster-card").classList.toggle("damage-taken");
+        await sleep(80);
+        document.getElementById("monster-card").classList.toggle("damage-taken");
+        await sleep(100);
+        document.getElementById("player-card").classList.toggle("player-attack-animation");
+    }
     resetResults()
     gameLoop();
 }
