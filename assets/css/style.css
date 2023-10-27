@@ -47,6 +47,7 @@ body {
 .monster-card {
     top: -2vh;
     left: 5vh;
+    z-index: 80;
 }
 
 .monster-card-front, .monster-card-back {
@@ -71,6 +72,7 @@ body {
 .player-card {
     top: 50vh;
     left: 5vh;
+    z-index: 80;
 }
 
 .player-card-front, .player-card-back {
@@ -98,7 +100,11 @@ body {
     transform: rotateY(180deg);
 }
 
-.player-attack-animation {
+.on-top {
+    z-index: 90;
+}
+
+.attack-animation {
     top: 20vh;
     transition:
         top 200ms,

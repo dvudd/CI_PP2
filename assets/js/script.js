@@ -96,20 +96,21 @@ async function playerAttack() {
     document.getElementById("monster-card").classList.toggle("dim");
     if (hit) {
         await sleep(1000);
-        document.getElementById("player-card").classList.toggle("player-attack-animation");
+        document.getElementById("player-card").classList.toggle("attack-animation");
         await sleep(150);
         document.getElementById("monster-card").classList.toggle("damage-taken");
         await sleep(80);
         document.getElementById("monster-card").classList.toggle("damage-taken");
         await sleep(100);
-        document.getElementById("player-card").classList.toggle("player-attack-animation");
+        document.getElementById("player-card").classList.toggle("attack-animation");
     }
+    await sleep(700);
     resetResults()
     gameLoop();
 }
 
 // Monsters turn function
-function monsterTurn() {
+async function monsterTurn() {
     // First lets check if the monster is still alive.
     if (currentMonster.hitPoints <= 0) {
         console.log(`${currentMonster.name} was defeated!`); // REMOVE THIS
@@ -118,6 +119,7 @@ function monsterTurn() {
     } else {
         // It is now the monsters turn, it will attack you!
         console.log("MONSTERS TURN") // REMOVE THIS
+        document.getElementById("monster-card").classList.toggle("on-top");
         let crit = false;
         let diceRoll = d20()
         if (diceRoll === 20) {
@@ -130,9 +132,19 @@ function monsterTurn() {
             let damage = rollForDamage(currentMonster, crit);
             console.log(`HIT! ${currentMonster.name} dealt ${damage} in damage`) // REMOVE THIS
             player.hitPoints -= damage;
+                await sleep(1000);
+                document.getElementById("monster-card").classList.toggle("attack-animation");
+                await sleep(150);
+                document.getElementById("player-card").classList.toggle("damage-taken");
+                await sleep(80);
+                document.getElementById("player-card").classList.toggle("damage-taken");
+                await sleep(100);
+                document.getElementById("monster-card").classList.toggle("attack-animation");
         } else {
             console.log("MISS!") // REMOVE THIS
         }
+        await sleep(700);
+        document.getElementById("monster-card").classList.toggle("on-top");
     };
     document.getElementById('player-hp').textContent = player.hitPoints;
     isPlayerTurn = true;
