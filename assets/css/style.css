@@ -130,10 +130,22 @@ body {
 }
 
 .damage-taken {
-        animation: damage-taken 0.10s infinite;
+    position: absolute;
+    font-size: 32px;
+    animation: fadeOut 2s;
+    animation: damage-taken 1s;
+    visibility: visible;
+}
+@keyframes damage-taken {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(0, -10rem); opacity: 0;}
 }
 
-@keyframes damage-taken {
+.damage-animation {
+        animation: damage-animation 0.10s infinite;
+}
+
+@keyframes damage-animation {
     0% { transform: translate(0, 0) rotate(0deg); }
     25% { transform: translate(5px, 5px) rotate(5deg); }
     50% { transform: translate(0, 0) rotate(0eg); }

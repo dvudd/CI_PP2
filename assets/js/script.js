@@ -98,15 +98,36 @@ async function playerAttack() {
         await sleep(1000);
         document.getElementById("player-card").classList.toggle("attack-animation");
         await sleep(150);
-        document.getElementById("monster-card").classList.toggle("damage-taken");
+        document.getElementById("monster-card").classList.toggle("damage-animation");
+        document.getElementById('monster-damage-taken').textContent = `-${damage}`;
+        document.getElementById("monster-damage-taken").classList.toggle("damage-taken");
         await sleep(80);
-        document.getElementById("monster-card").classList.toggle("damage-taken");
+        document.getElementById("monster-card").classList.toggle("damage-animation");
         await sleep(100);
         document.getElementById("player-card").classList.toggle("attack-animation");
+        await sleep(800);
+        document.getElementById('monster-damage-taken').textContent = ``;
+        document.getElementById("monster-damage-taken").classList.toggle("damage-taken");
     }
     await sleep(700);
     resetResults()
     gameLoop();
+}
+
+async function hitAnimation(attacker, target, crit) {
+    await sleep(1000);
+    document.getElementById("${attacker}-card").classList.toggle("attack-animation");
+    await sleep(150);
+    document.getElementById("${target}-card").classList.toggle("damage-animation");
+    document.getElementById('${target}-damage-taken').textContent = `-${damage}`;
+    document.getElementById("${target}-damage-taken").classList.toggle("damage-taken");
+    await sleep(80);
+    document.getElementById("${target}-card").classList.toggle("damage-animation");
+    await sleep(100);
+    document.getElementById("${attacker}-card").classList.toggle("attack-animation");
+    await sleep(800);
+    document.getElementById('${target}-damage-taken').textContent = ``;
+    document.getElementById("${target}-damage-taken").classList.toggle("damage-taken");
 }
 
 // Monsters turn function
@@ -137,9 +158,9 @@ async function monsterTurn() {
                 await sleep(1000);
                 document.getElementById("monster-card").classList.toggle("attack-animation");
                 await sleep(150);
-                document.getElementById("player-card").classList.toggle("damage-taken");
+                document.getElementById("player-card").classList.toggle("damage-animation");
                 await sleep(80);
-                document.getElementById("player-card").classList.toggle("damage-taken");
+                document.getElementById("player-card").classList.toggle("damage-animation");
                 await sleep(100);
                 document.getElementById("monster-card").classList.toggle("attack-animation");
         } else {
