@@ -38,6 +38,7 @@ body {
     transform-style: preserve-3d;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     perspective: 1000px;
+    left: 10%;
   }
 
 .dim {
@@ -46,7 +47,6 @@ body {
 
 .monster-card {
     top: -50vh;
-    left: 5vh;
     z-index: 80;
 }
 
@@ -90,7 +90,6 @@ body {
 
 .player-card {
     top: 50vh;
-    left: 5vh;
     z-index: 80;
 }
 
