@@ -87,46 +87,19 @@ async function playerAttack() {
     }
     // Display the results
     displayResult(diceRoll, hit, crit, damage);
-    isPlayerTurn = false;
     // await waitForButton("result-btn");
     await sleep(3000);
     // Close the result card and brighten the background
     document.getElementById("player-card").classList.toggle("player-card-flip");
     document.getElementById("monster-card").classList.toggle("dim");
+    // If the attack hits, play the attack animation
     if (hit) {
-        await sleep(1000);
-        document.getElementById("player-card").classList.toggle("attack-animation");
-        await sleep(150);
-        document.getElementById("monster-card").classList.toggle("damage-animation");
-        document.getElementById('monster-damage-taken').textContent = `-${damage}`;
-        document.getElementById("monster-damage-taken").classList.toggle("damage-taken");
-        await sleep(80);
-        document.getElementById("monster-card").classList.toggle("damage-animation");
-        await sleep(100);
-        document.getElementById("player-card").classList.toggle("attack-animation");
-        await sleep(800);
-        document.getElementById('monster-damage-taken').textContent = ``;
-        document.getElementById("monster-damage-taken").classList.toggle("damage-taken");
+        await hitAnimation(isPlayerTurn, damage, crit)
     }
     await sleep(700);
+    isPlayerTurn = false;
     resetResults()
     gameLoop();
-}
-
-async function hitAnimation(attacker, target, crit) {
-    await sleep(1000);
-    document.getElementById("${attacker}-card").classList.toggle("attack-animation");
-    await sleep(150);
-    document.getElementById("${target}-card").classList.toggle("damage-animation");
-    document.getElementById('${target}-damage-taken').textContent = `-${damage}`;
-    document.getElementById("${target}-damage-taken").classList.toggle("damage-taken");
-    await sleep(80);
-    document.getElementById("${target}-card").classList.toggle("damage-animation");
-    await sleep(100);
-    document.getElementById("${attacker}-card").classList.toggle("attack-animation");
-    await sleep(800);
-    document.getElementById('${target}-damage-taken').textContent = ``;
-    document.getElementById("${target}-damage-taken").classList.toggle("damage-taken");
 }
 
 // Monsters turn function
@@ -144,6 +117,7 @@ async function monsterTurn() {
         document.getElementById("monster-card").classList.toggle("on-top");
         document.getElementById("attack").classList.toggle("dim");
         let crit = false;
+        let damage = 0;
         let diceRoll = d20()
         if (diceRoll === 20) {
             console.log("CRITICAL HIT!") // REMOVE THIS
@@ -152,20 +126,13 @@ async function monsterTurn() {
         let attackRoll = diceRoll + player.toHit;
         console.log(`Dice roll: ${diceRoll}`); // REMOVE THIS
         if (attackRoll > player.armorClass) {
-            let damage = rollForDamage(currentMonster, crit);
+            damage = rollForDamage(currentMonster, crit);
             console.log(`HIT! ${currentMonster.name} dealt ${damage} in damage`) // REMOVE THIS
             player.hitPoints -= damage;
-                await sleep(1000);
-                document.getElementById("monster-card").classList.toggle("attack-animation");
-                await sleep(150);
-                document.getElementById("player-card").classList.toggle("damage-animation");
-                await sleep(80);
-                document.getElementById("player-card").classList.toggle("damage-animation");
-                await sleep(100);
-                document.getElementById("monster-card").classList.toggle("attack-animation");
         } else {
             console.log("MISS!") // REMOVE THIS
         }
+        await hitAnimation(isPlayerTurn, damage, crit)
         await sleep(700);
         document.getElementById("monster-card").classList.toggle("on-top");
         document.getElementById("attack").classList.toggle("dim");
@@ -301,6 +268,47 @@ function waitForButton(buttonId) {
  */
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+/**
+ * Function to play the attack animation
+ * @param {*} isPlayerTurn 
+ * @param {*} damage 
+ * @param {*} crit 
+ */
+async function hitAnimation(isPlayerTurn, damage, crit)  {
+    if (isPlayerTurn) {
+        attacker = "player"
+        target = "monster"
+    } else {
+        attacker = "monster"
+        target = "player"
+    }
+    await sleep(1000);
+    document.getElementById(`${attacker}-card`).classList.toggle(`${attacker}-attack-animation`);
+    await sleep(150);
+    if (damage === 0) {
+        damage = "MISS!";
+        document.getElementById(`${target}-damage-taken`).textContent = `-${damage}`;
+        document.getElementById(`${target}-damage-taken`).classList.toggle("damage-taken");
+        await sleep(80);
+        await sleep(100);
+        document.getElementById(`${attacker}-card`).classList.toggle(`${attacker}-attack-animation`);
+        await sleep(800);
+        document.getElementById(`${target}-damage-taken`).textContent = ``;
+        document.getElementById(`${target}-damage-taken`).classList.toggle("damage-taken");
+    } else {
+        document.getElementById(`${target}-card`).classList.toggle("damage-animation");
+        document.getElementById(`${target}-damage-taken`).textContent = `-${damage}`;
+        document.getElementById(`${target}-damage-taken`).classList.toggle("damage-taken");
+        await sleep(80);
+        document.getElementById(`${target}-card`).classList.toggle("damage-animation");
+        await sleep(100);
+        document.getElementById(`${attacker}-card`).classList.toggle(`${attacker}-attack-animation`);
+        await sleep(800);
+        document.getElementById(`${target}-damage-taken`).textContent = ``;
+        document.getElementById(`${target}-damage-taken`).classList.toggle("damage-taken");
+    }
 }
 
 /**

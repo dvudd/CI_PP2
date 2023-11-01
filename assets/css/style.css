@@ -156,10 +156,15 @@ body {
     z-index: 90;
 }
 
-.attack-animation {
-    /*top: 20vh; */
+.player-attack-animation {
     z-index: 90;
     transform: translate(0%, -50%);
+    transition: transform 180ms;
+}
+
+.monster-attack-animation {
+    z-index: 100;
+    transform: translate(0%, 50%);
     transition: transform 180ms;
 }
 
