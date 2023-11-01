@@ -12,27 +12,30 @@
     <title>Dungeons & Dices</title>
 </head>
 <body>
-    <section id="monster-card" class="monster-card game-area">
-        <div class="monster-card-front">
-            <div class="monster-stats">
-                <h2 id="monster-name"></h2>
-                <span class="hp">
-                    <i class="fa-solid fa-heart"></i>
-                    <span id="monster-hp">0</span>
-                </span>
-                <span id="monster-damage-taken"></span>
-                <span class="ac">
-                    <i class="fa-solid fa-shield"></i>
-                    <span id="monster-ac">0</span>
-                </span>
+    <div id="top" class="game-area">
+        <section id="monster-card" class="monster-card">
+            <div class="monster-card-front">
+                <div class="monster-stats">
+                    <h2 id="monster-name"></h2>
+                    <span class="hp">
+                        <i class="fa-solid fa-heart"></i>
+                        <span id="monster-hp">0</span>
+                    </span>
+                    <span id="monster-damage-taken"></span>
+                    <span class="ac">
+                        <i class="fa-solid fa-shield"></i>
+                        <span id="monster-ac">0</span>
+                    </span>
+                </div>
             </div>
-        </div>
-        <div class="monster-card-back">
-            <h2>MONSTER BACK</h2>
-        </div>
-    </section>
+            <div class="monster-card-back">
+                <h2>MONSTER BACK</h2>
+            </div>
+        </section>
+    </div>
     <!--  -->
-    <section id="player-card" class="player-card game-area">
+    <div id="bottom" class="game-area">
+        <section id="player-card" class="player-card">
             <div class="player-card-front">
                 <span class="hp">
                     <i class="fa-solid fa-heart"></i>
@@ -54,8 +57,9 @@
                 <div class="btn-area">
                     <button id="result-btn" class="btn">END TURN</button>
                 </div>
-        </div>
-    </section>
+            </div>
+        </section>
+    </div>
     <script src="https://kit.fontawesome.com/87926df488.js" crossorigin="anonymous"></script>
     <script src="assets/js/script.js"></script>
 </body>
