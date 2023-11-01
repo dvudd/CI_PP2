@@ -36,7 +36,6 @@ body {
     position: absolute; 
     width: 100%;
     height: 50%;
-    /*border-radius: 6px;*/
     text-align: center;
     transition:
         top 1s,
@@ -46,8 +45,9 @@ body {
         transform 1s;
     transform-style: preserve-3d;
     perspective: 1000px;
-    display: grid;
+    display: flex;
     justify-content: center;
+    z-index: 1;
   }
 
 .dim {
@@ -55,8 +55,6 @@ body {
 }
 
 .monster-card {
-    top: -50vh;
-    z-index: 80;
     width: 21rem;
     height: 24rem;
     transform: translate(0%, -100%);
@@ -69,7 +67,6 @@ body {
 }
 
 .monster-alive {
-    top: -2vh;
     transform: translate(0%, -15%);
 }
 
@@ -110,10 +107,8 @@ body {
 }
 
 .player-card {
-    top: 50vh;
     width: 21rem;
     height: 24rem;
-    z-index: 80;
     transform-style: preserve-3d;
     perspective: 1000px;
     transform: translate(0%, 1%);
@@ -145,27 +140,24 @@ body {
     background-color: pink;
     color: black;
     transform: rotateY(-180deg);
-    position: absolute;
 }
 
 .player-card-flip {
     transform: translate(0%, -50%) rotateY(180deg);
 }
 
-.on-top {
-    z-index: 90;
-}
-
 .player-attack-animation {
-    z-index: 90;
     transform: translate(0%, -50%);
     transition: transform 180ms;
 }
 
 .monster-attack-animation {
-    z-index: 100;
-    transform: translate(0%, 50%);
+    transform: translate(0%, 30%);
     transition: transform 180ms;
+}
+
+.on-top {
+    z-index: 3;
 }
 
 .damage-taken {
@@ -174,6 +166,7 @@ body {
     animation: fadeOut 2s;
     animation: damage-taken 1s;
     visibility: visible;
+    z-index: 4;
 }
 @keyframes damage-taken {
     0% { transform: translate(0, 0); }

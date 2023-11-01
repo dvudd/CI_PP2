@@ -114,7 +114,7 @@ async function monsterTurn() {
     } else {
         // It is now the monsters turn, it will attack you!
         console.log("MONSTERS TURN") // REMOVE THIS
-        document.getElementById("monster-card").classList.toggle("on-top");
+        document.getElementById('top').classList.toggle('on-top');
         document.getElementById("attack").classList.toggle("dim");
         let crit = false;
         let damage = 0;
@@ -134,7 +134,7 @@ async function monsterTurn() {
         }
         await hitAnimation(isPlayerTurn, damage, crit)
         await sleep(700);
-        document.getElementById("monster-card").classList.toggle("on-top");
+        document.getElementById('top').classList.toggle('on-top');
         document.getElementById("attack").classList.toggle("dim");
     };
     document.getElementById('player-hp').textContent = player.hitPoints;
