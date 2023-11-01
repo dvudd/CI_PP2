@@ -87,7 +87,6 @@ async function playerAttack() {
     }
     // Display the results
     displayResult(diceRoll, hit, crit, damage);
-    document.getElementById('monster-hp').textContent = currentMonster.hitPoints;
     isPlayerTurn = false;
     // await waitForButton("result-btn");
     await sleep(3000);
@@ -189,8 +188,6 @@ function gameLoop() {
         console.log(`=======================================`) // REMOVE THIS
         console.log(`You are facing a ${currentMonster.name}`) // REMOVE THIS
       }
-    document.getElementById('monster-hp').textContent = currentMonster.hitPoints;
-    document.getElementById('monster-ac').textContent = currentMonster.armorClass;
     document.getElementById('player-hp').textContent = player.hitPoints;
     document.getElementById('player-ac').textContent = player.armorClass;
     if (isPlayerTurn) {
