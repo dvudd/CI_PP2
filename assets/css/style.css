@@ -50,7 +50,7 @@ body {
   }
 
 .dim {
-    opacity: 0.5;
+    filter: brightness(75%);
 }
 
 .monster-card {

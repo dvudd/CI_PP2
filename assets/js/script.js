@@ -143,6 +143,7 @@ async function monsterTurn() {
         // It is now the monsters turn, it will attack you!
         console.log("MONSTERS TURN") // REMOVE THIS
         document.getElementById("monster-card").classList.toggle("on-top");
+        document.getElementById("attack").classList.toggle("dim");
         let crit = false;
         let diceRoll = d20()
         if (diceRoll === 20) {
@@ -168,6 +169,7 @@ async function monsterTurn() {
         }
         await sleep(700);
         document.getElementById("monster-card").classList.toggle("on-top");
+        document.getElementById("attack").classList.toggle("dim");
     };
     document.getElementById('player-hp').textContent = player.hitPoints;
     isPlayerTurn = true;
