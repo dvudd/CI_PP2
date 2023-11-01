@@ -191,11 +191,12 @@ body {
     display: flex;
     position: absolute;
     width: 100%;
-    justify-content: center;
     bottom: 30%;
 }
 .btn {
     font-size: 48px;
+    width: 4rem;
+    border-radius: 50%;
 }
 
 #result-btn {
