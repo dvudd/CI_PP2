@@ -1,3 +1,4 @@
+/*jshint esversion: 8 */
 // Wait for the DOM to finish loading before running the game
 document.addEventListener("DOMContentLoaded", function() {
     gameLoop();
@@ -60,7 +61,7 @@ async function playerTurn() {
 
 // Player attack function
 async function playerAttack() {
-    console.log("PLAYERS TURN") // REMOVE THIS
+    console.log("PLAYERS TURN"); // REMOVE THIS
     // Open the result card and dim the background
     document.getElementById("player-card").classList.toggle("player-card-flip");
     document.getElementById("monster-card").classList.toggle("dim");
@@ -69,10 +70,10 @@ async function playerAttack() {
     let crit = false;
     let damage = 0;
     // Roll for attack
-    let diceRoll = d20()
+    let diceRoll = d20();
     // Check if it's a Critical Roll
     if (diceRoll === 20) {
-        console.log("CRITICAL HIT!") // REMOVE THIS
+        console.log("CRITICAL HIT!"); // REMOVE THIS
         crit = true;
     }
     // Check if it hits
@@ -82,10 +83,10 @@ async function playerAttack() {
         // Calculate Damage
         hit = true;
         damage = rollForDamage(player, crit);
-        console.log(`HIT! You dealt ${damage} in damage`) // REMOVE THIS
+        console.log(`HIT! You dealt ${damage} in damage`); // REMOVE THIS
         currentMonster.hitPoints -= damage;
     } else {
-        console.log("MISS!") // REMOVE THIS
+        console.log("MISS!"); // REMOVE THIS
     }
     // Display the results
     displayResult(diceRoll, hit, crit, damage);
@@ -96,11 +97,11 @@ async function playerAttack() {
     document.getElementById("monster-card").classList.toggle("dim");
     // If the attack hits, play the attack animation
     if (hit) {
-        await hitAnimation(isPlayerTurn, damage, crit)
+        await hitAnimation(isPlayerTurn, damage, crit);
     }
     await sleep(700);
     isPlayerTurn = false;
-    resetResults()
+    resetResults();
     gameLoop();
 }
 
@@ -111,32 +112,32 @@ async function monsterTurn() {
         console.log(`${currentMonster.name} was defeated!`); // REMOVE THIS
         currentMonster = null;
         document.getElementById("monster-card").classList.toggle("monster-alive");
-        await sleep(2000)
+        await sleep(2000);
         isPlayerTurn = true;
     } else {
         // It is now the monsters turn, it will attack you!
-        console.log("MONSTERS TURN") // REMOVE THIS
+        console.log("MONSTERS TURN"); // REMOVE THIS
         document.getElementById('top').classList.toggle('on-top');
         let crit = false;
         let damage = 0;
-        let diceRoll = d20()
+        let diceRoll = d20();
         if (diceRoll === 20) {
-            console.log("CRITICAL HIT!") // REMOVE THIS
+            console.log("CRITICAL HIT!"); // REMOVE THIS
             crit = true;
         }
         let attackRoll = diceRoll + player.toHit;
         console.log(`Dice roll: ${diceRoll}`); // REMOVE THIS
         if (attackRoll > player.armorClass) {
             damage = rollForDamage(currentMonster, crit);
-            console.log(`HIT! ${currentMonster.name} dealt ${damage} in damage`) // REMOVE THIS
+            console.log(`HIT! ${currentMonster.name} dealt ${damage} in damage`); // REMOVE THIS
             player.hitPoints -= damage;
         } else {
-            console.log("MISS!") // REMOVE THIS
+            console.log("MISS!"); // REMOVE THIS
         }
-        await hitAnimation(isPlayerTurn, damage, crit)
+        await hitAnimation(isPlayerTurn, damage, crit);
         await sleep(700);
         document.getElementById('top').classList.toggle('on-top');
-    };
+    }
     document.getElementById('player-hp').textContent = player.hitPoints;
     isPlayerTurn = true;
     gameLoop();
@@ -152,8 +153,8 @@ function gameLoop() {
         currentMonster = copyMonster(selectRandomMonster());
         document.getElementById('monster-name').textContent = currentMonster.name;
         document.getElementById("monster-card").classList.toggle("monster-alive");
-        console.log(`=======================================`) // REMOVE THIS
-        console.log(`You are facing a ${currentMonster.name}`) // REMOVE THIS
+        console.log(`=======================================`); // REMOVE THIS
+        console.log(`You are facing a ${currentMonster.name}`); // REMOVE THIS
       }
     document.getElementById('player-hp').textContent = player.hitPoints;
     document.getElementById('player-ac').textContent = player.armorClass;
@@ -163,7 +164,7 @@ function gameLoop() {
     } else {
         // It's the monster's turn
         monsterTurn(); // Trigger the monster's turn
-    };
+    }
 
     // Here the game shoud update the UI
     // and check for game over conditions
@@ -208,7 +209,7 @@ function rollForDamage(creature, crit) {
 function d4() {
     let dice = Math.floor(Math.random() * 4) + 1;
     return dice;
-};
+}
 
 /**
  * Simulates a roll of a d6 dice,
@@ -217,7 +218,7 @@ function d4() {
 function d6() {
     let dice = Math.floor(Math.random() * 6) + 1;
     return dice;
-};
+}
 
 /**
  * Simulates a roll of a d10 dice,
@@ -226,7 +227,7 @@ function d6() {
 function d10() {
     let dice = Math.floor(Math.random() * 10) + 1;
     return dice;
-};
+}
 
 /**
  * Simulates a roll of a d12 dice,
@@ -235,7 +236,7 @@ function d10() {
 function d12() {
     let dice = Math.floor(Math.random() * 12) + 1;
     return dice;
-};
+}
 
 /**
  * Simulates a roll of a d20 dice,
@@ -244,7 +245,7 @@ function d12() {
 function d20() {
     let dice = Math.floor(Math.random() * 20) + 1;
     return dice;
-};
+}
 
 /**
  * Holds execution of code until the provided button is pressed.
@@ -277,12 +278,14 @@ function sleep(ms) {
  * @param {*} crit 
  */
 async function hitAnimation(isPlayerTurn, damage, crit)  {
-    if (isPlayerTurn) {
-        attacker = "player"
-        target = "monster"
+		let attacker = null; // Used to suppress JSHint warning for unused variable
+    let target = null; // Used to suppress JSHint warning for unused variable
+     if (isPlayerTurn) {
+        attacker = "player";
+        target = "monster";
     } else {
-        attacker = "monster"
-        target = "player"
+        attacker = "monster";
+        target = "player";
     }
     await sleep(1000);
     document.getElementById(`${attacker}-card`).classList.toggle(`${attacker}-attack-animation`);
@@ -333,7 +336,7 @@ async function displayResult(dice, hit, crit, damage) {
     } else {
         document.getElementById('result-hit').textContent = `MISS!`;
     }
-};
+}
 
 /**
  * Clears the text on the result card
