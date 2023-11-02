@@ -50,8 +50,10 @@ async function playerTurn() {
     function onPlayerActionClick() {
         playerActionBtn.removeEventListener('click', onPlayerActionClick);
         playerAttack();
+        document.getElementById("attack").classList.toggle("dim");
     }
     // Listener for attack button
+    document.getElementById("attack").classList.toggle("dim");
     let playerActionBtn = document.getElementById('attack');
     playerActionBtn.addEventListener('click', onPlayerActionClick);
 }
@@ -115,7 +117,6 @@ async function monsterTurn() {
         // It is now the monsters turn, it will attack you!
         console.log("MONSTERS TURN") // REMOVE THIS
         document.getElementById('top').classList.toggle('on-top');
-        document.getElementById("attack").classList.toggle("dim");
         let crit = false;
         let damage = 0;
         let diceRoll = d20()
@@ -135,7 +136,6 @@ async function monsterTurn() {
         await hitAnimation(isPlayerTurn, damage, crit)
         await sleep(700);
         document.getElementById('top').classList.toggle('on-top');
-        document.getElementById("attack").classList.toggle("dim");
     };
     document.getElementById('player-hp').textContent = player.hitPoints;
     isPlayerTurn = true;
