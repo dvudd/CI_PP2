@@ -292,7 +292,7 @@ async function hitAnimation(isPlayerTurn, damage, crit)  {
     await sleep(150);
     if (damage === 0) {
         damage = "MISS!";
-        document.getElementById(`${target}-damage-taken`).textContent = `-${damage}`;
+        document.getElementById(`${target}-damage-taken`).textContent = `${damage}`;
         document.getElementById(`${target}-damage-taken`).classList.toggle("damage-taken");
         await sleep(80);
         await sleep(100);
