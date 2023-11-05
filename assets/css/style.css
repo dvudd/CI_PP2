@@ -241,6 +241,34 @@ body {
     }
 }
 
+/* Media query: tablets and larger (768px and up) */
+@media screen and (min-width: 768px) { 
+    .monster-alive {
+        transform: translate(0%, 50%);
+    }
+
+    /* Monster card attack animation */
+    .monster-attack-animation {
+        transform: translate(0%, 90%);
+        transition: transform 180ms;
+    }
+    
+    .player-card {
+        transform: translate(0%, 2%);
+    }
+
+    /* Player card attack animation */
+    .player-attack-animation {
+        transform: translate(0%, -50%);
+        transition: transform 180ms;
+    }
+
+    .btn-area {
+        bottom: 50%;
+        width: 70%;
+    }
+}
+
 /* Card flip animation */
 .player-card-flip {
     transform: translate(0%, -50%) rotateY(180deg);
