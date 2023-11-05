@@ -87,7 +87,7 @@ body {
 .monster-stats {
     position: absolute;
     left: 0;
-    top: 10rem;
+    bottom: 10rem;
     width: 100%;
 }
 
@@ -147,8 +147,16 @@ body {
     transform: rotateY(-180deg);
 }
 
-.player-card-flip {
-    transform: translate(0%, -50%) rotateY(180deg);
+/* Monster card attack animation */
+.monster-attack-animation {
+    transform: translate(0%, 30%);
+    transition: transform 180ms;
+}
+
+/* Player card attack animation */
+.player-attack-animation {
+    transform: translate(0%, -50%);
+    transition: transform 180ms;
 }
 
 /* Button area */
@@ -175,18 +183,6 @@ body {
     right: 0.5rem;
 }
 
-/* Player card attack animation */
-.player-attack-animation {
-    transform: translate(0%, -50%);
-    transition: transform 180ms;
-}
-
-/* Monster card attack animation */
-.monster-attack-animation {
-    transform: translate(0%, 30%);
-    transition: transform 180ms;
-}
-
 /* Used to place the Monster card above the player card during attack animation */
 .on-top {
     z-index: 3;
@@ -210,7 +206,6 @@ body {
 .damage-animation {
         animation: damage-animation 0.10s infinite;
 }
-
 @keyframes damage-animation {
     0% { transform: translate(0, 0) rotate(0deg); }
     25% { transform: translate(5px, 5px) rotate(5deg); }
@@ -218,3 +213,35 @@ body {
     75% { transform: translate(-5px, 5px) rotate(-5deg); }
     100% { transform: translate(0, 0) rotate(0deg); }
   }
+
+  /* Media query: large or landscape phones (576px and up) */
+@media screen and (min-width: 576px) { 
+    .monster-alive {
+        transform: translate(0%, -51%);
+    }
+
+    /* Monster card attack animation */
+    .monster-attack-animation {
+        transform: translate(0%, -15%);
+        transition: transform 180ms;
+    }
+    
+    .player-card {
+        transform: translate(0%, 2%);
+    }
+
+    /* Player card attack animation */
+    .player-attack-animation {
+        transform: translate(0%, -25%);
+        transition: transform 180ms;
+    }
+
+    .btn-area {
+        bottom: 50%;
+    }
+}
+
+/* Card flip animation */
+.player-card-flip {
+    transform: translate(0%, -50%) rotateY(180deg);
+}
