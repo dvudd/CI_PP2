@@ -278,9 +278,9 @@ function sleep(ms) {
  * @param {*} crit 
  */
 async function hitAnimation(isPlayerTurn, damage, crit)  {
-		let attacker = null; // Used to suppress JSHint warning for unused variable
+	let attacker = null; // Used to suppress JSHint warning for unused variable
     let target = null; // Used to suppress JSHint warning for unused variable
-     if (isPlayerTurn) {
+    if (isPlayerTurn) {
         attacker = "player";
         target = "monster";
     } else {
