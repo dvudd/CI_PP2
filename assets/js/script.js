@@ -82,7 +82,12 @@ async function playerTurn() {
     playerAbilityBtn.addEventListener('click', onPlayerAbilityClick);
 }
 
-// Player attack function
+
+/**
+ * Player attack function
+ * Rolls a d20 and compares the result to the targets Armor Class.
+ * If hit, then roll damage die and attack.
+ */
 async function playerAttack() {
     // Open the result card and dim the background
     document.getElementById("player-card").classList.toggle("player-card-flip");
@@ -138,7 +143,7 @@ async function playerAbility() {
     await sleep(700);
     document.getElementById('result-roll').textContent = `You drink a potion!`;
     await sleep(1000);
-    // Roll 4d4 + 2
+    // Roll 4d4 + 4
     let healing = d4() + d4() + d4() + d4() + 4;
     player.currentHitPoints += healing;
     // Prevent players hitpoints to be more than its max value
@@ -163,7 +168,11 @@ async function playerAbility() {
     gameLoop();
 }
 
-// Monsters turn function
+/**
+ * Monster attack function
+ * Rolls a d20 and compares the result to the targets Armor Class.
+ * If hit, then roll damage die and attack.
+ */
 async function monsterTurn() {
     // First lets check if the monster is still alive.
     if (currentMonster.hitPoints <= 0) {
