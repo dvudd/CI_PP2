@@ -55,9 +55,10 @@ body {
 }
 /* Style the Monster card */
 .monster-card {
+    position: absolute;
     width: 21rem;
     height: 24rem;
-    transform: translate(0%, -100%);
+    bottom: 1rem;
     transition:
         top 1s,
         left 1s,
@@ -67,7 +68,7 @@ body {
 }
 
 .monster-alive {
-    transform: translate(0%, -15%);
+    transform: translate(0%, -110%);
 }
 
 .monster-card-front, .monster-card-back {
@@ -107,11 +108,12 @@ body {
 
 /* Style the Player card */
 .player-card {
+    position: absolute;
+    top: 1rem;
     width: 21rem;
     height: 24rem;
     transform-style: preserve-3d;
     perspective: 1000px;
-    transform: translate(0%, 1%);
     transition:
         top 1s,
         left 1s,
@@ -216,26 +218,6 @@ body {
 
   /* Media query: large or landscape phones (576px and up) */
 @media screen and (min-width: 576px) { 
-    .monster-alive {
-        transform: translate(0%, -51%);
-    }
-
-    /* Monster card attack animation */
-    .monster-attack-animation {
-        transform: translate(0%, -15%);
-        transition: transform 180ms;
-    }
-    
-    .player-card {
-        transform: translate(0%, 2%);
-    }
-
-    /* Player card attack animation */
-    .player-attack-animation {
-        transform: translate(0%, -25%);
-        transition: transform 180ms;
-    }
-
     .btn-area {
         bottom: 50%;
     }
@@ -243,26 +225,6 @@ body {
 
 /* Media query: tablets and larger (768px and up) */
 @media screen and (min-width: 768px) { 
-    .monster-alive {
-        transform: translate(0%, 50%);
-    }
-
-    /* Monster card attack animation */
-    .monster-attack-animation {
-        transform: translate(0%, 90%);
-        transition: transform 180ms;
-    }
-    
-    .player-card {
-        transform: translate(0%, 2%);
-    }
-
-    /* Player card attack animation */
-    .player-attack-animation {
-        transform: translate(0%, -50%);
-        transition: transform 180ms;
-    }
-
     .btn-area {
         bottom: 50%;
         width: 70%;
