@@ -60,15 +60,13 @@ body {
     height: 24rem;
     bottom: 1rem;
     transition:
-        top 1s,
-        left 1s,
-        width 750ms,
-        height 750ms,
-        transform 1s;
+        transform 1s,
+        opacity 500ms;
 }
 
 .monster-alive {
-    transform: translate(0%, -110%);
+    transform: translate(0%, -110%) rotateX(90deg);
+    opacity: 0;
 }
 
 .monster-card-front, .monster-card-back {
@@ -103,7 +101,7 @@ body {
 .monster-card-back {
     background-color: green;
     color: black;
-    transform: rotateY(180deg);
+    transform: rotateX(180deg);
 }
 
 /* Style the Player card */
