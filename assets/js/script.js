@@ -56,32 +56,22 @@ async function playerTurn() {
         playerActionBtn.removeEventListener('click', onPlayerActionClick);
         playerAbilityBtn.removeEventListener('click', onPlayerAbilityClick);
         playerAttack();
-        document.getElementById("attack-btn").classList.toggle("dim");
-        document.getElementById("attack-btn").classList.toggle("move-btn-left")
-        document.getElementById("ability-btn").classList.toggle("dim");
-        document.getElementById("ability-btn").classList.toggle("move-btn-right")
+        dimButtons()
     }
     // Prevent the ability button to be pressed several times
     function onPlayerAbilityClick() {
         playerActionBtn.removeEventListener('click', onPlayerActionClick);
         playerAbilityBtn.removeEventListener('click', onPlayerAbilityClick);
         playerAbility();
-        document.getElementById("attack-btn").classList.toggle("dim");
-        document.getElementById("attack-btn").classList.toggle("move-btn-left")
-        document.getElementById("ability-btn").classList.toggle("dim");
-        document.getElementById("ability-btn").classList.toggle("move-btn-right")
+        dimButtons()
     }
     // Listener for attack and ability buttons
-    document.getElementById("attack-btn").classList.toggle("dim");
-    document.getElementById("attack-btn").classList.toggle("move-btn-left")
-    document.getElementById("ability-btn").classList.toggle("dim");
-    document.getElementById("ability-btn").classList.toggle("move-btn-right")
+    dimButtons()
     let playerActionBtn = document.getElementById('attack-btn');
     playerActionBtn.addEventListener('click', onPlayerActionClick);
     let playerAbilityBtn = document.getElementById('ability-btn');
     playerAbilityBtn.addEventListener('click', onPlayerAbilityClick);
 }
-
 
 /**
  * Player attack function
@@ -337,6 +327,19 @@ function waitForButton(buttonId) {
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
+
+/**
+ * Function that dims the attack and ability buttons.
+ * It also moves the buttons to the side of the player card
+ * if on smaller screens (controlled with css)
+ */
+function dimButtons() {
+    document.getElementById("attack-btn").classList.toggle("dim");
+    document.getElementById("attack-btn").classList.toggle("move-btn-left")
+    document.getElementById("ability-btn").classList.toggle("dim");
+    document.getElementById("ability-btn").classList.toggle("move-btn-right")
+}
+
 
 /**
  * Function to play the attack animation
