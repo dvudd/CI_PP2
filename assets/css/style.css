@@ -7,12 +7,14 @@
     --bgcolor: rgb(34, 34, 34);
 }
 
+/* Asterisk wildcard selector to override default styles added by the browser */
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
+/* General styles */
 body {
     height: 100%;
     display: flex;
@@ -53,7 +55,8 @@ body {
 .dim {
     filter: brightness(75%);
 }
-/* Style the Monster card */
+
+/* Monster card styles */
 .monster-card {
     position: absolute;
     width: 21rem;
@@ -90,21 +93,18 @@ body {
     width: 100%;
 }
 
-.hp {
-    float: left;
-}
-
-.ac {
-    float: right;
-}
-
 .monster-card-back {
     background-color: green;
     color: black;
     transform: rotateX(180deg);
 }
 
-/* Style the Player card */
+/* Used to place the Monster card above the player card during attack animation */
+.on-top {
+    z-index: 3;
+}
+
+/* Player card styles */
 .player-card {
     position: absolute;
     top: 1rem;
@@ -147,16 +147,12 @@ body {
     transform: rotateY(-180deg);
 }
 
-/* Monster card attack animation */
-.monster-attack-animation {
-    transform: translate(0%, 30%);
-    transition: transform 180ms;
+.hp {
+    float: left;
 }
 
-/* Player card attack animation */
-.player-attack-animation {
-    transform: translate(0%, -50%);
-    transition: transform 180ms;
+.ac {
+    float: right;
 }
 
 /* Button area */
@@ -173,19 +169,32 @@ body {
     border-radius: 50%;
 }
 
-#attack {
+#attack-btn {
     position: absolute;
     left: 0.5rem;
 }
 
-#heal {
+#ability-btn {
     position: absolute;
     right: 0.5rem;
 }
 
-/* Used to place the Monster card above the player card during attack animation */
-.on-top {
-    z-index: 3;
+/* Animations */
+/* Card flip animation */
+.player-card-flip {
+    transform: translate(0%, -50%) rotateY(180deg);
+}
+
+/* Monster card attack animation */
+.monster-attack-animation {
+    transform: translate(0%, 30%);
+    transition: transform 180ms;
+}
+
+/* Player card attack animation */
+.player-attack-animation {
+    transform: translate(0%, -50%);
+    transition: transform 180ms;
 }
 
 /* Animation for the text when damage is taken */
@@ -227,9 +236,4 @@ body {
         bottom: 50%;
         width: 70%;
     }
-}
-
-/* Card flip animation */
-.player-card-flip {
-    transform: translate(0%, -50%) rotateY(180deg);
 }
