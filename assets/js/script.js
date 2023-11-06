@@ -45,27 +45,45 @@ let isPlayerTurn = true;
 let currentMonster = null;
 let buttonClicked = false;
 
-// Player turn function
+/**
+ * Player turn function.
+ * Listen for the player to do an action
+ */
 async function playerTurn() {
-    // Prevent the button to be pressed several times
+    // Prevent the buttons to be pressed several times
+    console.log("PLAYERS TURN"); // REMOVE THIS
     function onPlayerActionClick() {
         playerActionBtn.removeEventListener('click', onPlayerActionClick);
+        playerAbilityBtn.removeEventListener('click', onPlayerAbilityClick);
         playerAttack();
         document.getElementById("attack-btn").classList.toggle("dim");
         document.getElementById("attack-btn").classList.toggle("move-btn-left")
+        document.getElementById("ability-btn").classList.toggle("dim");
         document.getElementById("ability-btn").classList.toggle("move-btn-right")
     }
-    // Listener for attack button
+    // Prevent the ability button to be pressed several times
+    function onPlayerAbilityClick() {
+        playerActionBtn.removeEventListener('click', onPlayerActionClick);
+        playerAbilityBtn.removeEventListener('click', onPlayerAbilityClick);
+        playerAbility();
+        document.getElementById("attack-btn").classList.toggle("dim");
+        document.getElementById("attack-btn").classList.toggle("move-btn-left")
+        document.getElementById("ability-btn").classList.toggle("dim");
+        document.getElementById("ability-btn").classList.toggle("move-btn-right")
+    }
+    // Listener for attack and ability buttons
     document.getElementById("attack-btn").classList.toggle("dim");
     document.getElementById("attack-btn").classList.toggle("move-btn-left")
+    document.getElementById("ability-btn").classList.toggle("dim");
     document.getElementById("ability-btn").classList.toggle("move-btn-right")
     let playerActionBtn = document.getElementById('attack-btn');
     playerActionBtn.addEventListener('click', onPlayerActionClick);
+    let playerAbilityBtn = document.getElementById('ability-btn');
+    playerAbilityBtn.addEventListener('click', onPlayerAbilityClick);
 }
 
 // Player attack function
 async function playerAttack() {
-    console.log("PLAYERS TURN"); // REMOVE THIS
     // Open the result card and dim the background
     document.getElementById("player-card").classList.toggle("player-card-flip");
     document.getElementById("monster-card").classList.toggle("dim");
@@ -109,6 +127,42 @@ async function playerAttack() {
     gameLoop();
 }
 
+/**
+ * Player ability function.
+ * This will roll 4d4 +4 and heal the player for the amount.
+ */
+async function playerAbility() {
+    console.log("Player pressed the ability button"); // REMOVE THIS
+    document.getElementById("player-card").classList.toggle("player-card-flip");
+    document.getElementById("monster-card").classList.toggle("dim");
+    await sleep(700);
+    document.getElementById('result-roll').textContent = `You drink a potion!`;
+    await sleep(1000);
+    // Roll 4d4 + 2
+    let healing = d4() + d4() + d4() + d4() + 4;
+    player.currentHitPoints += healing;
+    // Prevent players hitpoints to be more than its max value
+    if (player.currentHitPoints > player.hitPoints) {
+        player.currentHitPoints = player.hitPoints;
+    }
+    // Display animation for healing
+    document.getElementById('result-damage').textContent = `You recover ${healing} HP`;
+    await sleep(2000);
+    document.getElementById("player-card").classList.toggle("player-card-flip");
+    document.getElementById("monster-card").classList.toggle("dim");
+    await sleep(700);
+    document.getElementById(`player-damage-taken`).textContent = `+${healing}`;
+    document.getElementById(`player-damage-taken`).classList.toggle("damage-taken");
+    await sleep(500);
+    document.getElementById('player-hp').textContent = player.currentHitPoints;
+    document.getElementById(`player-damage-taken`).textContent = ``;
+    document.getElementById(`player-damage-taken`).classList.toggle("damage-taken");
+    // Reset for the next turn
+    isPlayerTurn = false;
+    resetResults();
+    gameLoop();
+}
+
 // Monsters turn function
 async function monsterTurn() {
     // First lets check if the monster is still alive.
@@ -134,7 +188,7 @@ async function monsterTurn() {
         if (attackRoll > player.armorClass) {
             damage = rollForDamage(currentMonster, crit);
             console.log(`HIT! ${currentMonster.name} dealt ${damage} in damage`); // REMOVE THIS
-            player.hitPoints -= damage;
+            player.currentHitPoints -= damage;
         } else {
             console.log("MISS!"); // REMOVE THIS
         }
@@ -142,7 +196,7 @@ async function monsterTurn() {
         await sleep(700);
         document.getElementById('top').classList.toggle('on-top');
     }
-    document.getElementById('player-hp').textContent = player.hitPoints;
+    document.getElementById('player-hp').textContent = player.currentHitPoints;
     isPlayerTurn = true;
     gameLoop();
 }
@@ -160,7 +214,7 @@ function gameLoop() {
         console.log(`=======================================`); // REMOVE THIS
         console.log(`You are facing a ${currentMonster.name}`); // REMOVE THIS
       }
-    document.getElementById('player-hp').textContent = player.hitPoints;
+    document.getElementById('player-hp').textContent = player.currentHitPoints;
     document.getElementById('player-ac').textContent = player.armorClass;
     if (isPlayerTurn) {
         // It's the player's turn
