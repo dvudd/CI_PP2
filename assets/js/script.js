@@ -210,7 +210,7 @@ function gameLoop() {
         currentMonster = copyMonster(selectRandomMonster());
         document.getElementById('monster-name').textContent = currentMonster.name;
         document.getElementById("monster-card").classList.toggle("monster-alive");
-        console.log(`=======================================`); // REMOVE THIS
+        console.log(`========== NEW ENCOUNTER ==========`); // REMOVE THIS
         console.log(`You are facing a ${currentMonster.name}`); // REMOVE THIS
       }
     document.getElementById('player-hp').textContent = player.currentHitPoints;
