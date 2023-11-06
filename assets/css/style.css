@@ -224,13 +224,20 @@ body {
     100% { transform: translate(0, 0) rotate(0deg); }
   }
 
-/* Media query: smaller phones*/
+/* Media query: smaller phones */
 @media screen and (max-width: 576px) {
     .move-btn-left {
         transform: translate(-95%, 0);
     }
     .move-btn-right {
         transform: translate(95%, 0);
+    }
+}
+
+/* Media query: landscape phones (max height 400px) */
+@media screen and (max-height: 400px){
+    .btn-area {
+        margin-top: 5rem;
     }
 }
 
