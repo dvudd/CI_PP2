@@ -160,13 +160,14 @@ body {
     display: flex;
     position: absolute;
     width: 100%;
-    bottom: 30%;
+    margin-top: 15rem;
 }
 
 .btn {
     font-size: 48px;
     width: 4rem;
     border-radius: 50%;
+    transition: transform 1s;
 }
 
 #attack-btn {
@@ -223,17 +224,19 @@ body {
     100% { transform: translate(0, 0) rotate(0deg); }
   }
 
-  /* Media query: large or landscape phones (576px and up) */
-@media screen and (min-width: 576px) { 
-    .btn-area {
-        bottom: 50%;
+/* Media query: smaller phones*/
+@media screen and (max-width: 576px) {
+    .move-btn-left {
+        transform: translate(-95%, 0);
+    }
+    .move-btn-right {
+        transform: translate(95%, 0);
     }
 }
 
-/* Media query: tablets and larger (768px and up) */
-@media screen and (min-width: 768px) { 
+  /* Media query: large or landscape phones (576px and up) */
+@media screen and (min-width: 576px) { 
     .btn-area {
-        bottom: 50%;
-        width: 70%;
+        width: 32rem;
     }
 }

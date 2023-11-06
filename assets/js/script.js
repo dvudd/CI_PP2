@@ -52,9 +52,13 @@ async function playerTurn() {
         playerActionBtn.removeEventListener('click', onPlayerActionClick);
         playerAttack();
         document.getElementById("attack-btn").classList.toggle("dim");
+        document.getElementById("attack-btn").classList.toggle("move-btn-left")
+        document.getElementById("ability-btn").classList.toggle("move-btn-right")
     }
     // Listener for attack button
     document.getElementById("attack-btn").classList.toggle("dim");
+    document.getElementById("attack-btn").classList.toggle("move-btn-left")
+    document.getElementById("ability-btn").classList.toggle("move-btn-right")
     let playerActionBtn = document.getElementById('attack-btn');
     playerActionBtn.addEventListener('click', onPlayerActionClick);
 }
