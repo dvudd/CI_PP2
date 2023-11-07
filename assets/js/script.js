@@ -150,9 +150,6 @@ async function playerAttack() {
     await sleep(700);
     isPlayerTurn = false;
     resetResults();
-    return new Promise((resolve) => {
-        resolve();
-    });
 }
 
 /**
@@ -188,9 +185,6 @@ async function playerAbility() {
     // Reset for the next turn
     isPlayerTurn = false;
     resetResults();
-    return new Promise((resolve) => {
-        resolve();
-    });
 }
 
 /**
@@ -232,9 +226,6 @@ async function monsterTurn() {
     }
     document.getElementById('player-hp').textContent = player.currentHitPoints;
     isPlayerTurn = true;
-    return new Promise((resolve) => {
-        resolve();
-    });
 }
 
 /**
