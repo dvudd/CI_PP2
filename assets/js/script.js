@@ -260,7 +260,7 @@ function selectRandomMonster() {
  */
 function rollForDamage(creature, crit) {
     let damage = 0;
-    for (let i=0; i <= creature.numDices; i++) {
+    for (let i=0; i < creature.numDices; i++) {
         damage += creature.hitDice + creature.plusDmg;
     }
     if (crit) {
