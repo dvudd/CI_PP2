@@ -120,6 +120,13 @@ let attackRoll = diceRoll + currentMonster.toHit;
 ```
 
 </details>
+<details><summary>Bug: Damage is not calculated correctly</summary>
+
+This bug was caused when I tried to clean up the code.
+In commit `7330400` i changed the hitDice value in both the player and monster array from:
+`hitDice: d10` to `hitDice: d10()` wich made the `d10()` function to be run once at the start of the game. To fix this I reverted changes.
+
+</details>
 
 ### Known Bugs
 **LÄGG TILL KÄNDA BUGGAR HÄR**
