@@ -69,23 +69,23 @@ The EventListener for the attack button was in the `gameLoop()` function, but th
 To fix this I moved the EventListener from the `gameLoop()`:
 ```js
 if (isPlayerTurn) {
-     // It's the player's turn
-     // Wait for the player to take it's action
-     let playerActionBtn = document.getElementById('attack');
-     playerActionBtn.addEventListener('click', playerTurn);
-     }
+	 // It's the player's turn
+	 // Wait for the player to take it's action
+	 let playerActionBtn = document.getElementById('attack');
+	 playerActionBtn.addEventListener('click', playerTurn);
+	 }
 ```
 To the `playerTurn()`function where the EventListener is removed when the user presses the button
 ```js
 async function playerTurn() {
-     // Prevent the button to be pressed several times
-     function onPlayerActionClick() {
-         playerActionBtn.removeEventListener('click', onPlayerActionClick);
-         playerAttack();
-     }
-     // Listener for attack button
-     let playerActionBtn = document.getElementById('attack');
-     playerActionBtn.addEventListener('click', onPlayerActionClick);
+	 // Prevent the button to be pressed several times
+	 function onPlayerActionClick() {
+		 playerActionBtn.removeEventListener('click', onPlayerActionClick);
+		 playerAttack();
+	 }
+	 // Listener for attack button
+	 let playerActionBtn = document.getElementById('attack');
+	 playerActionBtn.addEventListener('click', onPlayerActionClick);
  }
  The old `playerTurn()`function was renamed to `PlayerAttack()`
 ```
@@ -96,14 +96,27 @@ async function playerTurn() {
 In the `rollForDamage()`function, the number of hit dices are looped to ensure the case where more than 1 hit dice is used. However there was a typo that caused the loop to roll 1 extra dice.
 ```js
 for (let i=0; i <= creature.numDices; i++) {
-         damage += creature.hitDice + creature.plusDmg;
-     }
+		 damage += creature.hitDice + creature.plusDmg;
+	 }
 ```
 This was fixed by fixes the typo
 ```js
   for (let i=0; i < creature.numDices; i++) {
-         damage += creature.hitDice + creature.plusDmg;
-     }
+		 damage += creature.hitDice + creature.plusDmg;
+	 }
+```
+
+</details>
+<details><summary>Bug: Monsters damage is miscalculated</summary>
+
+There was a typo in the `monsterTurn()`function.
+```js
+let attackRoll = diceRoll + player.toHit;
+```
+This added the players toHit instead of the monsters.
+This was fixed with:
+```js
+let attackRoll = diceRoll + currentMonster.toHit;
 ```
 
 </details>
