@@ -74,6 +74,14 @@ async function gameLoop() {
         }
     }
     // Game over
+    gameOver();
+}
+
+/**
+ * Displays the game over screen with the players final score.
+ */
+function gameOver() {
+    console.log("YOU DIED"); // REMOVE THIS
     // remove the monster card
     document.getElementById("monster-card").classList.toggle("monster-alive");
     // flip the player card
@@ -82,7 +90,34 @@ async function gameLoop() {
     document.getElementById('result-title').textContent = `GAME OVER`;
     document.getElementById('result-hit').textContent = `Our hero has perished`;
     document.getElementById('result-damage').textContent = `Score: ${score}`;
-    // ask if the user wants to restart the game
+    // Display the restart button
+    document.getElementById('start-btn').textContent = `RESTART`;
+    document.getElementById("start-btn").classList.toggle("hidden");
+    // Prevent the reset button to be pressed twice
+    function onResetGameClick() {
+        resetGameBtn.removeEventListener('click', onResetGameClick);
+        resetGame();
+    }
+    let resetGameBtn = document.getElementById('start-btn');
+    resetGameBtn.addEventListener('click', onResetGameClick);
+}
+
+/**
+ * Resets the necessary flags and restarts the game
+ */
+async function resetGame() {
+    // Reset the player HP and the flags
+    player.currentHitPoints = player.hitPoints;
+    currentMonster = null;
+    score = 0;
+    isPlayerTurn = true;
+    // Flip the player card down again and clear the card
+    document.getElementById("player-card").classList.toggle("player-card-flip");
+    await sleep(700);
+    document.getElementById("start-btn").classList.toggle("hidden");
+    resetResults();
+    // restart gameLoop();
+    gameLoop();
 }
 
 /**

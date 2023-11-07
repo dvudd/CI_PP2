@@ -58,6 +58,10 @@ body {
     filter: brightness(75%);
 }
 
+.hidden {
+    visibility: hidden;
+}
+
 /* Monster card styles */
 .monster-card {
     position: absolute;
