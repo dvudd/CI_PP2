@@ -2,26 +2,26 @@
 **BILD FRÅN AMIRESPONSIVE**
 [DUNGEONS and DICES](https://dvudd.github.io/CI_PP2/) is a turned-based dungeon crawler where the player fights their way through enemies.
 ## User Stories
-- As a first time player I want to quickly understand the basic game mechanics
-- As a first time user I want to battle against fantasy monsters
-- As a first time user I want to feel the tension of dice rolls
-- As a returning user I want to quickly start a new game
-- As a returning user I want to encounter different types of monsters so the game feels fresh and challenging each time
-- As a returning user I want to beat my old score
+- As a first time user, I want to quickly understand the basic game mechanics
+- As a first time user, I want to battle against fantasy monsters
+- As a first time user, I want to feel the tension of dice rolls
+- As a returning user, I want to quickly start a new game
+- As a returning user, I want to encounter different types of monsters, so the game feels fresh and challenging each time
+- As a returning user, I want to beat my old score
 ## Features
 
 ## Future Features
-While the game is fully funcional there is many ways to improve the experience
+While the game is fully functional, there are many ways to improve the experience
 - Selectable characters
 	- A Fighter with high defense but medium damage
 	- A Thief with a chance to dodge incoming damage
 	- A Wizard with low defense but high damage spells
-- More player abilites, with different cooldowns.
+- More player abilities, with different cooldowns.
 - Equipable items that the player can find along the way
 	- Better weapons
 	- Better Armor
 	- Better healing potions
-* More monster
+* More monsters
 * Boss battles!
 
 ## Testing
@@ -39,7 +39,7 @@ Här kommer lighthouse presenteras
 ### Browser testing
 - IOS Safari
 - iPad Safari
-- MacOS Safari
+- macOS Safari
 - Google Chrome
 - Mozilla Firefox
 - Microsoft Edge
@@ -48,7 +48,7 @@ Här kommer lighthouse presenteras
 - iPhone 11 Pro
 - iPhone 12 Mini
 - iPhone 13
-- Macbook
+- MacBook
 - Windows 11 PC
 ### Bugs
 <details><summary>Bug: No new monster is picked after the player defeats the current one</summary>
@@ -79,7 +79,7 @@ if (isPlayerTurn) {
 	 playerActionBtn.addEventListener('click', playerTurn);
 	 }
 ```
-To the `playerTurn()`function where the EventListener is removed when the user presses the button
+To the `playerTurn()`function, where the EventListener is removed when the user presses the button
 ```js
 async function playerTurn() {
 	 // Prevent the button to be pressed several times
@@ -95,15 +95,15 @@ async function playerTurn() {
 ```
 
 </details>
-<details> <summary>Bug: Damage rolls are higher than intented</summary>
+<details> <summary>Bug: Damage rolls are higher than intended</summary>
 
-In the `rollForDamage()`function, the number of hit dices are looped to ensure the case where more than 1 hit dice is used. However there was a typo that caused the loop to roll 1 extra dice.
+In the `rollForDamage()`function, the number of hit dices are looped to ensure the case where more than 1 hit dice is used. However, there was a typo that caused the loop to roll 1 extra dice.
 ```js
 for (let i=0; i <= creature.numDices; i++) {
 		 damage += creature.hitDice + creature.plusDmg;
 	 }
 ```
-This was fixed by fixes the typo
+This was fixed by fixes the typo.
 ```js
   for (let i=0; i < creature.numDices; i++) {
 		 damage += creature.hitDice + creature.plusDmg;
@@ -127,7 +127,7 @@ let attackRoll = diceRoll + currentMonster.toHit;
 <details><summary>Bug: Damage is not calculated correctly</summary>
 
 This bug was caused when I tried to clean up the code.
-In commit `7330400` i changed the hitDice value in both the player and monster array from:
+In commit `7330400` I changed the hitDice value in both the player and monster array from:
 ```js
 const player = {
 	...
@@ -171,8 +171,8 @@ This caused the hitdice functions to be run only once at the start of the game a
 ### Known Bugs
 **LÄGG TILL KÄNDA BUGGAR HÄR**
 ## Technologies used
-- IDE: Microsoft VS code
-- Repository: Github
+- IDE: Microsoft VS Code
+- Repository: GitHub
 - Image Editor: [PhotoPea](https://www.photopea.com)
 ### Languages
 - HTML5
@@ -188,15 +188,15 @@ This caused the hitdice functions to be run only once at the start of the game a
 ### GitHub Pages
 The project was deployed to GitHub Pages using the following steps:
 1. Log in to GitHub and locate the [GitHub Repository](https://github.com/dvudd/CI_PP2)
-2. At the top of the Repository (not top of page), locate the "Settings" Button on the menu.
+2. At the top of the Repository (not top of the page), locate the "Settings" Button on the menu.
 3. Scroll down the Settings page until you locate the "GitHub Pages" Section.
 4. Under "Source", click the dropdown called "None" and select "Master Branch".
 5. The page will automatically refresh.
 6. Scroll back down through the page to locate the now published site [link](https://github.com) in the "GitHub Pages" section.
 ### Forking the GitHub Repository
-By forking the GitHub Repository we make a copy of the original repository on our GitHub account to view and/or make changes without affecting the original repository by using the following steps:
+By forking the GitHub Repository, we make a copy of the original repository on our GitHub account to view and/or make changes without affecting the original repository by using the following steps:
 1. Log in to GitHub and locate the [GitHub Repository](https://github.com/dvudd/CI_PP2)
-2. At the top of the Repository (not top of page) just above the "Settings" Button on the menu, locate the "Fork" Button.
+2. At the top of the Repository (not top of the page) just above the "Settings" Button on the menu, locate the "Fork" Button.
 3. You should now have a copy of the original repository in your GitHub account.
 ### Making a Local Clone
 1. Log in to GitHub and locate the [GitHub Repository](https://github.com/dvudd/CI_PP2)
@@ -214,12 +214,12 @@ $ git clone https://github.com/dvudd/CI_PP2
 8. Open `index.html` in your browser.
 ## Credits
 Media:
--  Monster Assets was created by [Sagak art](https://sagak-art-pururu.itch.io)
+-  Monster Assets were created by [Sagak art](https://sagak-art-pururu.itch.io)
 	- [Card RPG) Monsters](https://sagak-art-pururu.itch.io/cardrpg-monsters)
 	- [Card RPG) UI&Characters](https://sagak-art-pururu.itch.io/cardrpg-ui) **ANVÄNDS INTE**
 	- [Card RPG) Items](https://sagak-art-pururu.itch.io/cardrpg-items)
 	- [Card RPG) Icons&Objects](https://sagak-art-pururu.itch.io/cardrpg-icons) **ANVÄNDS INTE**
-- Card assets was created by [cafeDraw](https://cafedraw.itch.io/fantasy-card-assets)
+- Card assets were created by [cafeDraw](https://cafedraw.itch.io/fantasy-card-assets)
 - Favicon was downloaded from [flaticon](https://www.flaticon.com/) and converted with [favicon.io](https://favicon.io/favicon-converter/)
 Code:
 - Sleep function: https://stackoverflow.com/questions/951021/what-is-the-javascript-version-of-sleep
