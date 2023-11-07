@@ -1,16 +1,19 @@
 # DUNGEONS AND DICES
 **BILD FRÅN AMIRESPONSIVE**
-[DUNGEONS and DICES](https://dvudd.github.io/CI_PP2/) is a turned-based dungeon crawler where the player fights their way through enemies 
-
+[DUNGEONS and DICES](https://dvudd.github.io/CI_PP2/) is a turned-based dungeon crawler where the player fights their way through enemies.
 ## User Stories
-
+As a first time user I want to: 
+As a returning user I want to: 
 ## Features
 
 ## Future Features
 While the game is fully funcional there is many ways to improve the experience
+- Selectable characters
+	- A Fighter with high defense but medium damage
+	- A Thief with a chance to dodge incoming damage
+	- A Wizard with low defense but high damage spells
 - More player abilites, with different cooldowns.
-- Selectable characters, maybe a wizard that can cast spells or a Rogue that can hide to avoid damage.
-- Equipable items
+- Equipable items that the player can find along the way
 	- Better weapons
 	- Better Armor
 	- Better healing potions
@@ -44,9 +47,66 @@ Här kommer lighthouse presenteras
 - Macbook
 - Windows 11 PC
 ### Bugs
+<details>
+<summary>Bug: No new monster is picked after the player defeats the current one</summary>
+This was fixed by creating a function to make a copy of the randomly selected monster.
+```js
+currentMonster = copyMonster(selectRandomMonster());
+/**
+* Copies the stats from a monster in the monster array
+* @param {*} monster
+* @returns
+*/
+function copyMonster(monster) {
+return Object.assign({}, monster);
+}
+```
+</details>
+<details>
+<summary>Bug: The player can make multiple attacks in one turn by pressing the attack button twice</summary>
+The EventListener for the attack button was in the `gameLoop()` function, but the EventListener was never disabled, making it possible to press the button in quick succession to run the `playerTurn()` function multiple times.
+To fix this I moved the EventListener from the `gameLoop()`:
+```js
+if (isPlayerTurn) {
+     // It's the player's turn
+     // Wait for the player to take it's action
+     let playerActionBtn = document.getElementById('attack');
+     playerActionBtn.addEventListener('click', playerTurn);
+     }
+```
+To the `playerTurn()`function where the EventListener is removed when the user presses the button
+```js
+async function playerTurn() {
+     // Prevent the button to be pressed several times
+     function onPlayerActionClick() {
+         playerActionBtn.removeEventListener('click', onPlayerActionClick);
+         playerAttack();
+     }
+     // Listener for attack button
+     let playerActionBtn = document.getElementById('attack');
+     playerActionBtn.addEventListener('click', onPlayerActionClick);
+ }
+ The old `playerTurn()`function was renamed to `PlayerAttack()`
+```
+</details>
+<details> 
+<summary>Bug: Damage rolls are higher than intented</summary>
+In the `rollForDamage()`function, the number of hit dices are looped to ensure the case where more than 1 hit dice is used. However there was a typo that caused the loop to roll 1 extra dice.
+```js
+for (let i=0; i <= creature.numDices; i++) {
+         damage += creature.hitDice + creature.plusDmg;
+     }
+```
+This was fixed by fixes the typo
+```js
+  for (let i=0; i < creature.numDices; i++) {
+         damage += creature.hitDice + creature.plusDmg;
+     }
+```
+</details>
 
 ### Known Bugs
-
+**LÄGG TILL KÄNDA BUGGAR HÄR**
 ## Technologies used
 - IDE: Microsoft VS code
 - Repository: Github
@@ -91,16 +151,20 @@ $ git clone https://github.com/dvudd/CI_PP2
 8. Open `index.html` in your browser.
 ## Credits
 Media:
-- Monster assets comes from [itch.io](https://fatcatgamesstudio.itch.io/10-jrpg-pixelart-battlers)
+-  Monster Assets was created by [Sagak art](https://sagak-art-pururu.itch.io)
+	- [Card RPG) Monsters](https://sagak-art-pururu.itch.io/cardrpg-monsters)
+	- [Card RPG) UI&Characters](https://sagak-art-pururu.itch.io/cardrpg-ui) **ANVÄNDS INTE**
+	- [Card RPG) Items](https://sagak-art-pururu.itch.io/cardrpg-items)
+	- [Card RPG) Icons&Objects](https://sagak-art-pururu.itch.io/cardrpg-icons) **ANVÄNDS INTE**
+- Card assets was created by [cafeDraw](https://cafedraw.itch.io/fantasy-card-assets)
 - Favicon was downloaded from [flaticon](https://www.flaticon.com/) and converted with [favicon.io](https://favicon.io/favicon-converter/)
-- Card assets comes from: https://cafedraw.itch.io/fantasy-card-assets
 Code:
 - Sleep function: https://stackoverflow.com/questions/951021/what-is-the-javascript-version-of-sleep
 - popup function: https://www.youtube.com/watch?v=AF6vGYIyV8M
-- dim: https://stackoverflow.com/questions/67271053/adding-class-to-an-element-got-by-classname
+- Dim: https://stackoverflow.com/questions/67271053/adding-class-to-an-element-got-by-classname
 - Card flip: https://www.w3schools.com/howto/howto_css_flip_card.asp
 - Card Shake: https://www.w3schools.com/howto/howto_css_shake_image.asp
-- prevent scrolling: https://stackoverflow.com/questions/28411499/disable-scrolling-on-body
+- Prevent scrolling: https://stackoverflow.com/questions/28411499/disable-scrolling-on-body
 ### Acknowledgements
 ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)\
 This is my Portfolio Project 2 as part of the Full Stack Software Developer program at [Code Institute](https://codeinstitute.net/).\
