@@ -127,7 +127,7 @@ async function playerAttack() {
     // Check if it hits
     let attackRoll = diceRoll + player.toHit;
     console.log(`Dice roll: ${diceRoll}`); // REMOVE THIS
-    if (attackRoll > currentMonster.armorClass) {
+    if ((attackRoll > currentMonster.armorClass) || (crit)) {
         // Calculate Damage
         hit = true;
         damage = rollForDamage(player, crit);
@@ -219,7 +219,7 @@ async function monsterTurn() {
         }
         let attackRoll = diceRoll + player.toHit;
         console.log(`Dice roll: ${diceRoll}`); // REMOVE THIS
-        if (attackRoll > player.armorClass) {
+        if ((attackRoll > player.armorClass) || (crit)) {
             damage = rollForDamage(currentMonster, crit);
             console.log(`HIT! ${currentMonster.name} dealt ${damage} in damage`); // REMOVE THIS
             player.currentHitPoints -= damage;
