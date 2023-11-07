@@ -12,7 +12,7 @@ const player = {
     armorClass: 13,
     toHit: 5,
     numDices: 1,
-    hitDice: d4,
+    hitDice: d10,
     plusDmg: 3,
 };
   
