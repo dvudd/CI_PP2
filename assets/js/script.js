@@ -230,7 +230,7 @@ async function monsterTurn() {
             crit = true;
         }
         // Add the monsters toHit to the attack roll
-        let attackRoll = diceRoll + player.toHit;
+        let attackRoll = diceRoll + currentMonster.toHit;
         console.log(`Dice roll: ${diceRoll}`); // REMOVE THIS
         // Check if it's enough to hit, Critical Hits always hits
         if ((attackRoll > player.armorClass) || (crit)) {
