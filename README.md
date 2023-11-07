@@ -23,6 +23,16 @@ While the game is fully functional, there are many ways to improve the experienc
 	- Better healing potions
 * More monsters
 * Boss battles!
+## Development
+#### Inspiration
+The inspiration for this project came from [Dice Roll Game](https://codingscape.info/how-to-create-dice-roll-game-using-javascript/), but since I've been spending way too many hours in Baldurs Gate 3 lately, I wanted something involving a d20 dice. I also wanted to incorporate fantasy characters into the game. The idea later evolved into a card game, so I started working on a in Balsamiq Wireframes to sketch out an idea.
+**WIREFRAMES IMAGE**
+#### Prototyping
+After finding a layout I was happy with, I started working on the HTML and CSS to make a working prototype. I started with a 'mobile-first' thought process, making sure the game area fits in to a small mobile screen.
+**EARLY IMAGE**
+After the site started to look kind of how I imagined it, I started to work on the JavaScript where the focus was on getting the basic gameplay to work, inspiration for the game rules came from [D&D BASIC RULES](https://media.wizards.com/2018/dnd/downloads/DnD_BasicRules_2018.pdf). To make sure the game mechanics worked as I intended, I widely used console logs to make sure the attack  and damage rolls worked as intended.
+**CONSOLE OUTPUT IMAGE**
+#### Look and Feel
 
 ## Testing
 ### Validator testing
