@@ -12,7 +12,7 @@ const player = {
     armorClass: 13,
     toHit: 5,
     numDices: 1,
-    hitDice: d10,
+    hitDice: d10(),
     plusDmg: 3,
 };
   
@@ -25,7 +25,7 @@ const monsters = [
         armorClass: 15,
         toHit: 4,
         numDices: 1,
-        hitDice: d6,
+        hitDice: d6(),
         plusDmg: 2,
     },
     {
@@ -35,7 +35,7 @@ const monsters = [
         armorClass: 13,
         toHit: 5,
         numDices: 1,
-        hitDice: d12,
+        hitDice: d12(),
         plusDmg: 3,
     },
 ];
@@ -261,7 +261,7 @@ function selectRandomMonster() {
 function rollForDamage(creature, crit) {
     let damage = 0;
     for (let i=0; i <= creature.numDices; i++) {
-        damage += creature.hitDice() + creature.plusDmg;
+        damage += creature.hitDice + creature.plusDmg;
     }
     if (crit) {
         damage = damage * 2;
