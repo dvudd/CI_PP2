@@ -10,11 +10,11 @@ document.addEventListener("DOMContentLoaded", function() {
 const player = {
     name: "Adventurer",
     hitPoints: 100,
-    currentHitPoints: 10, // ÄNDRA TILLBAKA TILL 100
+    currentHitPoints: 100, 
     armorClass: 13,
     toHit: 5,
     numDices: 1,
-    hitDice: d4(), // ÄNDRA TILLBAKA TILL D20()
+    hitDice: d10,
     plusDmg: 3,
 };
   
@@ -29,7 +29,7 @@ const monsters = [
         armorClass: 15,
         toHit: 4,
         numDices: 1,
-        hitDice: d6(),
+        hitDice: d6,
         plusDmg: 2,
     },
     {
@@ -39,7 +39,7 @@ const monsters = [
         armorClass: 13,
         toHit: 5,
         numDices: 1,
-        hitDice: d12(),
+        hitDice: d12,
         plusDmg: 3,
     },
 ];
@@ -60,7 +60,7 @@ async function gameLoop() {
             document.getElementById('monster-name').textContent = currentMonster.name;
             document.getElementById("monster-card").classList.toggle("monster-alive");
             console.log(`========== NEW ENCOUNTER ==========`); // REMOVE THIS
-            console.log(`You are facing a ${currentMonster.name}`); // REMOVE THIS
+            console.log(`A wild ${currentMonster.name} appeared`); // REMOVE THIS
           }
         // Update the players HP and AC on the player card
         document.getElementById('player-hp').textContent = player.currentHitPoints;
@@ -213,7 +213,7 @@ async function monsterTurn() {
         isPlayerTurn = true;
     } else {
         // It is now the monsters turn, it will attack you!
-        console.log("MONSTERS TURN"); // REMOVE THIS
+        console.log(`${currentMonster.name}´s TURN`); // REMOVE THIS
         // Bring the monster card above the player's
         document.getElementById('top').classList.toggle('on-top');
         // Reset the flags for hit, crit and damage
@@ -272,16 +272,16 @@ function selectRandomMonster() {
 function rollForDamage(creature, crit) {
     let damage = 0;
     for (let i=0; i < creature.numDices; i++) {
-        /* damage += creature.hitDice + creature.plusDmg; */ // THIS SHOULD BE REVERTED, ONLY FOR TESTING
-        let roll = 0;
-        roll = creature.hitDice
-        damage += roll + creature.plusDmg;
-        console.log(`Damage roll: ${roll} + ${creature.plusDmg}`); // REMOVE THIS
+        let dmgRoll = creature.hitDice();
+        damage += dmgRoll;
+        console.log(`Dice roll ${i + 1}: ${dmgRoll}`);  // REMOVE THIS
     }
     if (crit) {
         damage = damage * 2;
     }
-    console.log(`Totalt Damage: ${damage}`); // REMOVE THIS
+    console.log(`Damage roll: ${damage} + ${creature.plusDmg}`); // REMOVE THIS
+    damage += creature.plusDmg;
+    console.log(`Total Damage: ${damage}`); // REMOVE THIS
     return damage;
 }
 
