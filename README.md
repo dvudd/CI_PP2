@@ -47,8 +47,8 @@ Här kommer lighthouse presenteras
 - Macbook
 - Windows 11 PC
 ### Bugs
-<details>
-<summary>Bug: No new monster is picked after the player defeats the current one</summary>
+<details><summary>Bug: No new monster is picked after the player defeats the current one</summary>
+
 This was fixed by creating a function to make a copy of the randomly selected monster.
 ```js
 currentMonster = copyMonster(selectRandomMonster());
@@ -61,9 +61,10 @@ function copyMonster(monster) {
 return Object.assign({}, monster);
 }
 ```
+
 </details>
-<details>
-<summary>Bug: The player can make multiple attacks in one turn by pressing the attack button twice</summary>
+<details><summary>Bug: The player can make multiple attacks in one turn by pressing the attack button twice</summary>
+
 The EventListener for the attack button was in the `gameLoop()` function, but the EventListener was never disabled, making it possible to press the button in quick succession to run the `playerTurn()` function multiple times.
 To fix this I moved the EventListener from the `gameLoop()`:
 ```js
@@ -88,9 +89,10 @@ async function playerTurn() {
  }
  The old `playerTurn()`function was renamed to `PlayerAttack()`
 ```
+
 </details>
-<details> 
-<summary>Bug: Damage rolls are higher than intented</summary>
+<details> <summary>Bug: Damage rolls are higher than intented</summary>
+
 In the `rollForDamage()`function, the number of hit dices are looped to ensure the case where more than 1 hit dice is used. However there was a typo that caused the loop to roll 1 extra dice.
 ```js
 for (let i=0; i <= creature.numDices; i++) {
@@ -103,6 +105,7 @@ This was fixed by fixes the typo
          damage += creature.hitDice + creature.plusDmg;
      }
 ```
+
 </details>
 
 ### Known Bugs
