@@ -328,7 +328,6 @@ function dimButtons() {
     document.getElementById("ability-btn").classList.toggle("move-btn-right");
 }
 
-
 /**
  * Function to play the attack animation
  * @param {*} isPlayerTurn 
