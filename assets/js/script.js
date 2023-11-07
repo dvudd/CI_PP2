@@ -110,6 +110,7 @@ async function playerTurn() {
  * If hit, then roll damage die and attack.
  */
 async function playerAttack() {
+    console.log(`Current score: ${score}`); // REMOVE THIS
     // Open the result card and dim the background
     document.getElementById("player-card").classList.toggle("player-card-flip");
     document.getElementById("monster-card").classList.toggle("dim");
@@ -132,6 +133,7 @@ async function playerAttack() {
         hit = true;
         damage = rollForDamage(player, crit);
         console.log(`HIT! You dealt ${damage} in damage`); // REMOVE THIS
+        score += damage;
         currentMonster.hitPoints -= damage;
     } else {
         console.log("MISS!"); // REMOVE THIS
