@@ -4,7 +4,9 @@ document.addEventListener("DOMContentLoaded", function() {
     gameLoop();
 });
 
-// Player stats
+/**
+ * Player statistics
+ */
 const player = {
     name: "Adventurer",
     hitPoints: 100,
@@ -16,7 +18,9 @@ const player = {
     plusDmg: 3,
 };
   
-// Monster stats
+/**
+ * Monster statistics
+ */
 const monsters = [
     {
         name: "Goblin",
@@ -58,6 +62,7 @@ async function gameLoop() {
             console.log(`========== NEW ENCOUNTER ==========`); // REMOVE THIS
             console.log(`You are facing a ${currentMonster.name}`); // REMOVE THIS
           }
+        // Update the players HP and AC on the player card
         document.getElementById('player-hp').textContent = player.currentHitPoints;
         document.getElementById('player-ac').textContent = player.armorClass;
         if (isPlayerTurn) {
@@ -68,6 +73,11 @@ async function gameLoop() {
             await monsterTurn();
         }
     }
+    // Game over
+    // remove the monster card
+    // bring the player card front
+    // display the game over text and final score
+    // ask if the user wants to restart the game
 }
 
 /**
@@ -111,7 +121,7 @@ async function playerTurn() {
  */
 async function playerAttack() {
     console.log(`Current score: ${score}`); // REMOVE THIS
-    // Open the result card and dim the background
+    // Flip the player card and dim the monster card
     document.getElementById("player-card").classList.toggle("player-card-flip");
     document.getElementById("monster-card").classList.toggle("dim");
     // Reset the flags for hit, crit and damage
@@ -125,9 +135,10 @@ async function playerAttack() {
         console.log("CRITICAL HIT!"); // REMOVE THIS
         crit = true;
     }
-    // Check if it hits
+    // Add the players toHit to the attack roll
     let attackRoll = diceRoll + player.toHit;
     console.log(`Dice roll: ${diceRoll}`); // REMOVE THIS
+    // Check if it's enough to hit, Critical Hits always hits
     if ((attackRoll > currentMonster.armorClass) || (crit)) {
         // Calculate Damage
         hit = true;
@@ -140,7 +151,6 @@ async function playerAttack() {
     }
     // Display the results
     displayResult(diceRoll, hit, crit, damage);
-    // await waitForButton("result-btn");
     await sleep(3000);
     // Close the result card and brighten the background
     document.getElementById("player-card").classList.toggle("player-card-flip");
@@ -150,6 +160,7 @@ async function playerAttack() {
         await hitAnimation(isPlayerTurn, damage, crit);
     }
     await sleep(700);
+    // Reset for the next turn
     isPlayerTurn = false;
     resetResults();
 }
@@ -160,6 +171,7 @@ async function playerAttack() {
  */
 async function playerAbility() {
     console.log("Player pressed the ability button"); // REMOVE THIS
+    // Flip the player card and dim the monster card
     document.getElementById("player-card").classList.toggle("player-card-flip");
     document.getElementById("monster-card").classList.toggle("dim");
     await sleep(700);
@@ -195,7 +207,7 @@ async function playerAbility() {
  * If hit, then roll damage die and attack.
  */
 async function monsterTurn() {
-    // First lets check if the monster is still alive.
+    // Check if the monster is still alive.
     if (currentMonster.hitPoints <= 0) {
         console.log(`${currentMonster.name} was defeated!`); // REMOVE THIS
         currentMonster = null;
@@ -205,16 +217,22 @@ async function monsterTurn() {
     } else {
         // It is now the monsters turn, it will attack you!
         console.log("MONSTERS TURN"); // REMOVE THIS
+        // Bring the monster card above the player's
         document.getElementById('top').classList.toggle('on-top');
+        // Reset the flags for hit, crit and damage
         let crit = false;
         let damage = 0;
+        // Roll for attack
         let diceRoll = d20();
+        // Check if it's a Critical Roll
         if (diceRoll === 20) {
             console.log("CRITICAL HIT!"); // REMOVE THIS
             crit = true;
         }
+        // Add the monsters toHit to the attack roll
         let attackRoll = diceRoll + player.toHit;
         console.log(`Dice roll: ${diceRoll}`); // REMOVE THIS
+        // Check if it's enough to hit, Critical Hits always hits
         if ((attackRoll > player.armorClass) || (crit)) {
             damage = rollForDamage(currentMonster, crit);
             console.log(`HIT! ${currentMonster.name} dealt ${damage} in damage`); // REMOVE THIS
@@ -222,11 +240,14 @@ async function monsterTurn() {
         } else {
             console.log("MISS!"); // REMOVE THIS
         }
+        // Play the attack animation
         await hitAnimation(isPlayerTurn, damage, crit);
         await sleep(700);
+        // Bring the monster card back
         document.getElementById('top').classList.toggle('on-top');
     }
     document.getElementById('player-hp').textContent = player.currentHitPoints;
+    // End the turn
     isPlayerTurn = true;
 }
 
