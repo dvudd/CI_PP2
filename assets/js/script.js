@@ -43,7 +43,6 @@ const monsters = [
 // Flag to indicate whose turn it is
 let isPlayerTurn = true;
 let currentMonster = null;
-let buttonClicked = false;
 let score = 0;
 
 /**
@@ -313,21 +312,6 @@ function d12() {
 function d20() {
     let dice = Math.floor(Math.random() * 20) + 1;
     return dice;
-}
-
-/**
- * Holds execution of code until the provided button is pressed.
- * @param {*} buttonId 
- * @returns 
- */
-function waitForButton(buttonId) {
-    return new Promise(resolve => {
-        document.getElementById(buttonId).addEventListener('click', function onButtonClick() {
-            buttonClicked = true;
-            resolve();
-            document.getElementById(buttonId).removeEventListener('click', onButtonClick);
-        });
-    });
 }
 
 /**
