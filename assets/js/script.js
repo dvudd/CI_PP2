@@ -1,4 +1,4 @@
-/*jshint esversion: 8 */
+/*jshint esversion: 8 */ // REMOVE THIS
 // Wait for the DOM to finish loading before running the game
 document.addEventListener("DOMContentLoaded", function() {
     gameLoop();
@@ -12,7 +12,7 @@ const player = {
     armorClass: 13,
     toHit: 5,
     numDices: 1,
-    hitDice: d12,
+    hitDice: d4,
     plusDmg: 3,
 };
   
@@ -44,33 +44,65 @@ const monsters = [
 let isPlayerTurn = true;
 let currentMonster = null;
 let buttonClicked = false;
+let score = 0;
+
+/**
+ * Main game loop
+ */
+async function gameLoop() {
+    while(player.currentHitPoints > 0) {
+        if (currentMonster === null) {
+            // If there's no current monster, select a random one
+            currentMonster = copyMonster(selectRandomMonster());
+            document.getElementById('monster-name').textContent = currentMonster.name;
+            document.getElementById("monster-card").classList.toggle("monster-alive");
+            console.log(`========== NEW ENCOUNTER ==========`); // REMOVE THIS
+            console.log(`You are facing a ${currentMonster.name}`); // REMOVE THIS
+          }
+        document.getElementById('player-hp').textContent = player.currentHitPoints;
+        document.getElementById('player-ac').textContent = player.armorClass;
+        if (isPlayerTurn) {
+            // It's the player's turn
+            await playerTurn();
+        } else {
+            // It's the monster's turn
+            await monsterTurn();
+        }
+    }
+}
 
 /**
  * Player turn function.
  * Listen for the player to do an action
  */
 async function playerTurn() {
-    // Prevent the buttons to be pressed several times
     console.log("PLAYERS TURN"); // REMOVE THIS
-    function onPlayerActionClick() {
-        playerActionBtn.removeEventListener('click', onPlayerActionClick);
-        playerAbilityBtn.removeEventListener('click', onPlayerAbilityClick);
-        playerAttack();
-        dimButtons()
-    }
-    // Prevent the ability button to be pressed several times
-    function onPlayerAbilityClick() {
-        playerActionBtn.removeEventListener('click', onPlayerActionClick);
-        playerAbilityBtn.removeEventListener('click', onPlayerAbilityClick);
-        playerAbility();
-        dimButtons()
-    }
-    // Listener for attack and ability buttons
-    dimButtons()
-    let playerActionBtn = document.getElementById('attack-btn');
-    playerActionBtn.addEventListener('click', onPlayerActionClick);
-    let playerAbilityBtn = document.getElementById('ability-btn');
-    playerAbilityBtn.addEventListener('click', onPlayerAbilityClick);
+    return new Promise((resolve) => {
+        // Prevent the buttons to be pressed several times
+        function onPlayerActionClick() {
+            playerActionBtn.removeEventListener('click', onPlayerActionClick);
+            playerAbilityBtn.removeEventListener('click', onPlayerAbilityClick);
+            dimButtons();
+            playerAttack().then(() => {
+                resolve();
+            });
+        }
+        // Prevent the ability button to be pressed several times
+        function onPlayerAbilityClick() {
+            playerActionBtn.removeEventListener('click', onPlayerActionClick);
+            playerAbilityBtn.removeEventListener('click', onPlayerAbilityClick);
+            dimButtons();
+            playerAbility().then(() => {
+                resolve();
+            });
+        }
+        // Listener for attack and ability buttons
+        dimButtons();
+        let playerActionBtn = document.getElementById('attack-btn');
+        playerActionBtn.addEventListener('click', onPlayerActionClick);
+        let playerAbilityBtn = document.getElementById('ability-btn');
+        playerAbilityBtn.addEventListener('click', onPlayerAbilityClick);
+    });
 }
 
 /**
@@ -119,7 +151,9 @@ async function playerAttack() {
     await sleep(700);
     isPlayerTurn = false;
     resetResults();
-    gameLoop();
+    return new Promise((resolve) => {
+        resolve();
+    });
 }
 
 /**
@@ -155,7 +189,9 @@ async function playerAbility() {
     // Reset for the next turn
     isPlayerTurn = false;
     resetResults();
-    gameLoop();
+    return new Promise((resolve) => {
+        resolve();
+    });
 }
 
 /**
@@ -197,34 +233,9 @@ async function monsterTurn() {
     }
     document.getElementById('player-hp').textContent = player.currentHitPoints;
     isPlayerTurn = true;
-    gameLoop();
-}
-
-/**
- * The main game loop, called when the script is first loaded
- * and after the the player of monster has taken its turn
- */
-function gameLoop() {
-    if (currentMonster === null) {
-        // If there's no current monster, select a random one
-        currentMonster = copyMonster(selectRandomMonster());
-        document.getElementById('monster-name').textContent = currentMonster.name;
-        document.getElementById("monster-card").classList.toggle("monster-alive");
-        console.log(`========== NEW ENCOUNTER ==========`); // REMOVE THIS
-        console.log(`You are facing a ${currentMonster.name}`); // REMOVE THIS
-      }
-    document.getElementById('player-hp').textContent = player.currentHitPoints;
-    document.getElementById('player-ac').textContent = player.armorClass;
-    if (isPlayerTurn) {
-        // It's the player's turn
-        playerTurn();
-    } else {
-        // It's the monster's turn
-        monsterTurn(); // Trigger the monster's turn
-    }
-
-    // Here the game shoud update the UI
-    // and check for game over conditions
+    return new Promise((resolve) => {
+        resolve();
+    });
 }
 
 /**
@@ -335,9 +346,9 @@ function sleep(ms) {
  */
 function dimButtons() {
     document.getElementById("attack-btn").classList.toggle("dim");
-    document.getElementById("attack-btn").classList.toggle("move-btn-left")
+    document.getElementById("attack-btn").classList.toggle("move-btn-left");
     document.getElementById("ability-btn").classList.toggle("dim");
-    document.getElementById("ability-btn").classList.toggle("move-btn-right")
+    document.getElementById("ability-btn").classList.toggle("move-btn-right");
 }
 
 
