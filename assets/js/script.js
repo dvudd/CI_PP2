@@ -10,11 +10,11 @@ document.addEventListener("DOMContentLoaded", function() {
 const player = {
     name: "Adventurer",
     hitPoints: 100,
-    currentHitPoints: 100,
+    currentHitPoints: 10, // ÄNDRA TILLBAKA TILL 100
     armorClass: 13,
     toHit: 5,
     numDices: 1,
-    hitDice: d10(),
+    hitDice: d4(), // ÄNDRA TILLBAKA TILL D20()
     plusDmg: 3,
 };
   
@@ -75,8 +75,13 @@ async function gameLoop() {
     }
     // Game over
     // remove the monster card
-    // bring the player card front
+    document.getElementById("monster-card").classList.toggle("monster-alive");
+    // flip the player card
+    document.getElementById("player-card").classList.toggle("player-card-flip");
     // display the game over text and final score
+    document.getElementById('result-title').textContent = `GAME OVER`;
+    document.getElementById('result-hit').textContent = `Our hero has perished`;
+    document.getElementById('result-damage').textContent = `Score: ${score}`;
     // ask if the user wants to restart the game
 }
 
@@ -400,6 +405,7 @@ async function hitAnimation(isPlayerTurn, damage, crit)  {
  * @param {*} damage 
  */
 async function displayResult(dice, hit, crit, damage) {
+    document.getElementById('result-title').textContent = `YOUR TURN`;
     await sleep(700);
     document.getElementById('result-roll').textContent = `You rolled a ${dice}`;
     await sleep(1000);
@@ -420,6 +426,7 @@ async function displayResult(dice, hit, crit, damage) {
  * Clears the text on the result card
  */
 function resetResults() {
+    document.getElementById('result-title').textContent = ``;
     document.getElementById('result-roll').textContent = ``;
     document.getElementById('result-hit').textContent = ``;
     document.getElementById('result-damage').textContent = ``;
