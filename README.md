@@ -108,6 +108,7 @@ This was fixed by fixes the typo
 
 </details>
 <details><summary>Bug: Monsters damage is miscalculated</summary>
+
 There was a typo in the `monsterTurn()`function.
 This added the players toHit value to the monsters attack.
 ```js
