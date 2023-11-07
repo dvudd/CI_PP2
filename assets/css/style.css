@@ -1,4 +1,6 @@
-/* CSS code goes here */
+/* Google fonts import */
+@import url('https://fonts.googleapis.com/css2?family=DotGothic16&family=VT323&display=swap');
+
 /* Color variables */
 :root {
     --primary: #fafafa;
@@ -21,7 +23,7 @@ body {
     flex-direction: column;
     color: var(--secondary);
     background-color: white;
-    font-family: 'Noto Sans', sans-serif;
+    font-family: 'DotGothic16', sans-serif;
     overflow: hidden;
 }
 
@@ -201,7 +203,10 @@ body {
 /* Animation for the text when damage is taken */
 .damage-taken {
     position: absolute;
-    font-size: 32px;
+    font-size: 3.5rem;
+    font-family: 'VT323', sans-serif;
+    color: white;
+    -webkit-text-stroke: 2px black;
     animation: fadeOut 2s;
     animation: damage-taken 1s;
     visibility: visible;
