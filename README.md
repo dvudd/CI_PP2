@@ -2,8 +2,12 @@
 **BILD FRÅN AMIRESPONSIVE**
 [DUNGEONS and DICES](https://dvudd.github.io/CI_PP2/) is a turned-based dungeon crawler where the player fights their way through enemies.
 ## User Stories
-As a first time user I want to: 
-As a returning user I want to: 
+- As a first time player I want to quickly understand the basic game mechanics
+- As a first time user I want to battle against fantasy monsters
+- As a first time user I want to feel the tension of dice rolls
+- As a returning user I want to quickly start a new game
+- As a returning user I want to encounter different types of monsters so the game feels fresh and challenging each time
+- As a returning user I want to beat my old score
 ## Features
 
 ## Future Features
@@ -164,7 +168,6 @@ function rollForDamage(creature, crit) {
 This caused the hitdice functions to be run only once at the start of the game and not be a random number for each roll as intended. The solution was to revert the changes.
 
 </details>
-
 ### Known Bugs
 **LÄGG TILL KÄNDA BUGGAR HÄR**
 ## Technologies used
@@ -221,7 +224,6 @@ Media:
 Code:
 - Sleep function: https://stackoverflow.com/questions/951021/what-is-the-javascript-version-of-sleep
 - popup function: https://www.youtube.com/watch?v=AF6vGYIyV8M
-- Dim: https://stackoverflow.com/questions/67271053/adding-class-to-an-element-got-by-classname
 - Card flip: https://www.w3schools.com/howto/howto_css_flip_card.asp
 - Card Shake: https://www.w3schools.com/howto/howto_css_shake_image.asp
 - Prevent scrolling: https://stackoverflow.com/questions/28411499/disable-scrolling-on-body
