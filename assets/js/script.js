@@ -400,6 +400,20 @@ async function hitAnimation(isPlayerTurn, damage, crit)  {
 }
 
 /**
+ * Function to animate the rolling of the dice
+ * @param {*} dice 
+ */
+async function diceAnimation(dice) {
+    for (let i = 0; i < 10; i++) {
+        // Show a random number
+        document.getElementById('back-roll').textContent = d20();
+        await sleep(100);
+    }
+    // Show the actual roll
+    document.getElementById('back-roll').textContent = `${dice}`;;
+  }
+
+/**
  * Function to present the result to the user on the result card
  * @param {} dice 
  * @param {*} hit 
@@ -409,8 +423,8 @@ async function hitAnimation(isPlayerTurn, damage, crit)  {
 async function displayResult(dice, hit, crit, damage) {
     document.getElementById('back-title').textContent = `YOUR TURN`;
     await sleep(700);
-    document.getElementById('back-roll').textContent = `${dice}`;
-    await sleep(1000);
+    diceAnimation(dice);
+    await sleep(1800);
     if (hit) {
         if (crit) {
             document.getElementById('back-hit').textContent = `CRITICAL HIT!`;
