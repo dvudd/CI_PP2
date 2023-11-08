@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function() {
 const player = {
     name: "Adventurer",
     hitPoints: 100,
-    currentHitPoints: 100, 
+    currentHitPoints: 100,
     armorClass: 13,
     toHit: 5,
     numDices: 1,
@@ -172,7 +172,7 @@ async function playerAbility() {
     document.getElementById("player-card").classList.toggle("player-card-flip");
     document.getElementById("monster-card").classList.toggle("dim");
     await sleep(700);
-    document.getElementById('result-roll').textContent = `You drink a potion!`;
+    document.getElementById('back-text').textContent = `You drink a potion!`;
     await sleep(1000);
     // Roll 4d4 + 4
     let healing = d4() + d4() + d4() + d4() + 4;
@@ -182,7 +182,7 @@ async function playerAbility() {
         player.currentHitPoints = player.hitPoints;
     }
     // Display animation for healing
-    document.getElementById('result-damage').textContent = `You recover ${healing} HP`;
+    document.getElementById('back-roll').textContent = `${healing}`;
     await sleep(2000);
     document.getElementById("player-card").classList.toggle("player-card-flip");
     document.getElementById("monster-card").classList.toggle("dim");
@@ -402,31 +402,30 @@ async function hitAnimation(isPlayerTurn, damage, crit)  {
  * @param {*} damage 
  */
 async function displayResult(dice, hit, crit, damage) {
-    document.getElementById('result-title').textContent = `YOUR TURN`;
+    document.getElementById('back-title').textContent = `YOUR TURN`;
     await sleep(700);
-    document.getElementById('result-roll').textContent = `You rolled a ${dice}`;
+    document.getElementById('back-roll').textContent = `${dice}`;
     await sleep(1000);
     if (hit) {
         if (crit) {
-            document.getElementById('result-hit').textContent = `CRITICAL HIT!`;
+            document.getElementById('back-hit').textContent = `CRITICAL HIT!`;
         } else {
-            document.getElementById('result-hit').textContent = `HIT!`;
+            document.getElementById('back-hit').textContent = `HIT!`;
         }
-        await sleep(1000);
-        document.getElementById('result-damage').textContent = `You dealt ${damage} damage`;
     } else {
-        document.getElementById('result-hit').textContent = `MISS!`;
+        document.getElementById('back-hit').textContent = `MISS!`;
     }
+    await sleep(1000);
 }
 
 /**
  * Clears the text on the result card
  */
 function resetResults() {
-    document.getElementById('result-title').textContent = ``;
-    document.getElementById('result-roll').textContent = ``;
-    document.getElementById('result-hit').textContent = ``;
-    document.getElementById('result-damage').textContent = ``;
+    document.getElementById('back-title').textContent = ``;
+    document.getElementById('back-text').textContent = ``;
+    document.getElementById('back-roll').textContent = ``;
+    document.getElementById('back-hit').textContent = ``;
 }
 
 /**
@@ -439,9 +438,9 @@ function gameOver() {
     // flip the player card
     document.getElementById("player-card").classList.toggle("player-card-flip");
     // display the game over text and final score
-    document.getElementById('result-title').textContent = `GAME OVER`;
-    document.getElementById('result-hit').textContent = `Our hero has perished`;
-    document.getElementById('result-damage').textContent = `Score: ${score}`;
+    document.getElementById('back-title').textContent = `GAME OVER`;
+    document.getElementById('back-text').textContent = `Our hero has perished`;
+    document.getElementById('back-roll').textContent = `Score: ${score}`;
     // Display the restart button
     document.getElementById('start-btn').textContent = `RESTART`;
     document.getElementById("start-btn").classList.toggle("hidden");

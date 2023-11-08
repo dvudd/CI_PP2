@@ -148,6 +148,42 @@ body {
     float: right;
 }
 
+#back-title {
+    width: 100%;
+    height: 2rem;
+}
+
+#back-text {
+    width: 100%;
+    height: 100%;
+}
+
+#back-roll {
+    position: absolute;
+    top: 40%;
+    font-size: 3rem;
+    width: 100%;
+}
+
+#back-hit {
+    position: absolute;
+    display: flex;
+    top: 60%;
+    width: 100%;
+    justify-content: center;
+}
+
+#start-btn {
+    position: absolute;
+    display: flex;
+    height: 2.5rem;
+    width: 90%;
+    bottom: 2rem;
+    margin: 1rem;
+    justify-content: center;
+    font-size: 2rem;
+}
+
 /* Ability buttons area */
 .btn-area {
     display: flex;
