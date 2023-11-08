@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function() {
 const player = {
     name: "Adventurer",
     hitPoints: 100,
-    currentHitPoints: 10, //
+    currentHitPoints: 100,
     armorClass: 13,
     toHit: 5,
     numDices: 1,
