@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function() {
 const player = {
     name: "Adventurer",
     hitPoints: 100,
-    currentHitPoints: 100,
+    currentHitPoints: 10, //
     armorClass: 13,
     toHit: 5,
     numDices: 1,
@@ -44,8 +44,9 @@ const monsters = [
     },
 ];
 
-// Flag to indicate whose turn it is
+// Global variables
 let isPlayerTurn = true;
+let newGame = true;
 let currentMonster = null;
 let score = 0;
 
@@ -53,6 +54,10 @@ let score = 0;
  * Main game loop
  */
 async function gameLoop() {
+    // If this is a new game, display the new game screen
+    if (newGame) {
+        await newGameScreen();
+    }
     while(player.currentHitPoints > 0) {
         if (currentMonster === null) {
             // If there's no current monster, select a random one
@@ -429,12 +434,44 @@ function resetResults() {
 }
 
 /**
+ * Displays the new game screen.
+ * Waits for the player to press the start game buttoin
+ */
+async function newGameScreen() {
+    return new Promise((resolve) => {
+        // flip the player card
+        document.getElementById("attack-btn").classList.add("hidden");
+        document.getElementById("ability-btn").classList.add("hidden");
+        document.getElementById("player-card").classList.add("player-card-flip");
+        document.getElementById('back-title').textContent = `DUNGEONS & DICES`;
+        document.getElementById('back-text').textContent = `Hello adventurer!`;
+        document.getElementById('start-btn').textContent = `START GAME`;
+        document.getElementById("start-btn").classList.remove("hidden");
+        async function onStartGameClick() {
+            startGameBtn.removeEventListener('click', onStartGameClick);
+            newGame = false;
+            document.getElementById("player-card").classList.remove("player-card-flip");
+            await sleep(850);
+            resetResults();
+            document.getElementById("start-btn").classList.add("hidden");
+            document.getElementById("attack-btn").classList.remove("hidden");
+            document.getElementById("ability-btn").classList.remove("hidden");
+            resolve();
+        }
+        let startGameBtn = document.getElementById('start-btn');
+        startGameBtn.addEventListener('click', onStartGameClick);
+    });
+}
+
+/**
  * Displays the game over screen with the players final score.
  */
 function gameOver() {
     console.log("YOU DIED"); // REMOVE THIS
     // remove the monster card
     document.getElementById("monster-card").classList.add("hide-monster");
+    document.getElementById("attack-btn").classList.add("hidden");
+    document.getElementById("ability-btn").classList.add("hidden");
     // flip the player card
     document.getElementById("player-card").classList.add("player-card-flip");
     // display the game over text and final score
@@ -443,7 +480,7 @@ function gameOver() {
     document.getElementById('back-roll').textContent = `Score: ${score}`;
     // Display the restart button
     document.getElementById('start-btn').textContent = `RESTART`;
-    document.getElementById("start-btn").classList.add("hidden");
+    document.getElementById("start-btn").classList.remove("hidden");
     // Prevent the reset button to be pressed twice
     function onResetGameClick() {
         resetGameBtn.removeEventListener('click', onResetGameClick);
@@ -457,15 +494,17 @@ function gameOver() {
  * Resets the necessary flags and restarts the game
  */
 async function resetGame() {
+    console.log(`Resetting game`); // REMOVE THIS
     // Reset the player HP and the flags
     player.currentHitPoints = player.hitPoints;
     currentMonster = null;
     score = 0;
-    isPlayerTurn = true;
     // Flip the player card down again and clear the card
     document.getElementById("player-card").classList.remove("player-card-flip");
-    await sleep(700);
-    document.getElementById("start-btn").classList.remove("hidden");
+    await sleep(850);
+    document.getElementById("start-btn").classList.add("hidden");
+    document.getElementById("attack-btn").classList.remove("hidden");
+    document.getElementById("ability-btn").classList.remove("hidden");
     resetResults();
     // restart gameLoop();
     gameLoop();
