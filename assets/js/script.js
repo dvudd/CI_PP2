@@ -58,7 +58,7 @@ async function gameLoop() {
             // If there's no current monster, select a random one
             currentMonster = copyMonster(selectRandomMonster());
             document.getElementById('monster-name').textContent = currentMonster.name;
-            document.getElementById("monster-card").classList.toggle("monster-alive");
+            document.getElementById("monster-card").classList.toggle("hide-monster");
             console.log(`========== NEW ENCOUNTER ==========`); // REMOVE THIS
             console.log(`A wild ${currentMonster.name} appeared`); // REMOVE THIS
           }
@@ -208,14 +208,14 @@ async function monsterTurn() {
     if (currentMonster.hitPoints <= 0) {
         console.log(`${currentMonster.name} was defeated!`); // REMOVE THIS
         currentMonster = null;
-        document.getElementById("monster-card").classList.toggle("monster-alive");
+        document.getElementById("monster-card").classList.toggle("hide-monster");
         await sleep(2000);
         isPlayerTurn = true;
     } else {
         // It is now the monsters turn, it will attack you!
         console.log(`${currentMonster.name}´s TURN`); // REMOVE THIS
         // Bring the monster card above the player's
-        document.getElementById('top').classList.toggle('on-top');
+        document.getElementById('top-area').classList.toggle('on-top');
         // Reset the flags for hit, crit and damage
         let crit = false;
         let damage = 0;
@@ -241,7 +241,7 @@ async function monsterTurn() {
         await hitAnimation(isPlayerTurn, damage, crit);
         await sleep(700);
         // Bring the monster card back
-        document.getElementById('top').classList.toggle('on-top');
+        document.getElementById('top-area').classList.toggle('on-top');
     }
     document.getElementById('player-hp').textContent = player.currentHitPoints;
     // End the turn
@@ -435,7 +435,7 @@ function resetResults() {
 function gameOver() {
     console.log("YOU DIED"); // REMOVE THIS
     // remove the monster card
-    document.getElementById("monster-card").classList.toggle("monster-alive");
+    document.getElementById("monster-card").classList.toggle("hide-monster");
     // flip the player card
     document.getElementById("player-card").classList.toggle("player-card-flip");
     // display the game over text and final score
