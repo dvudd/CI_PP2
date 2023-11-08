@@ -61,8 +61,8 @@ body {
  /* Card Styles */
 .card {
     position: absolute;
-    width: 21rem;
-    height: 24rem;
+    width: 15rem;
+    height: 18rem;
     transform-style: preserve-3d;
     perspective: 1000px;
     transition:
@@ -288,5 +288,9 @@ body {
 @media screen and (min-width: 576px) { 
     .btn-area {
         width: 32rem;
+    }
+    .card {
+        width: 21rem;
+        height: 24rem;
     }
 }
