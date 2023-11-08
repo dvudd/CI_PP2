@@ -58,7 +58,7 @@ async function gameLoop() {
             // If there's no current monster, select a random one
             currentMonster = copyMonster(selectRandomMonster());
             document.getElementById('monster-name').textContent = currentMonster.name;
-            document.getElementById("monster-card").classList.toggle("hide-monster");
+            document.getElementById("monster-card").classList.remove("hide-monster");
             console.log(`========== NEW ENCOUNTER ==========`); // REMOVE THIS
             console.log(`A wild ${currentMonster.name} appeared`); // REMOVE THIS
           }
@@ -119,8 +119,8 @@ async function playerTurn() {
 async function playerAttack() {
     console.log(`Current score: ${score}`); // REMOVE THIS
     // Flip the player card and dim the monster card
-    document.getElementById("player-card").classList.toggle("player-card-flip");
-    document.getElementById("monster-card").classList.toggle("dim");
+    document.getElementById("player-card").classList.add("player-card-flip");
+    document.getElementById("monster-card").classList.add("dim");
     // Reset the flags for hit, crit and damage
     let hit = false;
     let crit = false;
@@ -150,8 +150,8 @@ async function playerAttack() {
     displayResult(diceRoll, hit, crit, damage);
     await sleep(3000);
     // Close the result card and brighten the background
-    document.getElementById("player-card").classList.toggle("player-card-flip");
-    document.getElementById("monster-card").classList.toggle("dim");
+    document.getElementById("player-card").classList.remove("player-card-flip");
+    document.getElementById("monster-card").classList.remove("dim");
     // If the attack hits, play the attack animation
     if (hit) {
         await hitAnimation(isPlayerTurn, damage, crit);
@@ -169,8 +169,8 @@ async function playerAttack() {
 async function playerAbility() {
     console.log("Player pressed the ability button"); // REMOVE THIS
     // Flip the player card and dim the monster card
-    document.getElementById("player-card").classList.toggle("player-card-flip");
-    document.getElementById("monster-card").classList.toggle("dim");
+    document.getElementById("player-card").classList.add("player-card-flip");
+    document.getElementById("monster-card").classList.add("dim");
     await sleep(700);
     document.getElementById('back-text').textContent = `You drink a potion!`;
     await sleep(1000);
@@ -184,15 +184,15 @@ async function playerAbility() {
     // Display animation for healing
     document.getElementById('back-roll').textContent = `${healing}`;
     await sleep(2000);
-    document.getElementById("player-card").classList.toggle("player-card-flip");
-    document.getElementById("monster-card").classList.toggle("dim");
+    document.getElementById("player-card").classList.remove("player-card-flip");
+    document.getElementById("monster-card").classList.remove("dim");
     await sleep(700);
     document.getElementById(`player-damage-taken`).textContent = `+${healing}`;
-    document.getElementById(`player-damage-taken`).classList.toggle("damage-taken");
+    document.getElementById(`player-damage-taken`).classList.add("damage-taken");
     await sleep(500);
     document.getElementById('player-hp').textContent = player.currentHitPoints;
     document.getElementById(`player-damage-taken`).textContent = ``;
-    document.getElementById(`player-damage-taken`).classList.toggle("damage-taken");
+    document.getElementById(`player-damage-taken`).classList.remove("damage-taken");
     // Reset for the next turn
     isPlayerTurn = false;
     resetResults();
@@ -208,14 +208,14 @@ async function monsterTurn() {
     if (currentMonster.hitPoints <= 0) {
         console.log(`${currentMonster.name} was defeated!`); // REMOVE THIS
         currentMonster = null;
-        document.getElementById("monster-card").classList.toggle("hide-monster");
+        document.getElementById("monster-card").classList.add("hide-monster");
         await sleep(2000);
         isPlayerTurn = true;
     } else {
         // It is now the monsters turn, it will attack you!
         console.log(`${currentMonster.name}´s TURN`); // REMOVE THIS
         // Bring the monster card above the player's
-        document.getElementById('top-area').classList.toggle('on-top');
+        document.getElementById('top-area').classList.add('on-top');
         // Reset the flags for hit, crit and damage
         let crit = false;
         let damage = 0;
@@ -241,7 +241,7 @@ async function monsterTurn() {
         await hitAnimation(isPlayerTurn, damage, crit);
         await sleep(700);
         // Bring the monster card back
-        document.getElementById('top-area').classList.toggle('on-top');
+        document.getElementById('top-area').classList.remove('on-top');
     }
     document.getElementById('player-hp').textContent = player.currentHitPoints;
     // End the turn
@@ -368,29 +368,29 @@ async function hitAnimation(isPlayerTurn, damage, crit)  {
         target = "player";
     }
     await sleep(1000);
-    document.getElementById(`${attacker}-card`).classList.toggle(`${attacker}-attack-animation`);
+    document.getElementById(`${attacker}-card`).classList.add(`${attacker}-attack-animation`);
     await sleep(150);
     if (damage === 0) {
         damage = "MISS!";
         document.getElementById(`${target}-damage-taken`).textContent = `${damage}`;
-        document.getElementById(`${target}-damage-taken`).classList.toggle("damage-taken");
+        document.getElementById(`${target}-damage-taken`).classList.add("damage-taken");
         await sleep(80);
         await sleep(100);
-        document.getElementById(`${attacker}-card`).classList.toggle(`${attacker}-attack-animation`);
+        document.getElementById(`${attacker}-card`).classList.remove(`${attacker}-attack-animation`);
         await sleep(800);
         document.getElementById(`${target}-damage-taken`).textContent = ``;
-        document.getElementById(`${target}-damage-taken`).classList.toggle("damage-taken");
+        document.getElementById(`${target}-damage-taken`).classList.remove("damage-taken");
     } else {
-        document.getElementById(`${target}-card`).classList.toggle("damage-animation");
+        document.getElementById(`${target}-card`).classList.add("damage-animation");
         document.getElementById(`${target}-damage-taken`).textContent = `-${damage}`;
-        document.getElementById(`${target}-damage-taken`).classList.toggle("damage-taken");
+        document.getElementById(`${target}-damage-taken`).classList.add("damage-taken");
         await sleep(80);
-        document.getElementById(`${target}-card`).classList.toggle("damage-animation");
+        document.getElementById(`${target}-card`).classList.remove("damage-animation");
         await sleep(100);
-        document.getElementById(`${attacker}-card`).classList.toggle(`${attacker}-attack-animation`);
+        document.getElementById(`${attacker}-card`).classList.remove(`${attacker}-attack-animation`);
         await sleep(800);
         document.getElementById(`${target}-damage-taken`).textContent = ``;
-        document.getElementById(`${target}-damage-taken`).classList.toggle("damage-taken");
+        document.getElementById(`${target}-damage-taken`).classList.remove("damage-taken");
     }
 }
 
@@ -434,16 +434,16 @@ function resetResults() {
 function gameOver() {
     console.log("YOU DIED"); // REMOVE THIS
     // remove the monster card
-    document.getElementById("monster-card").classList.toggle("hide-monster");
+    document.getElementById("monster-card").classList.add("hide-monster");
     // flip the player card
-    document.getElementById("player-card").classList.toggle("player-card-flip");
+    document.getElementById("player-card").classList.add("player-card-flip");
     // display the game over text and final score
     document.getElementById('back-title').textContent = `GAME OVER`;
     document.getElementById('back-text').textContent = `Our hero has perished`;
     document.getElementById('back-roll').textContent = `Score: ${score}`;
     // Display the restart button
     document.getElementById('start-btn').textContent = `RESTART`;
-    document.getElementById("start-btn").classList.toggle("hidden");
+    document.getElementById("start-btn").classList.add("hidden");
     // Prevent the reset button to be pressed twice
     function onResetGameClick() {
         resetGameBtn.removeEventListener('click', onResetGameClick);
@@ -463,9 +463,9 @@ async function resetGame() {
     score = 0;
     isPlayerTurn = true;
     // Flip the player card down again and clear the card
-    document.getElementById("player-card").classList.toggle("player-card-flip");
+    document.getElementById("player-card").classList.remove("player-card-flip");
     await sleep(700);
-    document.getElementById("start-btn").classList.toggle("hidden");
+    document.getElementById("start-btn").classList.remove("hidden");
     resetResults();
     // restart gameLoop();
     gameLoop();
