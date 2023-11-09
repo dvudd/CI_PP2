@@ -456,18 +456,20 @@ async function newGameScreen() {
         // flip the player card
         document.getElementById("attack-btn").classList.add("hidden");
         document.getElementById("ability-btn").classList.add("hidden");
-        document.getElementById("player-card").classList.add("player-card-flip");
+        document.getElementById("start-btn").classList.add("button-fade");
         document.getElementById('back-title').textContent = `DUNGEONS & DICES`;
         document.getElementById('back-text').textContent = `Hello adventurer!`;
-        document.getElementById('start-btn').textContent = `START GAME`;
+        document.getElementById('start-btn').textContent = `START`;
+        document.getElementById("player-card").classList.add("player-card-flip");
         document.getElementById("start-btn").classList.remove("hidden");
         async function onStartGameClick() {
             startGameBtn.removeEventListener('click', onStartGameClick);
             newGame = false;
             document.getElementById("player-card").classList.remove("player-card-flip");
+            document.getElementById("start-btn").classList.remove("button-fade");
+            document.getElementById("start-btn").classList.add("hidden");
             await sleep(850);
             resetResults();
-            document.getElementById("start-btn").classList.add("hidden");
             document.getElementById("attack-btn").classList.remove("hidden");
             document.getElementById("ability-btn").classList.remove("hidden");
             resolve();
@@ -480,7 +482,7 @@ async function newGameScreen() {
 /**
  * Displays the game over screen with the players final score.
  */
-function gameOver() {
+async function gameOver() {
     console.log("YOU DIED"); // REMOVE THIS
     // remove the monster card
     document.getElementById("monster-card").classList.add("hide-monster");
@@ -488,6 +490,8 @@ function gameOver() {
     document.getElementById("ability-btn").classList.add("hidden");
     // flip the player card
     document.getElementById("player-card").classList.add("player-card-flip");
+    await sleep(850);
+    document.getElementById("start-btn").classList.add("button-fade");
     // display the game over text and final score
     document.getElementById('back-title').textContent = `GAME OVER`;
     document.getElementById('back-text').textContent = `Our hero has perished`;
@@ -515,8 +519,8 @@ async function resetGame() {
     score = 0;
     // Flip the player card down again and clear the card
     document.getElementById("player-card").classList.remove("player-card-flip");
-    await sleep(850);
     document.getElementById("start-btn").classList.add("hidden");
+    await sleep(850);
     document.getElementById("attack-btn").classList.remove("hidden");
     document.getElementById("ability-btn").classList.remove("hidden");
     resetResults();

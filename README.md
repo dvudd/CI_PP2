@@ -178,6 +178,20 @@ function rollForDamage(creature, crit) {
 This caused the hitdice functions to be run only once at the start of the game and not be a random number for each roll as intended. The solution was to revert the changes.
 
 </details>
+<details><summary>Bug: Start button could not be pressed in Safari</summary>
+
+This bug only occured in MacOS Safari, the original plan was to have the Start button flip together with the player card, like it was a part of it. However in testing I realised that only one half of the button was clickable. This has something with how Safari interperrets the `transform-style: preserve-3d;` in CSS, I could not fix it without moving the Start button from the player-card div to the btn-area div (where it logically belongs). However after that I struggled with getting the button flip animation to work smoothly with the card, I eventually settled with creating a fade animation for the button.
+```css
+.button-fade {
+	animation: buttonFade ease 1s;
+}
+@keyframes buttonFade {
+	0% { opacity: 0; }
+	100% { opacity: 1; }
+}
+```
+
+</details>
 ### Known Bugs
 **LÄGG TILL KÄNDA BUGGAR HÄR**
 ## Technologies used
