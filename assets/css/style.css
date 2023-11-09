@@ -214,6 +214,7 @@ body {
     transform: translate(0%, -50%) rotateY(180deg);
 }
 
+/* Button fade animation */
 .button-fade {
     animation: buttonFade ease 1s;
 }
@@ -295,8 +296,6 @@ body {
 @media screen and (min-width: 576px) { 
     .btn-area {
         width: 32rem;
-        /*top: 15rem;
-        bottom: auto; */
     }
     .card {
         width: 21rem;
