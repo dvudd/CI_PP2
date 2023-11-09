@@ -131,7 +131,7 @@ body {
     background-color: var(--bg-player-card-back);
     transform: rotateY(-180deg);
 }
-
+/* Text styles on front card */
 .player-hp {
     float: left;
 }
@@ -140,6 +140,7 @@ body {
     float: right;
 }
 
+/* Text styles on back card */
 #back-title {
     width: 100%;
     height: 2rem;
@@ -165,6 +166,19 @@ body {
     justify-content: center;
 }
 
+/* Start button styles */
+#start-btn {
+    position: absolute;
+    display: flex;
+    height: 2.5rem;
+    width: 10rem;
+    top: 5rem;
+    margin: 1rem;
+    justify-content: center;
+    font-size: 2rem;
+    transition: 1s;
+}
+
 /* Ability buttons area */
 .btn-area {
     display: flex;
@@ -173,7 +187,8 @@ body {
     align-items: center;
     height: 3rem;
     width: 100%;
-    top: 15rem;
+    top: auto;
+    bottom: 5rem;
 }
 
 .btn {
@@ -181,17 +196,6 @@ body {
     width: 4rem;
     border-radius: 50%;
     transition: transform 1s;
-}
-
-#start-btn {
-    position: absolute;
-    display: flex;
-    height: 2.5rem;
-    width: 10rem;
-    bottom: 10rem;
-    margin: 1rem;
-    justify-content: center;
-    font-size: 2rem;
 }
 
 #attack-btn {
@@ -287,13 +291,26 @@ body {
     }
 }
 
-  /* Media query: large or landscape phones (576px and up) */
+/* Media query: large or landscape phones (576px and up) */
 @media screen and (min-width: 576px) { 
     .btn-area {
         width: 32rem;
+        /*top: 15rem;
+        bottom: auto; */
     }
     .card {
         width: 21rem;
         height: 24rem;
+    }
+    #start-btn {
+        top: 7rem;
+        width: 15rem;
+    }
+}
+/* Media query: Larger screens (1000px and up) */
+@media screen and (min-height: 1000px) { 
+    .btn-area {
+        top: 25rem;
+        bottom: auto;
     }
 }
