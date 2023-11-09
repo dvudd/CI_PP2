@@ -410,7 +410,7 @@ async function diceAnimation(dice) {
         await sleep(100);
     }
     // Show the actual roll
-    document.getElementById('back-roll').textContent = `${dice}`;;
+    document.getElementById('back-roll').textContent = `${dice}`;
   }
 
 /**
