@@ -192,6 +192,7 @@ This bug only occured in MacOS Safari, the original plan was to have the Start b
 ```
 
 </details>
+
 ### Known Bugs
 **LÄGG TILL KÄNDA BUGGAR HÄR**
 ## Technologies used
