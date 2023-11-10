@@ -453,16 +453,18 @@ function resetResults() {
  * Waits for the player to press the start game buttoin
  */
 async function newGameScreen() {
+    // Set text on start screen
+    document.getElementById('back-title').textContent = `DUNGEONS & DICES`;
+    document.getElementById('back-text').textContent = `Hello adventurer!`;
+    document.getElementById('start-btn').textContent = `START`;
+    // Flip the player card
+    document.getElementById("player-card").classList.add("player-card-flip");
+    await sleep(800);
+    // Show the start button
+    document.getElementById("start-btn").classList.add("button-fade");
+    document.getElementById("start-btn").classList.remove("hidden");
     return new Promise((resolve) => {
-        // flip the player card
-        document.getElementById("attack-btn").classList.add("hidden");
-        document.getElementById("ability-btn").classList.add("hidden");
-        document.getElementById("start-btn").classList.add("button-fade");
-        document.getElementById('back-title').textContent = `DUNGEONS & DICES`;
-        document.getElementById('back-text').textContent = `Hello adventurer!`;
-        document.getElementById('start-btn').textContent = `START`;
-        document.getElementById("player-card").classList.add("player-card-flip");
-        document.getElementById("start-btn").classList.remove("hidden");
+        // Prevent the start button to be clicked twice
         async function onStartGameClick() {
             startGameBtn.removeEventListener('click', onStartGameClick);
             newGame = false;
@@ -473,6 +475,7 @@ async function newGameScreen() {
             resetResults();
             document.getElementById("attack-btn").classList.remove("hidden");
             document.getElementById("ability-btn").classList.remove("hidden");
+            document.getElementById("monster-card").classList.remove("hidden");
             resolve();
         }
         let startGameBtn = document.getElementById('start-btn');
