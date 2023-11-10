@@ -23,7 +23,7 @@ const player = {
  */
 const monsters = [
     {
-        name: "Goblin",
+        name: "goblin",
         hitPoints: 7,
         currentHitPoints: 7,
         armorClass: 15,
@@ -33,7 +33,7 @@ const monsters = [
         plusDmg: 2,
     },
     {
-        name: "Orc",
+        name: "orc",
         hitPoints: 15,
         currentHitPoints: 15,
         armorClass: 13,
@@ -62,14 +62,14 @@ async function gameLoop() {
         if (currentMonster === null) {
             // If there's no current monster, select a random one
             currentMonster = copyMonster(selectRandomMonster());
+            document.getElementById("monster-card-front").classList.add(`monster-${currentMonster.name}`);
             document.getElementById('monster-name').textContent = currentMonster.name;
             document.getElementById("monster-card").classList.remove("hide-monster");
             console.log(`========== NEW ENCOUNTER ==========`); // REMOVE THIS
             console.log(`A wild ${currentMonster.name} appeared`); // REMOVE THIS
           }
-        // Update the players HP and AC on the player card
+        // Update the players HP on the player card
         document.getElementById('player-hp').textContent = player.currentHitPoints;
-        document.getElementById('player-ac').textContent = player.armorClass;
         if (isPlayerTurn) {
             // It's the player's turn
             await playerTurn();
@@ -212,9 +212,10 @@ async function monsterTurn() {
     // Check if the monster is still alive.
     if (currentMonster.hitPoints <= 0) {
         console.log(`${currentMonster.name} was defeated!`); // REMOVE THIS
-        currentMonster = null;
         document.getElementById("monster-card").classList.add("hide-monster");
         await sleep(2000);
+        document.getElementById("monster-card-front").classList.remove(`monster-${currentMonster.name}`);
+        currentMonster = null;
         isPlayerTurn = true;
     } else {
         // It is now the monsters turn, it will attack you!
