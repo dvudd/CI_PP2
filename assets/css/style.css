@@ -115,13 +115,39 @@ body {
     bottom: 6rem;
 }
 
+/* Backgrounds for the different monsters */
+.monster-goblin1 {
+    background-image: url(../images/monster-goblin1.webp);
+}
+
+.monster-goblin2 {
+    background-image: url(../images/monster-goblin2.webp);
+}
+
+.monster-goblin3 {
+    background-image: url(../images/monster-goblin3.webp);
+}
+
+.monster-skeleton1 {
+    background-image: url(../images/monster-skeleton1.webp);
+}
+
+.monster-skeleton2 {
+    background-image: url(../images/monster-skeleton2.webp);
+}
+
+.monster-skeleton3 {
+    background-image: url(../images/monster-skeleton3.webp);
+}
+
 .monster-orc {
     background-image: url(../images/monster-orc.webp);
 }
 
-.monster-goblin {
-    background-image: url(../images/monster-goblin.webp);
+.monster-troll {
+    background-image: url(../images/monster-troll.webp);
 }
+
 /* Player card styles */
 .player-card {
     top: 1rem;

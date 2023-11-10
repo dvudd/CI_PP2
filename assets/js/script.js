@@ -24,6 +24,7 @@ const player = {
 const monsters = [
     {
         name: "goblin",
+        cardImage: "goblin1",
         hitPoints: 7,
         currentHitPoints: 7,
         armorClass: 15,
@@ -33,14 +34,81 @@ const monsters = [
         plusDmg: 2,
     },
     {
+        name: "goblin scout",
+        cardImage: "goblin2",
+        hitPoints: 8,
+        currentHitPoints: 8,
+        armorClass: 15,
+        toHit: 3,
+        numDices: 2,
+        hitDice: d4,
+        plusDmg: 2,
+    },
+    {
+        name: "goblin champion",
+        cardImage: "goblin3",
+        hitPoints: 11,
+        currentHitPoints: 9,
+        armorClass: 13,
+        toHit: 4,
+        numDices: 2,
+        hitDice: d6,
+        plusDmg: 2,
+    },
+    {
+        name: "skeleton",
+        cardImage: "skeleton1",
+        hitPoints: 13,
+        currentHitPoints: 13,
+        armorClass: 13,
+        toHit: 4,
+        numDices: 2,
+        hitDice: d6,
+        plusDmg: 4,
+    },
+    {
+        name: "skeleton guard",
+        cardImage: "skeleton2",
+        hitPoints: 13,
+        currentHitPoints: 13,
+        armorClass: 15,
+        toHit: 4,
+        numDices: 1,
+        hitDice: d6,
+        plusDmg: 4,
+    },
+    {
+        name: "skeleton mage",
+        cardImage: "skeleton3",
+        hitPoints: 10,
+        currentHitPoints: 10,
+        armorClass: 10,
+        toHit: 2,
+        numDices: 3,
+        hitDice: d4,
+        plusDmg: 3,
+    },
+    {
         name: "orc",
-        hitPoints: 15,
+        cardImage: "orc",
+        hitPoints: 18,
         currentHitPoints: 15,
         armorClass: 13,
         toHit: 5,
         numDices: 1,
         hitDice: d12,
         plusDmg: 3,
+    },
+    {
+        name: "troll",
+        cardImage: "troll",
+        hitPoints: 32,
+        currentHitPoints: 28,
+        armorClass: 15,
+        toHit: 7,
+        numDices: 2,
+        hitDice: d6,
+        plusDmg: 4,
     },
 ];
 
@@ -62,7 +130,7 @@ async function gameLoop() {
         if (currentMonster === null) {
             // If there's no current monster, select a random one
             currentMonster = copyMonster(selectRandomMonster());
-            document.getElementById("monster-card-front").classList.add(`monster-${currentMonster.name}`);
+            document.getElementById("monster-card-front").classList.add(`monster-${currentMonster.cardImage}`);
             document.getElementById('monster-name').textContent = currentMonster.name;
             document.getElementById("monster-card").classList.remove("hide-monster");
             console.log(`========== NEW ENCOUNTER ==========`); // REMOVE THIS
@@ -214,7 +282,7 @@ async function monsterTurn() {
         console.log(`${currentMonster.name} was defeated!`); // REMOVE THIS
         document.getElementById("monster-card").classList.add("hide-monster");
         await sleep(2000);
-        document.getElementById("monster-card-front").classList.remove(`monster-${currentMonster.name}`);
+        document.getElementById("monster-card-front").classList.remove(`monster-${currentMonster.cardImage}`);
         currentMonster = null;
         isPlayerTurn = true;
     } else {
