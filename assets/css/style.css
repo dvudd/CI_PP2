@@ -124,6 +124,7 @@ body {
     width: 100%;
     height: 100%;
     backface-visibility: hidden;
+    background-size: contain;
     box-shadow: 0 4px 8px 0 var(--secondary);
 }
 
@@ -137,13 +138,13 @@ body {
 .player-card-front {
     background-color: var(--bg-player-card-front);
     transform: rotateY(0deg);
-    background-image: url(../images/player.webp);
-    background-size: contain;
+    background-image: url(../images/player-front.webp);
 }
   
 .player-card-back {
     background-color: var(--bg-player-card-back);
     transform: rotateY(-180deg);
+    background-image: url(../images/player-back.webp);
 }
 /* Text styles on front card */
 .player-hp {
@@ -158,6 +159,8 @@ body {
 
 /* Text styles on back card */
 #back-title {
+    position: absolute;
+    top: 1rem;
     width: 100%;
     height: 2rem;
 }
@@ -165,6 +168,8 @@ body {
 #back-text {
     width: 100%;
     height: 100%;
+    position: absolute;
+    top: 3rem;
 }
 
 #back-roll {
@@ -328,6 +333,14 @@ body {
         top: 1.25rem;
         left: 1.5rem;
         font-size: 1.2rem;
+    }
+
+    #back-title {
+        top: 1.25rem;
+    }
+
+    #back-text {
+        top: 3.25rem;
     }
 
     #start-btn {
