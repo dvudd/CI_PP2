@@ -197,11 +197,23 @@ body {
     position: absolute;
     display: flex;
     height: 2.5rem;
-    width: 10rem;
+    width: 12.5rem;
     top: 5rem;
     margin: 1rem;
     justify-content: center;
+    color: var(--primary);
+    font-family: 'VT323', sans-serif;
     font-size: 2rem;
+    background-color: #353935;
+    border-bottom: 4px inset rgba(0,0,0,.5);
+	border-left: 5px inset rgba(0,0,0,.5);
+	border-right: 4px inset rgba(255,255,255,.5);
+	border-top: 4px inset rgba(255,255,255,.5);
+	box-sizing: border-box;
+}
+
+#start-btn:hover {
+    background-color: #4E554E;
 }
 
 /* Ability buttons area */
