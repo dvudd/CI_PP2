@@ -218,19 +218,42 @@ body {
 
 .btn {
     font-size: 48px;
+    height: 4rem;
     width: 4rem;
-    border-radius: 50%;
+    /*border-radius: 50%;*/
     transition: transform 1s;
+    cursor:pointer;
+    border:none;
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
 #attack-btn {
     position: absolute;
     left: 0.5rem;
+    background: url(../images/btn-atk.webp);
+}
+
+#attack-btn:active {
+    background-image: url(../images/btn-atk-pressed.webp);
+}
+
+#attack-btn:hover {
+    background-image: url(../images/btn-atk-hover.webp);
 }
 
 #ability-btn {
     position: absolute;
     right: 0.5rem;
+    background: url(../images/btn-ability.webp);
+}
+
+#ability-btn:active {
+    background-image: url(../images/btn-ability-pressed.webp);
+}
+
+#ability-btn:hover {
+    background-image: url(../images/btn-ability-hover.webp);
 }
 
 /* Animations */
