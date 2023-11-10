@@ -106,6 +106,15 @@ body {
     text-transform: uppercase;
 }
 
+#monster-damage-taken {
+    position: absolute;
+    width: 5rem;
+    height: 2rem;
+    display: flex;
+    left: 5rem;
+    bottom: 6rem;
+}
+
 .monster-orc {
     background-image: url(../images/monster-orc.webp);
 }
@@ -151,10 +160,6 @@ body {
     position: absolute;
     top: 1rem;
     left: 1.25rem;
-}
-
-.player-ac {
-    float: right;
 }
 
 /* Text styles on back card */
@@ -273,16 +278,14 @@ body {
     font-size: 3.5rem;
     font-family: 'VT323', sans-serif;
     color: var(--primary);
-    color: red;
     -webkit-text-stroke: 2px var(--secondary);
-    animation: fadeOut 2s;
-    animation: damage-taken 1s;
+    animation: damage-taken 2s;
     visibility: visible;
-    z-index: 4;
 }
 @keyframes damage-taken {
     0% { transform: translate(0, 0); }
-    100% { transform: translate(0, -10rem); opacity: 0;}
+    25% { transform: translate(0, -7.5rem) };
+    100% { transform: translate(0, -5rem); opacity: 0;}
 }
 
 /* Animation for the card when damage is taken */
