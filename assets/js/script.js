@@ -346,14 +346,20 @@ function selectRandomMonster() {
  */
 function rollForDamage(creature, crit) {
     let damage = 0;
-    for (let i=0; i < creature.numDices; i++) {
+    let dices = 0;
+    // If it's a Critical hit, then double the amount of damage dices
+    if (crit) {
+        dices = creature.numDices * 2;
+    } else {
+        dices = creature.numDices;
+    }
+    // Roll for damage
+    for (let i=0; i < dices; i++) {
         let dmgRoll = rollDice(creature.hitDice);
         damage += dmgRoll;
         console.log(`Dice roll ${i + 1}: ${dmgRoll}`);  // REMOVE THIS
     }
-    if (crit) {
-        damage = damage * 2;
-    }
+    // Add the plus damage modifier
     console.log(`Damage roll: ${damage} + ${creature.plusDmg}`); // REMOVE THIS
     damage += creature.plusDmg;
     console.log(`Total Damage: ${damage}`); // REMOVE THIS
