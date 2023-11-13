@@ -511,7 +511,9 @@ async function displayResult(dice, hit, crit, damage) {
  */
 function resetResults() {
     document.getElementById('back-title').textContent = ``;
-    document.getElementById('back-text').textContent = ``;
+    document.getElementById('back-subtitle').textContent = ``;
+    document.getElementById('back-text-upper').textContent = ``;
+    document.getElementById('back-text-lower').textContent = ``;
     document.getElementById('back-roll').textContent = ``;
     document.getElementById('back-hit').textContent = ``;
 }
@@ -523,7 +525,9 @@ function resetResults() {
 async function newGameScreen() {
     // Set text on start screen
     document.getElementById('back-title').textContent = `DUNGEONS & DICES`;
-    document.getElementById('back-text').textContent = `Hello adventurer!`;
+    document.getElementById('back-subtitle').textContent = `Hello adventurer!`;
+    document.getElementById('back-text-upper').textContent = `Dwell into the dungeon, defeat as many monsters as you can.`;
+    document.getElementById('back-text-lower').textContent = `How to play: During your turn you can either attack with the sword or drink a healing potion`;
     document.getElementById('start-btn').textContent = `START`;
     // Flip the player card
     document.getElementById("player-card").classList.add("player-card-flip");
@@ -566,8 +570,9 @@ async function gameOver() {
     document.getElementById("start-btn").classList.add("button-fade");
     // display the game over text and final score
     document.getElementById('back-title').textContent = `GAME OVER`;
-    document.getElementById('back-text').textContent = `Our hero has perished`;
-    document.getElementById('back-roll').textContent = `Score: ${score}`;
+    document.getElementById('back-subtitle').textContent = `Our hero has perished`;
+    document.getElementById('back-text-upper').textContent = `Score:`;
+    document.getElementById('back-roll').textContent = `${score}`;
     // Display the restart button
     document.getElementById('start-btn').textContent = `RESTART`;
     document.getElementById("start-btn").classList.remove("hidden");

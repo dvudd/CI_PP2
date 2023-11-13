@@ -180,6 +180,8 @@ body {
     background-color: var(--bg-player-card-back);
     transform: rotateY(-180deg);
     background-image: url(../images/player-back.webp);
+    display: flex;
+    justify-content: center;
 }
 /* Text styles on front card */
 .player-hp {
@@ -189,33 +191,39 @@ body {
 }
 
 /* Text styles on back card */
-#back-title {
+.back-text {
     position: absolute;
-    top: 1rem;
-    width: 100%;
+    width: 80%;
+}
+#back-title {
     height: 2rem;
+    top: 1rem;
 }
 
-#back-text {
-    width: 100%;
-    height: 100%;
-    position: absolute;
+#back-subtitle {
+    height: 1rem;
     top: 3rem;
 }
 
+#back-text-upper {
+    height: 30%;
+    top: 4.5rem;
+}
+
+#back-text-lower {
+    height: 50%;
+    top: 9rem;
+}
+
 #back-roll {
-    position: absolute;
     top: 40%;
     font-size: 3rem;
-    width: 100%;
+    height: 3rem;
 }
 
 #back-hit {
-    position: absolute;
-    display: flex;
+    height: 2rem;
     top: 60%;
-    width: 100%;
-    justify-content: center;
 }
 
 /* Start button styles */
