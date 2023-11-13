@@ -14,7 +14,7 @@ const player = {
     armorClass: 13,
     toHit: 5,
     numDices: 1,
-    hitDice: d10,
+    hitDice: 10,
     plusDmg: 3,
 };
   
@@ -30,7 +30,7 @@ const monsters = [
         armorClass: 15,
         toHit: 4,
         numDices: 1,
-        hitDice: d6,
+        hitDice: 6,
         plusDmg: 2,
     },
     {
@@ -41,7 +41,7 @@ const monsters = [
         armorClass: 15,
         toHit: 3,
         numDices: 2,
-        hitDice: d4,
+        hitDice: 4,
         plusDmg: 2,
     },
     {
@@ -52,7 +52,7 @@ const monsters = [
         armorClass: 13,
         toHit: 4,
         numDices: 2,
-        hitDice: d6,
+        hitDice: 6,
         plusDmg: 2,
     },
     {
@@ -63,7 +63,7 @@ const monsters = [
         armorClass: 13,
         toHit: 4,
         numDices: 2,
-        hitDice: d6,
+        hitDice: 6,
         plusDmg: 4,
     },
     {
@@ -74,7 +74,7 @@ const monsters = [
         armorClass: 15,
         toHit: 4,
         numDices: 1,
-        hitDice: d6,
+        hitDice: 6,
         plusDmg: 4,
     },
     {
@@ -85,7 +85,7 @@ const monsters = [
         armorClass: 10,
         toHit: 2,
         numDices: 3,
-        hitDice: d4,
+        hitDice: 4,
         plusDmg: 3,
     },
     {
@@ -96,7 +96,7 @@ const monsters = [
         armorClass: 13,
         toHit: 5,
         numDices: 1,
-        hitDice: d12,
+        hitDice: 12,
         plusDmg: 3,
     },
     {
@@ -107,7 +107,7 @@ const monsters = [
         armorClass: 15,
         toHit: 7,
         numDices: 2,
-        hitDice: d6,
+        hitDice: 6,
         plusDmg: 4,
     },
 ];
@@ -199,7 +199,7 @@ async function playerAttack() {
     let crit = false;
     let damage = 0;
     // Roll for attack
-    let diceRoll = d20();
+    let diceRoll = rollDice(20);
     // Check if it's a Critical Roll
     if (diceRoll === 20) {
         console.log("CRITICAL HIT!"); // REMOVE THIS
@@ -237,7 +237,7 @@ async function playerAttack() {
 
 /**
  * Player ability function.
- * This will roll 4d4 +4 and heal the player for the amount.
+ * This will roll a d20 and heal the player for that amount.
  */
 async function playerAbility() {
     console.log("Player pressed the ability button"); // REMOVE THIS
@@ -245,10 +245,11 @@ async function playerAbility() {
     document.getElementById("player-card").classList.add("player-card-flip");
     document.getElementById("monster-card").classList.add("dim");
     await sleep(700);
-    document.getElementById('back-text').textContent = `You drink a potion!`;
+    document.getElementById('back-text-upper').textContent = `You drink a potion!`;
     await sleep(1000);
     // Roll 4d4 + 4
-    let healing = d4() + d4() + d4() + d4() + 4;
+    let healing = rollDice(20);
+    diceAnimation(healing);
     player.currentHitPoints += healing;
     // Prevent players hitpoints to be more than its max value
     if (player.currentHitPoints > player.hitPoints) {
@@ -294,7 +295,7 @@ async function monsterTurn() {
         let crit = false;
         let damage = 0;
         // Roll for attack
-        let diceRoll = d20();
+        let diceRoll = rollDice(20);
         // Check if it's a Critical Roll
         if (diceRoll === 20) {
             console.log("CRITICAL HIT!"); // REMOVE THIS
@@ -346,7 +347,7 @@ function selectRandomMonster() {
 function rollForDamage(creature, crit) {
     let damage = 0;
     for (let i=0; i < creature.numDices; i++) {
-        let dmgRoll = creature.hitDice();
+        let dmgRoll = rollDice(creature.hitDice);
         damage += dmgRoll;
         console.log(`Dice roll ${i + 1}: ${dmgRoll}`);  // REMOVE THIS
     }
@@ -360,48 +361,14 @@ function rollForDamage(creature, crit) {
 }
 
 /**
- * Simulates a roll of a d4 dice,
- * gives a random number between 1-4
+ * Simulates a roll of a dice, returns a random number between 1 to the input number
+ * @param {*} dice 
+ * @returns 
  */
-function d4() {
-    let dice = Math.floor(Math.random() * 4) + 1;
-    return dice;
-}
-
-/**
- * Simulates a roll of a d6 dice,
- * gives a random number between 1-6
- */
-function d6() {
-    let dice = Math.floor(Math.random() * 6) + 1;
-    return dice;
-}
-
-/**
- * Simulates a roll of a d10 dice,
- * gives a random number between 1-10
- */
-function d10() {
-    let dice = Math.floor(Math.random() * 10) + 1;
-    return dice;
-}
-
-/**
- * Simulates a roll of a d12 dice,
- * gives a random number between 1-12
- */
-function d12() {
-    let dice = Math.floor(Math.random() * 12) + 1;
-    return dice;
-}
-
-/**
- * Simulates a roll of a d20 dice,
- * gives a random number between 1-20
- */
-function d20() {
-    let dice = Math.floor(Math.random() * 20) + 1;
-    return dice;
+function rollDice(dice) {
+    let roll = Math.floor(Math.random() * dice) + 1;
+    console.log(`Rolling a d${dice}: ${roll}`); // REMOVE THIS
+    return roll
 }
 
 /**
@@ -475,7 +442,7 @@ async function hitAnimation(isPlayerTurn, damage, crit)  {
 async function diceAnimation(dice) {
     for (let i = 0; i < 10; i++) {
         // Show a random number
-        document.getElementById('back-roll').textContent = d20();
+        document.getElementById('back-roll').textContent = rollDice(20);
         await sleep(100);
     }
     // Show the actual roll
