@@ -187,7 +187,7 @@ async function playerTurn() {
 /**
  * Player attack function
  * Rolls a d20 and compares the result to the targets Armor Class.
- * If hit, then roll damage die and attack.
+ * If hit, then roll damage dice and attacks.
  */
 async function playerAttack() {
     console.log(`Current score: ${score}`); // REMOVE THIS
@@ -368,9 +368,9 @@ function rollForDamage(creature, crit) {
 }
 
 /**
- * Simulates a roll of a dice, returns a random number between 1 to the input number
+ * Simulates a roll of a dice
  * @param {*} dice 
- * @returns 
+ * @returns random number between 1 and the input number
  */
 function rollDice(dice) {
     let roll = Math.floor(Math.random() * dice) + 1;
