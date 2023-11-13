@@ -5,7 +5,7 @@
 :root {
     --primary: #fafafa;
     --secondary: #3a3a3a;
-    --highlight: gold;
+    --critical: crimson;
     --bg-monster-card: red;
     --bg-player-card-front: cyan;
     --bg-player-card-back: pink;
@@ -360,16 +360,17 @@ body {
     75% { transform: translate(-5px, 5px) rotate(-5deg); }
     100% { transform: translate(0, 0) rotate(0deg); }
   }
-
+  
+/* Styles the text for critical hits */
 .back-hit-critical {
     font-size: 1.5rem;
-    color: crimson;
+    color: var(--critical);
     text-decoration: underline;
     text-underline-offset: 0.5rem;
 }
 
 .damage-taken-critical {
-    color: crimson;
+    color: var(--critical);
 }
 
 /* Media query: smaller phones */
