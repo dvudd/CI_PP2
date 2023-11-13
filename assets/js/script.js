@@ -231,6 +231,7 @@ async function playerAttack() {
     }
     await sleep(700);
     // Reset for the next turn
+    document.getElementById('back-hit').classList.remove('back-hit-critical');
     isPlayerTurn = false;
     resetResults();
 }
@@ -428,6 +429,9 @@ async function hitAnimation(isPlayerTurn, damage, crit)  {
         document.getElementById(`${target}-damage-taken`).textContent = ``;
         document.getElementById(`${target}-damage-taken`).classList.remove("damage-taken");
     } else {
+        if (crit) {
+            document.getElementById(`${target}-damage-taken`).classList.add('damage-taken-critical');
+        }
         document.getElementById(`${target}-card`).classList.add("damage-animation");
         document.getElementById(`${target}-damage-taken`).textContent = `-${damage}`;
         document.getElementById(`${target}-damage-taken`).classList.add("damage-taken");
@@ -438,6 +442,7 @@ async function hitAnimation(isPlayerTurn, damage, crit)  {
         await sleep(800);
         document.getElementById(`${target}-damage-taken`).textContent = ``;
         document.getElementById(`${target}-damage-taken`).classList.remove("damage-taken");
+        document.getElementById(`${target}-damage-taken`).classList.remove('damage-taken-critical');
     }
 }
 
@@ -469,6 +474,7 @@ async function displayResult(dice, hit, crit, damage) {
     await sleep(1800);
     if (hit) {
         if (crit) {
+            document.getElementById('back-hit').classList.add('back-hit-critical');
             document.getElementById('back-hit').textContent = `CRITICAL HIT!`;
         } else {
             document.getElementById('back-hit').textContent = `HIT!`;
