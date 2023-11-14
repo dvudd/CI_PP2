@@ -35,6 +35,10 @@ body {
     background-position: center;
 }
 
+h2 {
+    font-size: 1.4rem;
+}
+
 #top-area {
     top: 0;
 }
@@ -82,6 +86,20 @@ body {
     visibility: hidden;
 }
 
+.hp {
+    position: absolute;
+    left: 1.5rem;
+    width: 4rem;
+    text-align: left;
+}
+
+.ac {
+    position: absolute;
+    right: 1.5rem;
+    width: 4rem;
+    text-align: right;
+}
+
 /* Styles for the font awesome heart and shield icons */
 .heart {
     color: var(--critical);
@@ -117,15 +135,7 @@ body {
     text-transform: uppercase;
 }
 
-.monster-hp {
-    position: absolute;
-    left: 1.5rem;
-    bottom: 4rem;
-}
-
-.monster-ac {
-    position: absolute;
-    right: 1.5rem;
+.monster-ui {
     bottom: 4rem;
 }
 
@@ -207,16 +217,8 @@ body {
     justify-content: center;
 }
 /* Text styles on front card */
-.player-hp {
-    position: absolute;
+.player-ui {
     top: 1.25rem;
-    left: 1.5rem;
-}
-
-.player-ac {
-    position: absolute;
-    top: 1.25rem;
-    right: 1.5rem;
 }
 
 /* Text styles on back card */
