@@ -35,10 +35,6 @@ body {
     background-position: center;
 }
 
-h2 {
-    font-size: 1.4rem;
-}
-
 #top-area {
     top: 0;
 }
@@ -226,9 +222,11 @@ h2 {
     position: absolute;
     width: 80%;
 }
+
 #back-title {
     height: 2rem;
     top: 1rem;
+    font-size: 1.3rem;
 }
 
 #back-subtitle {
@@ -444,6 +442,7 @@ h2 {
 
     #back-title {
         top: 1.25rem;
+        font-size: 1.5rem;
     }
 
     #back-text {
