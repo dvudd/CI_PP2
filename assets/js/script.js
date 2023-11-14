@@ -26,7 +26,6 @@ const monsters = [
         name: "goblin",
         cardImage: "goblin1",
         hitPoints: 7,
-        currentHitPoints: 7,
         armorClass: 15,
         toHit: 4,
         numDices: 1,
@@ -37,7 +36,6 @@ const monsters = [
         name: "goblin scout",
         cardImage: "goblin2",
         hitPoints: 8,
-        currentHitPoints: 8,
         armorClass: 15,
         toHit: 3,
         numDices: 2,
@@ -48,7 +46,6 @@ const monsters = [
         name: "goblin champion",
         cardImage: "goblin3",
         hitPoints: 11,
-        currentHitPoints: 9,
         armorClass: 13,
         toHit: 4,
         numDices: 2,
@@ -59,7 +56,6 @@ const monsters = [
         name: "skeleton",
         cardImage: "skeleton1",
         hitPoints: 13,
-        currentHitPoints: 13,
         armorClass: 13,
         toHit: 4,
         numDices: 2,
@@ -70,7 +66,6 @@ const monsters = [
         name: "skeleton guard",
         cardImage: "skeleton2",
         hitPoints: 13,
-        currentHitPoints: 13,
         armorClass: 15,
         toHit: 4,
         numDices: 1,
@@ -81,7 +76,6 @@ const monsters = [
         name: "skeleton mage",
         cardImage: "skeleton3",
         hitPoints: 10,
-        currentHitPoints: 10,
         armorClass: 10,
         toHit: 2,
         numDices: 3,
@@ -92,7 +86,6 @@ const monsters = [
         name: "orc",
         cardImage: "orc",
         hitPoints: 18,
-        currentHitPoints: 15,
         armorClass: 13,
         toHit: 5,
         numDices: 1,
@@ -103,7 +96,6 @@ const monsters = [
         name: "troll",
         cardImage: "troll",
         hitPoints: 32,
-        currentHitPoints: 28,
         armorClass: 15,
         toHit: 7,
         numDices: 2,
@@ -133,11 +125,10 @@ async function gameLoop() {
             document.getElementById("monster-card-front").classList.add(`monster-${currentMonster.cardImage}`);
             document.getElementById('monster-name').textContent = currentMonster.name;
             document.getElementById("monster-card").classList.remove("hide-monster");
+            updateUI();
             console.log(`========== NEW ENCOUNTER ==========`); // REMOVE THIS
             console.log(`A wild ${currentMonster.name} appeared`); // REMOVE THIS
           }
-        // Update the players HP on the player card
-        document.getElementById('player-hp').textContent = player.currentHitPoints;
         if (isPlayerTurn) {
             // It's the player's turn
             await playerTurn();
@@ -379,6 +370,29 @@ function rollDice(dice) {
 }
 
 /**
+ * Updates the UI for both the player and the current monster
+ */
+function updateUI() {
+    // Update players HP
+    if (player.currentHitPoints <= 0){
+        player.currentHitPoints = 0;
+    }
+    document.getElementById('player-hp').textContent = player.currentHitPoints;
+    document.getElementById('player-ac').textContent = player.armorClass;
+    // Update monsters HP
+    if (currentMonster == null) {
+        document.getElementById('monster-hp').textContent = '';
+        document.getElementById('monster-ac').textContent = '';
+    } else {
+        if (currentMonster.hitPoints <= 0) {
+            currentMonster.hitPoints = 0;
+        }
+        document.getElementById('monster-hp').textContent = currentMonster.hitPoints;
+        document.getElementById('monster-ac').textContent = currentMonster.armorClass;
+    }
+}
+
+/**
  * Sleep function
  * @param {time} ms 
  * CREDIT: https://stackoverflow.com/questions/951021/what-is-the-javascript-version-of-sleep
@@ -437,6 +451,7 @@ async function hitAnimation(isPlayerTurn, damage, crit)  {
         document.getElementById(`${target}-damage-taken`).classList.add("damage-taken");
         await sleep(80);
         document.getElementById(`${target}-card`).classList.remove("damage-animation");
+        updateUI();
         await sleep(100);
         document.getElementById(`${attacker}-card`).classList.remove(`${attacker}-attack-animation`);
         await sleep(800);
@@ -519,11 +534,14 @@ async function newGameScreen() {
         async function onStartGameClick() {
             startGameBtn.removeEventListener('click', onStartGameClick);
             newGame = false;
+            // Flip the player card, hide the start button
             document.getElementById("player-card").classList.remove("player-card-flip");
             document.getElementById("start-btn").classList.remove("button-fade");
             document.getElementById("start-btn").classList.add("hidden");
+            updateUI();
             await sleep(850);
             resetResults();
+            // Show the ability buttons and the monster card
             document.getElementById("attack-btn").classList.remove("hidden");
             document.getElementById("ability-btn").classList.remove("hidden");
             document.getElementById("monster-card").classList.remove("hidden");

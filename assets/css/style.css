@@ -82,6 +82,17 @@ body {
     visibility: hidden;
 }
 
+/* Styles for the font awesome heart and shield icons */
+.heart {
+    color: var(--critical);
+    -webkit-text-stroke: 2px var(--secondary);
+}
+
+.shield {
+    color: grey;
+    -webkit-text-stroke: 2px var(--secondary);
+}
+
 /* Monster card styles */
 .monster-card {
     bottom: 1rem;        
@@ -104,6 +115,18 @@ body {
     bottom: 1.25rem;
     width: 100%;
     text-transform: uppercase;
+}
+
+.monster-hp {
+    position: absolute;
+    left: 1.5rem;
+    bottom: 4rem;
+}
+
+.monster-ac {
+    position: absolute;
+    right: 1.5rem;
+    bottom: 4rem;
 }
 
 #monster-damage-taken {
@@ -186,8 +209,14 @@ body {
 /* Text styles on front card */
 .player-hp {
     position: absolute;
-    top: 1rem;
-    left: 1.25rem;
+    top: 1.25rem;
+    left: 1.5rem;
+}
+
+.player-ac {
+    position: absolute;
+    top: 1.25rem;
+    right: 1.5rem;
 }
 
 /* Text styles on back card */
