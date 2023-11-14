@@ -6,10 +6,17 @@
     --primary: #fafafa;
     --secondary: #3a3a3a;
     --critical: crimson;
-    --bg-monster-card: red;
     --bg-player-card-front: cyan;
     --bg-player-card-back: pink;
     --bg-color: #353935;
+    --goblin1: #FCB1A6;
+    --goblin2: #B5EF8A;
+    --goblin3: #46B1C9;
+    --skeleton1: #98CE00;
+    --skeleton2: #89A6FB;
+    --skeleton3: #0091AD;
+    --orc: #CE8147;
+    --troll: #D2D5DD;
 }
 
 /* Asterisk wildcard selector to override default styles added by the browser */
@@ -119,7 +126,6 @@ body {
     height: 100%;
     backface-visibility: hidden;
     box-shadow: 0 4px 8px 0 var(--secondary);
-    background-color: var(--bg-monster-card);
     background-size: contain;
 }
 
@@ -146,34 +152,42 @@ body {
 
 /* Backgrounds for the different monsters */
 .monster-goblin1 {
+    background-color: var(--goblin1);
     background-image: url(../images/monster-goblin1.webp);
 }
 
 .monster-goblin2 {
+    background-color: var(--goblin2);
     background-image: url(../images/monster-goblin2.webp);
 }
 
 .monster-goblin3 {
+    background-color: var(--goblin3);
     background-image: url(../images/monster-goblin3.webp);
 }
 
 .monster-skeleton1 {
+    background-color: var(--skeleton1);
     background-image: url(../images/monster-skeleton1.webp);
 }
 
 .monster-skeleton2 {
+    background-color: var(--skeleton2);
     background-image: url(../images/monster-skeleton2.webp);
 }
 
 .monster-skeleton3 {
+    background-color: var(--skeleton3);
     background-image: url(../images/monster-skeleton3.webp);
 }
 
 .monster-orc {
+    background-color: var(--orc);
     background-image: url(../images/monster-orc.webp);
 }
 
 .monster-troll {
+    background-color: var(--troll);
     background-image: url(../images/monster-troll.webp);
 }
 
@@ -434,9 +448,13 @@ body {
         bottom: 1.75rem;
     }
     
-    .player-hp {
-        top: 1.25rem;
-        left: 1.5rem;
+    .monster-ui {
+        bottom: 4.5rem;
+        font-size: 1.2rem;
+    }
+
+    .player-ui {
+        top: 1.5rem;
         font-size: 1.2rem;
     }
 
