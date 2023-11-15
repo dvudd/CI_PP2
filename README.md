@@ -264,7 +264,7 @@ This bug only occured in MacOS Safari, the original plan was to have the Start b
 1. Font Awesome
 	- Font Awesome was used to add icons on all pages for aesthetic reasons.
 2. Google Fonts
-	- Google Fonts was used to import the fonts **LÄGG TILL FONTS**
+	- Google Fonts was used to import the fonts DotGothic16 and V323.
 ## Deployment
 [Click here to view the project](https://dvudd.github.io/CI_PP2/)
 ### GitHub Pages
