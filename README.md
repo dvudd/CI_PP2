@@ -45,7 +45,64 @@ No errors were found when passing through the [JShint](https://jshint.com) analy
 #### Google Chrome Lighthouse Reports
 Här kommer lighthouse presenteras
 ### Manual testing
-**Här ska jag lägga in de manuella tester jag gjort**
+#### UI Testing
+| Element | Expected Behavior | Outcome |
+| ------- | ------------------ | ------- |
+| Start Screen | Shows at the beginning | Confirmed |
+| Start Screen | Shows the How to play instructions | Confirmed |
+| Start Button | Shows on the Start Screen | Confirmed |
+| Player Card | Shows the graphic | Confirmed |
+| Player Card | Shows the correct amount of HP and AC | Confirmed |
+| Attack Button | Shows after the game has been started | Confirmed |
+| Attack Button | Shows the Flip Card animation | Confirmed |
+| Attack Buttton | Darkens when its the monsters turn | Confirmed |
+| Attack Button | Hides on smaller screens when its the monster's turn | Confirmed |
+| Ability Button | Shows after the game has been started | Confirmed |
+| Ability Button | Shows the Flip Card animation | Confirmed |
+| Ability Button | Darkens when the its the monster's turn | Confirmed |
+| Ability Button | Hides on smaller screens when its the monster's turn | Confirmed |
+| Roll Animation | Shows random numbers 1-20 | Confirmed |
+| Roll Animation | Stops at a random number | Confirmed |
+| Roll Animation | Shows Critical Hit/Hit/Miss | Confirmed |
+| Attack Animation | Only shows if the player hits | Confirmed |
+| Attack Animation | Shows for every monster attack | Confirmed |
+| Heal Animation | Shows the correct amount healed | Confirmed |
+| Damage Taken Animation | Shows when the player attacks | Confirmed |
+| Damage Taken Animation | Shows when the monster attacks | Confirmed |
+| Monster Card | Show the graphics for the selected monster | Confirmed |
+| Monster Card | Shows the correct name for the selected monster | Confirmed |
+| Monster Card | Shows the correct amount of HP and AC | Confirmed |
+| Monster Card | Darkens when the Players Card is flipped up | Confirmed |
+| Monster Card | Displays as above the Player Card during attack animation | Confirmed |
+| Game Over Screen | Shows when the player HP reaches 0 | Confirmed |
+| Game Over Screen | Shows the Game Over text | Confirmed |
+| Game Over Screen | Shows the total amount of points collected | Confirmed |
+| Restart Button | Shows on the Game Over Screen | Confirmed |
+#### Functional Testing
+| Feature | Expected Behavior | Outcome |
+| ------- | ------------------ | ------- |
+| Start Button | Starts the game | Confirmed |
+| Game Loop | Runs while the players HP is above 0 | Confirmed |
+| Game Loop | Selects a random encounter if none is present | Confirmed |
+| Game Loop | Waits for the player to complete it's turn | Confirmed |
+| Game Loop | Waits for the monster to complete it's turn | Confirmed |
+| Game Loop | Ends when the players HP is equal or below 0 | Confirmed |
+| Roll Dice | Returns a random number between 1 and the input number | Confirmed |
+| Attack Roll | Compares the output of rollDice(20) to the targets AC | Confirmed |
+| Miss | If attack roll is below the targets AC | Confirmed |
+| Hit | If attack roll is equal or above targets AC | Confirmed |
+| Critical Hit | If attack roll is equal to 20 | Confirmed |
+| Damage Roll | Rolls the correct amount and value of hit dices | Confirmed |
+| Damage Roll | Adds the value of the attacker's toHit | Confirmed |
+| Damage Roll | If Critical Hit, double the amount of hit dices | Confirmed |
+| Heal | Uses rollDice(20), adds the value to the Players current hitpoints | Confirmed |
+| Player Turn | Waits for all animations to end | Confirmed |
+| Monster Turn | Waits for all animations to end | Confirmed |
+| Game Over | Removes the current monster | Confirmed |
+| Restart Button | Resets players HP | Confirmed |
+| Restart Button | Resets the players score | Confirmed |
+| Buttons | Can only be pressed once | Confirmed |
+| Buttons | Can only be pressed during the player's turn | Confirmed |
 ### Browser testing
 - IOS Safari
 - iPad Safari
