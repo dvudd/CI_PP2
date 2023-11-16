@@ -1,5 +1,5 @@
 # DUNGEONS AND DICES
-**BILD FRÅN AMIRESPONSIVE**
+![Dungeons and Dices](readme-images/responsive.png)
 [DUNGEONS and DICES](https://dvudd.github.io/CI_PP2/) is a turned-based dungeon crawler where the player fights their way through enemies.
 ## User Stories
 - As a first time user, I want to quickly understand the basic game mechanics
@@ -25,14 +25,20 @@ While the game is fully functional, there are many ways to improve the experienc
 * Boss battles!
 ## Development
 #### Inspiration
-The inspiration for this project came from [Dice Roll Game](https://codingscape.info/how-to-create-dice-roll-game-using-javascript/), but since I've been spending way too many hours in Baldurs Gate 3 lately, I wanted something involving a d20 dice. I also wanted to incorporate fantasy characters into the game. The idea later evolved into a card game, so I started working on a in Balsamiq Wireframes to sketch out an idea.\
-**WIREFRAMES IMAGE**\
+The inspiration for this project came from [Dice Roll Game](https://codingscape.info/how-to-create-dice-roll-game-using-javascript/), but since I've been spending way too many hours in Baldurs Gate 3 lately, I wanted something involving a d20 dice. I also wanted to incorporate fantasy characters in the style of old-school RPG's into the game. The game should be turned-based where the player has time to think about their next move, but feel the tension of a dice roll to decide the outcome of that move. 
 #### Prototyping
-After finding a layout I was happy with, I started working on the HTML and CSS to make a working prototype. I started with a 'mobile-first' thought process, making sure the game area fits in to a small mobile screen.\
-**EARLY IMAGE**\
-After the site started to look kind of how I imagined it, I started to work on the JavaScript where the focus was on getting the basic gameplay to work, inspiration for the game rules came from [D&D BASIC RULES](https://media.wizards.com/2018/dnd/downloads/DnD_BasicRules_2018.pdf). To make sure the game mechanics worked as I intended, I widely used console logs to make sure the attack  and damage rolls worked as intended.\
-**CONSOLE OUTPUT IMAGE**\
+The game foundation was started by sketching a layout in Balsamiq Wireframes where the idea evolved into making it a card game of sorts, think Magic: The Gathering but with fewer cards. The main focus of the UI is the cards of the player and the monster.
+[!Wireframes](readme-images/wireframes.png)
+After a layout was decided, the basics were created with HTML and CSS to make a working prototype with a 'mobile-first' thought process. Making sure the game area fits into a small mobile screen. 
+[!Alpha Stage](readme-images/alpha-stage.png)
+When the site started to look like the wireframe layout, work began on the JavaScript where the main focus was on getting the basic gameplay to work, inspiration for the game rules came from [D&D BASIC RULES](https://media.wizards.com/2018/dnd/downloads/DnD_BasicRules_2018.pdf). To make sure the game mechanics worked as intended, work relied heavily on console logs to output what was happening under the hood.
+[!Console Outputs](readme-images/console.png)
 #### Look and Feel
+To add visual feedback to the game, animations were created with tabletop cards in mind, but also how battles in old RPG's work. With this in mind and to save screen real estate, the card-flip animation was created, this creates a natural space where the d20 roll animation could be shown to the player. 
+
+The damage animation was created to make the attack animation feel like it has impact. The visual theme of the cards continues in the theme of old-school RPGs where the graphical assets are pixelated and the reason why the retro-styled fonts (DotGothic16 and VT323) were selected.
+
+To address the visual monotony that a one-color background might present, especially on larger screens, a play board-styled background image was added. The card frames and buttons are custom-designed to match the aesthetic of the background.
 
 ## Testing
 ### Validator testing
