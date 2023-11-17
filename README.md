@@ -124,8 +124,8 @@ Här kommer lighthouse presenteras
 ### Browser testing
 | Operating System | Browser | Version |
 | ------- | ------------------ | ------- |
-| iOS | Safari | |
-| iPadOS | Safari | |
+| iOS | Safari | 17.1.1 |
+| iPadOS | Safari | 17.1.1 |
 | macOS | Safari | 17.0 |
 | macOS | Mozilla Firefox | 119.0.1 |
 | macOS | Google Chrome | 119.0.6045.159 |
