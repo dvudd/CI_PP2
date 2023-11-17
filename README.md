@@ -110,19 +110,23 @@ Här kommer lighthouse presenteras
 | Buttons | Can only be pressed once | Confirmed |
 | Buttons | Can only be pressed during the player's turn | Confirmed |
 ### Browser testing
-- IOS Safari
-- iPad Safari
-- macOS Safari
-- Google Chrome
-- Mozilla Firefox
-- Microsoft Edge
+| Operating System | Browser | Version |
+| ------- | ------------------ | ------- |
+| iOS | Safari | |
+| iPadOS | Safari | |
+| macOS | Safari | 17.0 |
+| macOS | Mozilla Firefox | 119.0.1 |
+| macOS | Google Chrome | 119.0.6045.159 |
+| Windows 10 | Microsoft Edge | |
+| Windows 10 | Mozilla Firefox | |
 ### Device Testing
 - iPhone 11
 - iPhone 11 Pro
 - iPhone 12 Mini
 - iPhone 13
-- MacBook
-- Windows 11 PC
+- iPad Air
+- MacBook Air
+- Windows 10 PC
 ### Bugs
 <details><summary>Bug: No new monster is picked after the player defeats the current one</summary>
 
