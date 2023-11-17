@@ -9,6 +9,18 @@
 - As a returning user, I want to encounter different types of monsters, so the game feels fresh and challenging each time
 - As a returning user, I want to beat my old score
 ## Features
+### Start screen
+The game starts with a short description on how the game works.
+### Player Card
+This is the player character, besides an visual representation of the player this is where the players health and armor is shown.
+### Monster Cards
+There are 8 different monster encounters, all have different strengths and weaknesses.
+### Ability Buttons
+During the players turn they have two option, either attack the monster or drink a healing potion to regain some healthpoints.
+### Rolling the dice
+The effect of any action is decided by the roll of a die. Will the attack hit? How much damage will it do?
+### Game Over
+When the players health reaches 0, the game is over. Here the collected score is shown and the user has the option to restart the game.
 
 ## Future Features
 While the game is fully functional, there are many ways to improve the experience
@@ -30,9 +42,9 @@ The inspiration for this project came from [Dice Roll Game](https://codingscape.
 The game foundation was started by sketching a layout in Balsamiq Wireframes where the idea evolved into making it a card game of sorts, think Magic: The Gathering but with fewer cards. The main focus of the UI is the cards of the player and the monster.
 ![Wireframes](readme-images/wireframes.png)
 After a layout was decided, the basics were created with HTML and CSS to make a working prototype with a 'mobile-first' thought process. Making sure the game area fits into a small mobile screen. 
-![Alpha Stage](readme-images/alpha-stage.png)
+![Alpha Stage](readme-images/alpha-stage.webp)
 When the site started to look like the wireframe layout, work began on the JavaScript where the main focus was on getting the basic gameplay to work, inspiration for the game rules came from [D&D BASIC RULES](https://media.wizards.com/2018/dnd/downloads/DnD_BasicRules_2018.pdf). To make sure the game mechanics worked as intended, work relied heavily on console logs to output what was happening under the hood.
-![Console Outputs](readme-images/console.png)
+![Console Outputs](readme-images/console.webp)
 #### Look and Feel
 To add visual feedback to the game, animations were created with tabletop cards in mind, but also how battles in old RPG's work. With this in mind and to save screen real estate, the card-flip animation was created, this creates a natural space where the d20 roll animation could be shown to the player. 
 
