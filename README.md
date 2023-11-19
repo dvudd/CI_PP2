@@ -11,6 +11,7 @@
 - As a returning user, I want to quickly start a new game
 - As a returning user, I want to beat my old score
 ## Features
+![Screenshot](readme-images/screenshot.webp)
 ### Game Mechanics
 - Turn-Based Gameplay:
 	- The game operates on a turn-based system, alternating between the player's turn and the monsters' turn.
