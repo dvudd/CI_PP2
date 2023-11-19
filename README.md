@@ -317,6 +317,7 @@ No known bugs remaining
 - Image Editor: [GIMP](https://www.gimp.org)
 - Image upscaler: [Lospec](https://lospec.com/pixel-art-scaler/)
 - Color palette picker: [Coolors](https://coolors.co)
+- Favicon generator: [favicon.io](https://favicon.io/favicon-converter/)
 ### Languages
 - HTML5
 - CSS
@@ -362,7 +363,7 @@ $ git clone https://github.com/dvudd/CI_PP2
 	- [Card RPG) UI&Characters](https://sagak-art-pururu.itch.io/cardrpg-ui)
 	- [Card RPG) Items](https://sagak-art-pururu.itch.io/cardrpg-items)
 - Background image were created by [TornioDuva](https://tornioduva.itch.io/tornioduva-card-pack)
-- Favicon was downloaded from [flaticon](https://www.flaticon.com/) and converted with [favicon.io](https://favicon.io/favicon-converter/)
+- Favicon was downloaded from [flaticon](https://www.flaticon.com/)
 ### Code:
 - Sleep function: https://stackoverflow.com/questions/951021/what-is-the-javascript-version-of-sleep
 - popup function: https://www.youtube.com/watch?v=AF6vGYIyV8M
