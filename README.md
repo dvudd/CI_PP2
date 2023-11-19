@@ -42,7 +42,8 @@
 - As a user, I want to feel the tension of dice rolls
 - As a user, I want to encounter different types of monsters, so the game feels fresh and challenging each time
 - As a returning user, I want to quickly start a new game
-- As a returning user, I want to beat my old score\
+- As a returning user, I want to beat my old score
+\
 [Back to top](#contents)
 ## Features
 ![Screenshot](readme-images/screenshot.webp)
@@ -143,7 +144,6 @@ Colors were selected using [Coolors](https://coolors.co), matching them with the
 
 </details>
 
-\
 [Back to top](#contents)
 ## Testing
 ### Validator testing
@@ -200,7 +200,6 @@ No errors were found when passing through the [JShint](https://jshint.com) analy
 
 </details>
 
-\
 [Back to top](#contents)
 ### Manual testing
 #### UI Testing
@@ -280,7 +279,8 @@ No errors were found when passing through the [JShint](https://jshint.com) analy
 - iPhone 13
 - iPad Air
 - MacBook Air
-- Windows 10 PC\
+- Windows 10 PC
+\
 [Back to top](#contents)
 ### Bugs
 <details><summary>Bug: No new monster is picked after the player defeats the current one</summary>
@@ -476,7 +476,8 @@ $ git clone https://github.com/dvudd/CI_PP2
 
 ```
 7. Press Enter. Your local clone will be created.
-8. Open `index.html` in your browser.\
+8. Open `index.html` in your browser.
+\
 [Back to top](#contents)
 ## Credits
 ### Media:
