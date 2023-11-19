@@ -80,7 +80,7 @@ To address the visual monotony that a one-color background might present, especi
 
 ### Color codes
 Colors were selected using coolors.co, matching them with the main colors of the background image and the play board.
-Monsters have a unique background color to difference them more than just their graphic image.
+Every monster have a unique background color to difference them more than just their graphic image.
 ![Main colors](readme-images/colors-main.png)
 
 
@@ -325,6 +325,20 @@ This bug only occured in MacOS Safari, the original plan was to have the Start b
 	0% { opacity: 0; }
 	100% { opacity: 1; }
 }
+```
+
+</details>
+<details><summary>Bug: Hit misses when rolled equal to AC</summary>
+
+When attack roll is equal to the target AC it should hit. A typo in the JS caused it to miss.
+```js
+if ((attackRoll > currentMonster.armorClass) || (crit)) {...}
+if ((attackRoll > player.armorClass) || (crit)) {...}
+```
+was changed to:
+```js
+if ((attackRoll >= currentMonster.armorClass) || (crit)) {...}
+if ((attackRoll >= player.armorClass) || (crit)) {...}
 ```
 
 </details>
