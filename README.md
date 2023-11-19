@@ -1,6 +1,6 @@
 # DUNGEONS AND DICES
 ![Dungeons and Dices](readme-images/responsive.png)\
-[DUNGEONS and DICES](https://dvudd.github.io/CI_PP2/) is a turned-based dungeon crawler where the player battles against different fantasy creatures, where the effect of every action is decided by a roll of a die.
+[DUNGEONS and DICES](https://dvudd.github.io/CI_PP2/) is a turned-based dungeon crawler where the player battles against different fantasy creatures, the effect of every action is decided by a roll of a die.
 ## User Stories
 - As a first time user, I want to quickly understand the game controls
 - As a first time user, I want to quickly understand the turned-based game mechanic
@@ -356,19 +356,20 @@ $ git clone https://github.com/dvudd/CI_PP2
 7. Press Enter. Your local clone will be created.
 8. Open `index.html` in your browser.
 ## Credits
-Media:
+### Media:
 -  Monster Assets were created by [Sagak art](https://sagak-art-pururu.itch.io)
 	- [Card RPG) Monsters](https://sagak-art-pururu.itch.io/cardrpg-monsters)
 	- [Card RPG) UI&Characters](https://sagak-art-pururu.itch.io/cardrpg-ui)
 	- [Card RPG) Items](https://sagak-art-pururu.itch.io/cardrpg-items)
 - Card assets were created by [cafeDraw](https://cafedraw.itch.io/fantasy-card-assets)
 - Favicon was downloaded from [flaticon](https://www.flaticon.com/) and converted with [favicon.io](https://favicon.io/favicon-converter/)
-Code:
+### Code:
 - Sleep function: https://stackoverflow.com/questions/951021/what-is-the-javascript-version-of-sleep
 - popup function: https://www.youtube.com/watch?v=AF6vGYIyV8M
 - Card flip: https://www.w3schools.com/howto/howto_css_flip_card.asp
 - Card Shake: https://www.w3schools.com/howto/howto_css_shake_image.asp
 - Prevent scrolling: https://stackoverflow.com/questions/28411499/disable-scrolling-on-body
+- Button design: https://codepen.io/Brandon-Stoyles/pen/RajYmd
 ### Acknowledgements
 ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)\
 This is my Portfolio Project 2 as part of the Full Stack Software Developer program at [Code Institute](https://codeinstitute.net/).\
