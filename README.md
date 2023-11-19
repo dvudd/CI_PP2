@@ -361,7 +361,7 @@ $ git clone https://github.com/dvudd/CI_PP2
 	- [Card RPG) Monsters](https://sagak-art-pururu.itch.io/cardrpg-monsters)
 	- [Card RPG) UI&Characters](https://sagak-art-pururu.itch.io/cardrpg-ui)
 	- [Card RPG) Items](https://sagak-art-pururu.itch.io/cardrpg-items)
-- Card assets were created by [cafeDraw](https://cafedraw.itch.io/fantasy-card-assets)
+- Background image were created by [TornioDuva](https://tornioduva.itch.io/tornioduva-card-pack)
 - Favicon was downloaded from [flaticon](https://www.flaticon.com/) and converted with [favicon.io](https://favicon.io/favicon-converter/)
 ### Code:
 - Sleep function: https://stackoverflow.com/questions/951021/what-is-the-javascript-version-of-sleep
