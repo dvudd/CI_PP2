@@ -27,17 +27,23 @@
 	- In a critical hit, the number of damage dice is doubled.
 	- For instance, the player would roll two d10's instead of one, and the Skeleton Mage would roll eigth d4's instead of four.
 ### Start Screen
-The game starts with a short description of how the game works.
+The game starts with a short description on how the game works.
+![Start Screen](readme-images/start-screen.webp)
 ### Player Card
 This is the player character, besides a visual representation of the player, this is where the player's health and armor are shown.
+![Player Card](readme-images/player-card.webp)
 ### Monster Cards
 There are 8 different monster encounters, all with different strengths and weaknesses.
+![Monster cards](readme-images/monsters.webp)
 ### Ability Buttons
 During the player's turn they have two options, either attack the monster or drink a healing potion to regain some health points.
+![Ability Buttons](readme-images/player-buttons.webp)
 ### Rolling the dice
 The effect of any action is decided by the roll of a dice. Will the attack hit? How much damage will it do?
+![Critical Hit](readme-images/critical-hit.webp)
 ### Game Over
 When the player's health reaches 0, the game is over. Here the collected score is shown, and the user has the option to restart the game.
+![Game Over](readme-images/game-over.webp)
 ## Future Features
 While the game is fully functional, there are many ways to improve the experience
 - Sound effects
