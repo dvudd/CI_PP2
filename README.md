@@ -12,19 +12,20 @@
 - As a returning user, I want to beat my old score
 ## Features
 ### Game Mechanics
-Turn-Based Gameplay: The game operates on a turn-based system, alternating between the player's turn and the monsters' turn.
-Attack Roll:
-- To initiate an attack, the attacker rolls a d20 (20-sided die).
-- The result is compared to the target's Armor Class (AC).
-- If the roll is equal to or higher than the AC, the attack is successful.
-Damage Roll:
-- Once an attack hits, the damage is determined by rolling the attacker's damage dice.
-- For example, the player uses one d10 (10-sided die), while the Skeleton Mage has four d4's (four 4-sided dice).
-- The total damage is calculated by adding the result of the damage dice roll to the attacker's 'plsDmg' value.
-Critical Hits:
-- A roll of 20 on the Attack Roll is considered a critical hit.
-- In a critical hit, the number of damage dice is doubled.
-- For instance, the player would roll two d10's instead of one, and the Skeleton Mage would roll eigth d4's instead of four.
+- Turn-Based Gameplay:
+	- The game operates on a turn-based system, alternating between the player's turn and the monsters' turn.
+- Attack Roll:
+	- To initiate an attack, the attacker rolls a d20 (20-sided die).
+	- The result is compared to the target's Armor Class (AC).
+	- If the roll is equal to or higher than the AC, the attack is successful.
+- Damage Roll:
+	- Once an attack hits, the damage is determined by rolling the attacker's damage dice.
+	- For example, the player uses one d10 (10-sided die), while the Skeleton Mage has four d4's (four 4-sided dice).
+	- The total damage is calculated by adding the result of the damage dice roll to the attacker's 'plsDmg' value.
+- Critical Hits:
+	- A roll of 20 on the Attack Roll is considered a critical hit.
+	- In a critical hit, the number of damage dice is doubled.
+	- For instance, the player would roll two d10's instead of one, and the Skeleton Mage would roll eigth d4's instead of four.
 ### Start Screen
 The game starts with a short description of how the game works.
 ### Player Card
