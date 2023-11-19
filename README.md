@@ -1,6 +1,39 @@
 # DUNGEONS AND DICES
 ![Dungeons and Dices](readme-images/responsive.png)\
 [DUNGEONS and DICES](https://dvudd.github.io/CI_PP2/) is a turned-based dungeon crawler where the player battles against different fantasy creatures, the effect of every action is decided by the roll of a dice.
+# Contents
+- [**Dungeons and Dragons**](#DUNGEONS-AND-DICES)  <!-- Fixed anchor link -->
+- [User Stories](#user-stories)
+- [Features](#features)
+  - [Game Mechanics](#game-mechanics)
+  - [Start Screen](#start-screen)
+  - [Player Card](#player-card)
+  - [Monster Cards](#monster-cards)
+  - [Ability Buttons](#ability-buttons)
+  - [Rolling the dice](#rolling-the-dice)
+  - [Game Over](#game-over)
+- [Future Features](#future-features)
+- [Development](#development)
+	- [Inspiration](#inspiration)
+	- [Prototyping](#prototyping)
+	- [Look and Feel](#look-and-feel)
+	- [Color Codes](#color-codes)
+- [Testing](#testing)
+	- [Validator Testing](#validator-testing)
+	- [Manual Testing](#manual-testing)
+		- [UI Testing](#ui-testing)
+		- [Functional Testing](#functional-testing)
+	- [Browser Testing](#browser-testing)
+	- [Device Testing](#device-testing)
+- [Bugs](#bugs)
+	- [Known Bugs](#known-bugs)
+- [Technologies Used](#technologies-used)
+- [Deployment](#deployment)
+    - [**To deploy the project**](#github-pages)
+    - [**To fork the repository on GitHub**](#forking-the-github-repository)
+    - [**To create a local clone of this project**](#making-a-local-clone)
+- [Credits](#credits)
+- [Acknowledgements](#acknowledgements)
 ## User Stories
 - As a first time user, I want to quickly understand the game controls
 - As a first time user, I want to quickly understand the turned-based game mechanic
@@ -10,6 +43,7 @@
 - As a user, I want to encounter different types of monsters, so the game feels fresh and challenging each time
 - As a returning user, I want to quickly start a new game
 - As a returning user, I want to beat my old score
+[Back to top](#contents)
 ## Features
 ![Screenshot](readme-images/screenshot.webp)
 ### Game Mechanics
@@ -48,6 +82,7 @@ The effect of any action is decided by the roll of a dice. Will the attack hit? 
 ### Game Over
 When the player's health reaches 0, the game is over. Here the collected score is shown, and the user has the option to restart the game.\
 ![Game Over](readme-images/game-over.webp)
+[Back to top](#contents)
 ## Future Features
 While the game is fully functional, there are many ways to improve the experience
 - Sound effects
@@ -80,8 +115,7 @@ The visual theme of the cards continues in the theme of old-school RPGs where th
 To address the visual monotony that a one-color background might present, especially on larger screens, a play board-styled background image was added. The card frames and buttons are custom-designed to match the aesthetic of the background.
 
 ### Color codes
-Colors were selected using coolors.co, matching them with the main colors of the background image and the play board.
-Every monster have a unique background color to difference them more than just their graphic image.
+Colors were selected using [Coolors](https://coolors.co), matching them with the main colors of the background image and the background color. Every monster have a unique background color to difference them more than just their graphic image.
 ![Main colors](readme-images/colors-main.png)
 
 
@@ -109,6 +143,7 @@ Every monster have a unique background color to difference them more than just t
 
 </details>
 
+[Back to top](#contents)
 ## Testing
 ### Validator testing
 #### HTML
@@ -164,6 +199,7 @@ No errors were found when passing through the [JShint](https://jshint.com) analy
 
 </details>
 
+[Back to top](#contents)
 ### Manual testing
 #### UI Testing
 | Element | Expected Behavior | Outcome |
@@ -243,6 +279,7 @@ No errors were found when passing through the [JShint](https://jshint.com) analy
 - iPad Air
 - MacBook Air
 - Windows 10 PC
+[Back to top](#contents)
 ### Bugs
 <details><summary>Bug: No new monster is picked after the player defeats the current one</summary>
 
@@ -392,6 +429,7 @@ if ((attackRoll >= player.armorClass) || (crit)) {...}
 
 ### Known Bugs
 No known bugs remaining
+[Back to top](#contents)
 ## Technologies used
 - IDE: Microsoft VS Code
 - Repository: GitHub
@@ -437,6 +475,7 @@ $ git clone https://github.com/dvudd/CI_PP2
 ```
 7. Press Enter. Your local clone will be created.
 8. Open `index.html` in your browser.
+[Back to top](#contents)
 ## Credits
 ### Media:
 -  Monster Assets were created by [Sagak art](https://sagak-art-pururu.itch.io)
@@ -453,6 +492,8 @@ $ git clone https://github.com/dvudd/CI_PP2
 - Prevent scrolling: https://stackoverflow.com/questions/28411499/disable-scrolling-on-body
 - Button design: https://codepen.io/Brandon-Stoyles/pen/RajYmd
 ### Acknowledgements
+I want to thank my friends and family for testing and giving feedback.\
 ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)\
 This is my Portfolio Project 2 as part of the Full Stack Software Developer program at [Code Institute](https://codeinstitute.net/).\
 David Eriksson 2023
+[Back to top](#contents)
