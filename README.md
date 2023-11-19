@@ -29,9 +29,9 @@
 	- [Known Bugs](#known-bugs)
 - [Technologies Used](#technologies-used)
 - [Deployment](#deployment)
-    - [**To deploy the project**](#github-pages)
-    - [**To fork the repository on GitHub**](#forking-the-github-repository)
-    - [**To create a local clone of this project**](#making-a-local-clone)
+    - [To deploy the project](#github-pages)
+    - [To fork the repository on GitHub](#forking-the-github-repository)
+    - [To create a local clone of this project](#making-a-local-clone)
 - [Credits](#credits)
 - [Acknowledgements](#acknowledgements)
 ## User Stories
@@ -42,7 +42,7 @@
 - As a user, I want to feel the tension of dice rolls
 - As a user, I want to encounter different types of monsters, so the game feels fresh and challenging each time
 - As a returning user, I want to quickly start a new game
-- As a returning user, I want to beat my old score
+- As a returning user, I want to beat my old score\
 [Back to top](#contents)
 ## Features
 ![Screenshot](readme-images/screenshot.webp)
@@ -81,7 +81,7 @@ The effect of any action is decided by the roll of a dice. Will the attack hit? 
 ![Critical Hit](readme-images/critical-hit.webp)
 ### Game Over
 When the player's health reaches 0, the game is over. Here the collected score is shown, and the user has the option to restart the game.\
-![Game Over](readme-images/game-over.webp)
+![Game Over](readme-images/game-over.webp)\
 [Back to top](#contents)
 ## Future Features
 While the game is fully functional, there are many ways to improve the experience
@@ -143,6 +143,7 @@ Colors were selected using [Coolors](https://coolors.co), matching them with the
 
 </details>
 
+\
 [Back to top](#contents)
 ## Testing
 ### Validator testing
@@ -199,6 +200,7 @@ No errors were found when passing through the [JShint](https://jshint.com) analy
 
 </details>
 
+\
 [Back to top](#contents)
 ### Manual testing
 #### UI Testing
@@ -278,7 +280,7 @@ No errors were found when passing through the [JShint](https://jshint.com) analy
 - iPhone 13
 - iPad Air
 - MacBook Air
-- Windows 10 PC
+- Windows 10 PC\
 [Back to top](#contents)
 ### Bugs
 <details><summary>Bug: No new monster is picked after the player defeats the current one</summary>
@@ -428,7 +430,7 @@ if ((attackRoll >= player.armorClass) || (crit)) {...}
 </details>
 
 ### Known Bugs
-No known bugs remaining
+No known bugs remaining.\
 [Back to top](#contents)
 ## Technologies used
 - IDE: Microsoft VS Code
@@ -474,7 +476,7 @@ $ git clone https://github.com/dvudd/CI_PP2
 
 ```
 7. Press Enter. Your local clone will be created.
-8. Open `index.html` in your browser.
+8. Open `index.html` in your browser.\
 [Back to top](#contents)
 ## Credits
 ### Media:
@@ -495,5 +497,5 @@ $ git clone https://github.com/dvudd/CI_PP2
 I want to thank my friends and family for testing and giving feedback.\
 ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)\
 This is my Portfolio Project 2 as part of the Full Stack Software Developer program at [Code Institute](https://codeinstitute.net/).\
-David Eriksson 2023
+David Eriksson 2023\
 [Back to top](#contents)
