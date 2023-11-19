@@ -46,7 +46,7 @@ The game foundation was started by sketching a layout in Balsamiq Wireframes whe
 After a layout was decided, the basics were created with HTML and CSS to make a working prototype with a 'mobile-first' thought process. Making sure the game area fits into a small mobile screen. 
 ![Alpha Stage](readme-images/alpha-stage.webp)\
 Once the site started to look like the wireframe layout, work began on the JavaScript where the main focus was on getting the basic gameplay to work, inspiration for the game rules came from [D&D BASIC RULES](https://media.wizards.com/2018/dnd/downloads/DnD_BasicRules_2018.pdf). To make sure the game mechanics worked as intended, work relied heavily on console logs to output what was happening under the hood.
-![Console Outputs](readme-images/console.webp)\
+![Console Outputs](readme-images/console.webp)
 ### Look and Feel
 To add visual feedback to the game, animations were created with tabletop cards in mind, but also how battles in old RPG's work. With this in mind and to save screen real estate, the card-flip animation was created, this creates a natural space where the d20 roll animation could be shown to the player. The damage animation was created to make the attack animation feel like it has impact. 
 
