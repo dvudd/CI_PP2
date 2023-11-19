@@ -117,7 +117,52 @@ No errors were found when passing through the [W3C CSS Validator](https://jigsaw
 #### JavaScript
 No errors were found when passing through the [JShint](https://jshint.com) analysis tool.
 #### Google Chrome Lighthouse Reports
-Här kommer lighthouse presenteras
+##### Desktop
+![Lightouse Desktop](readme-images/lighthouse-desktop.webp)
+<details><summary>Performance</summary>
+
+![Lighthouse Desktop Performance](readme-images/lighthouse-desktop-performance.webp)
+
+</details>
+<details><summary>Accessibility</summary>
+
+![Lighthouse Dekstop Accessibility](readme-images/lighthouse-desktop-accessibility.webp)
+
+</details>
+<details><summary>Best Practices</summary>
+
+![Lighthouse Desktop Best Practices](readme-images/lighthouse-desktop-bestpractices.webp)
+
+</details>
+<details><summary>SEO</summary>
+
+![Lighthouse Desktop SEO](readme-images/lighthouse-desktop-seo.webp)
+
+</details>
+
+##### Mobile
+![Lightouse Mobile](readme-images/lighthouse-mobile.webp)
+<details><summary>Performance</summary>
+
+![Lighthouse Mobile Performance](readme-images/lighthouse-mobile-performance.webp)
+
+</details>
+<details><summary>Accessibility</summary>
+
+![Lighthouse Mobile Accessibility](readme-images/lighthouse-mobile-accessibility.webp)
+
+</details>
+<details><summary>Best Practices</summary>
+
+![Lighthouse Mobile Best Practices](readme-images/lighthouse-mobile-bestpractices.webp)
+
+</details>
+<details><summary>SEO</summary>
+
+![Lighthouse Mobile SEO](readme-images/lighthouse-mobile-seo.webp)
+
+</details>
+
 ### Manual testing
 #### UI Testing
 | Element | Expected Behavior | Outcome |
