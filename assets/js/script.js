@@ -345,7 +345,7 @@ function rollForDamage(creature, crit) {
  */
 function rollDice(dice) {
     let roll = Math.floor(Math.random() * dice) + 1;
-    return roll
+    return roll;
 }
 
 /**
