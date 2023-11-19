@@ -1,6 +1,6 @@
 # DUNGEONS AND DICES
 ![Dungeons and Dices](readme-images/responsive.png)\
-[DUNGEONS and DICES](https://dvudd.github.io/CI_PP2/) is a turned-based dungeon crawler where the player battles against different fantasy creatures, the effect of every action is decided by a roll of a die.
+[DUNGEONS and DICES](https://dvudd.github.io/CI_PP2/) is a turned-based dungeon crawler where the player battles against different fantasy creatures, the effect of every action is decided by the roll of a dice.
 ## User Stories
 - As a first time user, I want to quickly understand the game controls
 - As a first time user, I want to quickly understand the turned-based game mechanic
@@ -11,7 +11,21 @@
 - As a returning user, I want to quickly start a new game
 - As a returning user, I want to beat my old score
 ## Features
-### Start screen
+### Game Mechanics
+Turn-Based Gameplay: The game operates on a turn-based system, alternating between the player's turn and the monsters' turn.
+Attack Roll:
+- To initiate an attack, the attacker rolls a d20 (20-sided die).
+- The result is compared to the target's Armor Class (AC).
+- If the roll is equal to or higher than the AC, the attack is successful.
+Damage Roll:
+- Once an attack hits, the damage is determined by rolling the attacker's damage dice.
+- For example, the player uses one d10 (10-sided die), while the Skeleton Mage has four d4's (four 4-sided dice).
+- The total damage is calculated by adding the result of the damage dice roll to the attacker's 'plsDmg' value.
+Critical Hits:
+- A roll of 20 on the Attack Roll is considered a critical hit.
+- In a critical hit, the number of damage dice is doubled.
+- For instance, the player would roll two d10's instead of one, and the Skeleton Mage would roll eigth d4's instead of four.
+### Start Screen
 The game starts with a short description of how the game works.
 ### Player Card
 This is the player character, besides a visual representation of the player, this is where the player's health and armor are shown.
@@ -20,7 +34,7 @@ There are 8 different monster encounters, all with different strengths and weakn
 ### Ability Buttons
 During the player's turn they have two options, either attack the monster or drink a healing potion to regain some health points.
 ### Rolling the dice
-The effect of any action is decided by the roll of a die. Will the attack hit? How much damage will it do?
+The effect of any action is decided by the roll of a dice. Will the attack hit? How much damage will it do?
 ### Game Over
 When the player's health reaches 0, the game is over. Here the collected score is shown, and the user has the option to restart the game.
 ## Future Features
@@ -158,7 +172,7 @@ Här kommer lighthouse presenteras
 | Restart Button | Resets the players score | Confirmed |
 | Buttons | Can only be pressed once | Confirmed |
 | Buttons | Can only be pressed during the player's turn | Confirmed |
-### Browser testing
+#### Browser testing
 | Operating System | Browser | Version |
 | ------- | ------------------ | ------- |
 | iOS | Safari | 17.1.1 |
@@ -168,7 +182,7 @@ Här kommer lighthouse presenteras
 | macOS | Google Chrome | 119.0.6045.159 |
 | Windows 10 | Microsoft Edge | |
 | Windows 10 | Mozilla Firefox | |
-### Device Testing
+#### Device Testing
 - iPhone 11
 - iPhone 11 Pro
 - iPhone 12 Mini
