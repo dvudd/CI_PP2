@@ -1,56 +1,92 @@
 # DUNGEONS AND DICES
-![Dungeons and Dices](readme-images/responsive.png)
-[DUNGEONS and DICES](https://dvudd.github.io/CI_PP2/) is a turned-based dungeon crawler where the player fights their way through enemies.
+![Dungeons and Dices](readme-images/responsive.png)\
+[DUNGEONS and DICES](https://dvudd.github.io/CI_PP2/) is a turned-based dungeon crawler where the player battles against different fantasy creatures, where the effect of every action is decided by a roll of a die.
 ## User Stories
-- As a first time user, I want to quickly understand the basic game mechanics
-- As a first time user, I want to battle against fantasy monsters
-- As a first time user, I want to feel the tension of dice rolls
+- As a first time user, I want to quickly understand the game controls
+- As a first time user, I want to quickly understand the turned-based game mechanic
+- As a first time user, I want to feel nostalgic when looking at the retro-styled graphics
+- As a user, I want to battle against fantasy monsters
+- As a user, I want to feel the tension of dice rolls
+- As a user, I want to encounter different types of monsters, so the game feels fresh and challenging each time
 - As a returning user, I want to quickly start a new game
-- As a returning user, I want to encounter different types of monsters, so the game feels fresh and challenging each time
 - As a returning user, I want to beat my old score
 ## Features
 ### Start screen
-The game starts with a short description on how the game works.
+The game starts with a short description of how the game works.
 ### Player Card
-This is the player character, besides an visual representation of the player this is where the players health and armor is shown.
+This is the player character, besides a visual representation of the player, this is where the player's health and armor are shown.
 ### Monster Cards
-There are 8 different monster encounters, all have different strengths and weaknesses.
+There are 8 different monster encounters, all with different strengths and weaknesses.
 ### Ability Buttons
-During the players turn they have two option, either attack the monster or drink a healing potion to regain some healthpoints.
+During the player's turn they have two options, either attack the monster or drink a healing potion to regain some health points.
 ### Rolling the dice
 The effect of any action is decided by the roll of a die. Will the attack hit? How much damage will it do?
 ### Game Over
-When the players health reaches 0, the game is over. Here the collected score is shown and the user has the option to restart the game.
-
+When the player's health reaches 0, the game is over. Here the collected score is shown, and the user has the option to restart the game.
 ## Future Features
 While the game is fully functional, there are many ways to improve the experience
-- Selectable characters
+- Sound effects
+- Selectable characters, example:
 	- A Fighter with high defense but medium damage
 	- A Thief with a chance to dodge incoming damage
 	- A Wizard with low defense but high damage spells
 - More player abilities, with different cooldowns.
 - Equipable items that the player can find along the way
 	- Better weapons
-	- Better Armor
+	- Better armor
 	- Better healing potions
-* More monsters
-* Boss battles!
+- More monsters
+- Boss battles!
 ## Development
-#### Inspiration
+### Inspiration
 The inspiration for this project came from [Dice Roll Game](https://codingscape.info/how-to-create-dice-roll-game-using-javascript/), but since I've been spending way too many hours in Baldurs Gate 3 lately, I wanted something involving a d20 dice. I also wanted to incorporate fantasy characters in the style of old-school RPG's into the game. The game should be turned-based where the player has time to think about their next move, but feel the tension of a dice roll to decide the outcome of that move. 
-#### Prototyping
+### Prototyping
 The game foundation was started by sketching a layout in Balsamiq Wireframes where the idea evolved into making it a card game of sorts, think Magic: The Gathering but with fewer cards. The main focus of the UI is the cards of the player and the monster.
-![Wireframes](readme-images/wireframes.png)
+![Wireframes](readme-images/wireframes.png)\
 After a layout was decided, the basics were created with HTML and CSS to make a working prototype with a 'mobile-first' thought process. Making sure the game area fits into a small mobile screen. 
-![Alpha Stage](readme-images/alpha-stage.webp)
-When the site started to look like the wireframe layout, work began on the JavaScript where the main focus was on getting the basic gameplay to work, inspiration for the game rules came from [D&D BASIC RULES](https://media.wizards.com/2018/dnd/downloads/DnD_BasicRules_2018.pdf). To make sure the game mechanics worked as intended, work relied heavily on console logs to output what was happening under the hood.
-![Console Outputs](readme-images/console.webp)
-#### Look and Feel
-To add visual feedback to the game, animations were created with tabletop cards in mind, but also how battles in old RPG's work. With this in mind and to save screen real estate, the card-flip animation was created, this creates a natural space where the d20 roll animation could be shown to the player. 
+![Alpha Stage](readme-images/alpha-stage.webp)\
+Once the site started to look like the wireframe layout, work began on the JavaScript where the main focus was on getting the basic gameplay to work, inspiration for the game rules came from [D&D BASIC RULES](https://media.wizards.com/2018/dnd/downloads/DnD_BasicRules_2018.pdf). To make sure the game mechanics worked as intended, work relied heavily on console logs to output what was happening under the hood.
+![Console Outputs](readme-images/console.webp)\
+### Look and Feel
+To add visual feedback to the game, animations were created with tabletop cards in mind, but also how battles in old RPG's work. With this in mind and to save screen real estate, the card-flip animation was created, this creates a natural space where the d20 roll animation could be shown to the player. The damage animation was created to make the attack animation feel like it has impact. 
 
-The damage animation was created to make the attack animation feel like it has impact. The visual theme of the cards continues in the theme of old-school RPGs where the graphical assets are pixelated and the reason why the retro-styled fonts (DotGothic16 and VT323) were selected.
+The visual theme of the cards continues in the theme of old-school RPGs where the graphical assets are pixelated and the reason why the retro-styled fonts (DotGothic16 and VT323) were selected.
 
 To address the visual monotony that a one-color background might present, especially on larger screens, a play board-styled background image was added. The card frames and buttons are custom-designed to match the aesthetic of the background.
+
+#### Color codes
+Colors were selected using coolors.co, matching them with the main colors of the background image and the play board.
+Monsters have a unique background color to difference them more than just their graphic image.
+
+<details><summary>Main colors</summary>
+
+![Main colors](readme-images/colors-main.png)
+
+</details>
+
+<details><summary>Player Card</summary>
+
+![Player Card colors](readme-images/colors-player.png)
+
+</details>
+
+<details><summary>Goblins</summary>
+
+![Goblins colors](readme-images/colors-goblins.png)
+
+</details>
+
+<details><summary>Skeletons</summary>
+
+![Skeleton colors](readme-images/colors-skeletons.png)
+
+</details>
+
+<details><summary>Orc and Troll</summary>
+
+![Orc and Troll colors](readme-images/colors-orc-and-troll.png)
+
+</details>
 
 ## Testing
 ### Validator testing
@@ -109,9 +145,10 @@ Här kommer lighthouse presenteras
 | Attack Roll | Compares the output of rollDice(20) to the targets AC | Confirmed |
 | Miss | If attack roll is below the targets AC | Confirmed |
 | Hit | If attack roll is equal or above targets AC | Confirmed |
-| Critical Hit | If attack roll is equal to 20 | Confirmed |
+| Critical Hit | Is only true if the attack roll is equal to 20 | Confirmed |
+| Critical Hit | Doubles the number of hit dice(s) | Confirmed |
 | Damage Roll | Rolls the correct amount and value of hit dices | Confirmed |
-| Damage Roll | Adds the value of the attacker's toHit | Confirmed |
+| Damage Roll | Adds the value of the attacker's toHit after the dice(s) been rolled | Confirmed |
 | Damage Roll | If Critical Hit, double the amount of hit dices | Confirmed |
 | Heal | Uses rollDice(20), adds the value to the Players current hitpoints | Confirmed |
 | Player Turn | Waits for all animations to end | Confirmed |
@@ -273,11 +310,13 @@ This bug only occured in MacOS Safari, the original plan was to have the Start b
 </details>
 
 ### Known Bugs
-**LÄGG TILL KÄNDA BUGGAR HÄR**
+No known bugs remaining
 ## Technologies used
 - IDE: Microsoft VS Code
 - Repository: GitHub
-- Image Editor: [PhotoPea](https://www.photopea.com)
+- Image Editor: [GIMP](https://www.gimp.org)
+- Image upscaler: [Lospec](https://lospec.com/pixel-art-scaler/)
+- Color palette picker: [Coolors](https://coolors.co)
 ### Languages
 - HTML5
 - CSS
@@ -320,9 +359,8 @@ $ git clone https://github.com/dvudd/CI_PP2
 Media:
 -  Monster Assets were created by [Sagak art](https://sagak-art-pururu.itch.io)
 	- [Card RPG) Monsters](https://sagak-art-pururu.itch.io/cardrpg-monsters)
-	- [Card RPG) UI&Characters](https://sagak-art-pururu.itch.io/cardrpg-ui) **ANVÄNDS INTE**
+	- [Card RPG) UI&Characters](https://sagak-art-pururu.itch.io/cardrpg-ui)
 	- [Card RPG) Items](https://sagak-art-pururu.itch.io/cardrpg-items)
-	- [Card RPG) Icons&Objects](https://sagak-art-pururu.itch.io/cardrpg-icons) **ANVÄNDS INTE**
 - Card assets were created by [cafeDraw](https://cafedraw.itch.io/fantasy-card-assets)
 - Favicon was downloaded from [flaticon](https://www.flaticon.com/) and converted with [favicon.io](https://favicon.io/favicon-converter/)
 Code:
