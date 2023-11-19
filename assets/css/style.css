@@ -388,8 +388,8 @@ body {
 }
 @keyframes damage-taken {
     0% { transform: translate(0, 0); }
-    25% { transform: translate(0, -7.5rem) };
-    100% { transform: translate(0, -5rem); opacity: 0;}
+    25% { transform: translate(0, -7.5rem); }
+    100% { transform: translate(0, -5rem); opacity: 0; }
 }
 
 /* Animation for the card when damage is taken */
