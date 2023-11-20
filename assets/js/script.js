@@ -382,9 +382,8 @@ async function diceAnimation(dice) {
  * @param {Integrer} dice 
  * @param {Integrer} hit 
  * @param {Boolean} crit 
- * @param {Integrer} damage 
  */
-async function displayResult(dice, hit, crit, damage) {
+async function displayResult(dice, hit, crit) {
     document.getElementById('back-title').textContent = `YOUR TURN`;
     await sleep(700);
     diceAnimation(dice);
