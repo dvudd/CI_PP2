@@ -2,7 +2,7 @@
 ![Dungeons and Dices](readme-images/responsive.png)\
 [DUNGEONS and DICES](https://dvudd.github.io/CI_PP2/) is a turned-based dungeon crawler where the player battles against different fantasy creatures, the effect of every action is decided by the roll of a dice.
 # Contents
-- [**Dungeons and Dragons**](#DUNGEONS-AND-DICES)  <!-- Fixed anchor link -->
+- [**Dungeons and Dragons**](#DUNGEONS-AND-DICES)
 - [User Stories](#user-stories)
 - [Features](#features)
   - [Game Mechanics](#game-mechanics)
@@ -210,6 +210,7 @@ No errors were found when passing through the [JShint](https://jshint.com) analy
 | Start Button | Shows on the Start Screen | Confirmed |
 | Player Card | Shows the graphic | Confirmed |
 | Player Card | Shows the correct amount of HP and AC | Confirmed |
+| Player Card | Does not show a negative HP number | Confirmed |
 | Attack Button | Shows after the game has been started | Confirmed |
 | Attack Button | Shows the Flip Card animation | Confirmed |
 | Attack Buttton | Darkens when its the monsters turn | Confirmed |
@@ -231,6 +232,7 @@ No errors were found when passing through the [JShint](https://jshint.com) analy
 | Monster Card | Shows the correct amount of HP and AC | Confirmed |
 | Monster Card | Darkens when the Players Card is flipped up | Confirmed |
 | Monster Card | Displays as above the Player Card during attack animation | Confirmed |
+| Monster Card | Does not show a negative HP number | Confirmed |
 | Game Over Screen | Shows when the player HP reaches 0 | Confirmed |
 | Game Over Screen | Shows the Game Over text | Confirmed |
 | Game Over Screen | Shows the total amount of points collected | Confirmed |
@@ -494,7 +496,7 @@ $ git clone https://github.com/dvudd/CI_PP2
 - Card Shake: https://www.w3schools.com/howto/howto_css_shake_image.asp
 - Prevent scrolling: https://stackoverflow.com/questions/28411499/disable-scrolling-on-body
 - Button design: https://codepen.io/Brandon-Stoyles/pen/RajYmd
-### Acknowledgements
+### Acknowledgements	
 I want to thank my friends and family for testing and giving feedback.\
 ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)\
 This is my Portfolio Project 2 as part of the Full Stack Software Developer program at [Code Institute](https://codeinstitute.net/).\
