@@ -108,6 +108,7 @@ let isPlayerTurn = true;
 let newGame = true;
 let currentMonster = null;
 let score = 0;
+let highscore = 0;
 
 /**
  * Main game loop
@@ -550,8 +551,13 @@ async function gameOver() {
     // display the game over text and final score
     document.getElementById('back-title').textContent = `GAME OVER`;
     document.getElementById('back-subtitle').textContent = `Our hero has perished`;
-    document.getElementById('back-text-upper').textContent = `Score:`;
     document.getElementById('back-roll').textContent = `${score}`;
+    // Check if it's a new high-score
+    if (score > highscore) {
+        document.getElementById('back-hit').textContent = `NEW HIGHSCORE!`;
+        highscore = score;
+    }
+    document.getElementById('back-text-upper').textContent = `Highscore: ${highscore}`;
     // Display the restart button
     document.getElementById('start-btn').textContent = `RESTART`;
     document.getElementById("start-btn").classList.remove("hidden");
