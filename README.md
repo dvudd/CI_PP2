@@ -42,7 +42,7 @@
 - As a user, I want to feel the tension of dice rolls
 - As a user, I want to encounter different types of monsters, so the game feels fresh and challenging each time
 - As a returning user, I want to quickly start a new game
-- As a returning user, I want to beat my old score
+- As a returning user, I want to beat my highscore from this session
 \
 [Back to top](#contents)
 ## Features
@@ -79,9 +79,9 @@ During the player's turn they have two options, either attack the monster or dri
 ![Ability Buttons](readme-images/player-buttons.webp)
 ### Rolling the dice
 The effect of any action is decided by the roll of a dice. Will the attack hit? How much damage will it do?\
-![Critical Hit](readme-images/critical-hit.webp)
+![Hit](readme-images/hit.webp)
 ### Game Over
-When the player's health reaches 0, the game is over. Here the collected score is shown, and the user has the option to restart the game.\
+When the player's health reaches 0, the game is over. Here the collected points are shown and the current high score. The user also has the option to restart the game.\
 ![Game Over](readme-images/game-over.webp)\
 [Back to top](#contents)
 ## Future Features
@@ -236,6 +236,8 @@ No errors were found when passing through the [JShint](https://jshint.com) analy
 | Game Over Screen | Shows when the player HP reaches 0 | Confirmed |
 | Game Over Screen | Shows the Game Over text | Confirmed |
 | Game Over Screen | Shows the total amount of points collected | Confirmed |
+| Game Over Screen | Shows the current highscore | Confirmed |
+| Game Over Screen | Shows that the highscore has been beaten | Confirmed |
 | Restart Button | Shows on the Game Over Screen | Confirmed |
 #### Functional Testing
 | Feature | Expected Behavior | Outcome |
@@ -260,6 +262,8 @@ No errors were found when passing through the [JShint](https://jshint.com) analy
 | Player Turn | Waits for all animations to end | Confirmed |
 | Monster Turn | Waits for all animations to end | Confirmed |
 | Game Over | Removes the current monster | Confirmed |
+| Game Over | Compares the current score to the highscore | Confirmed |
+| Game Over | Saves the Highscore | Confirmed |
 | Restart Button | Resets players HP | Confirmed |
 | Restart Button | Resets the players score | Confirmed |
 | Buttons | Can only be pressed once | Confirmed |
