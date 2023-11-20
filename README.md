@@ -276,8 +276,8 @@ No errors were found when passing through the [JShint](https://jshint.com) analy
 | macOS | Safari | 17.0 |
 | macOS | Mozilla Firefox | 119.0.1 |
 | macOS | Google Chrome | 119.0.6045.159 |
-| Windows 10 | Microsoft Edge | |
-| Windows 10 | Mozilla Firefox | |
+| Windows 10 | Microsoft Edge | 119.0.2151.72 |
+| Windows 10 | Mozilla Firefox | 119.0.1 |
 #### Device Testing
 - iPhone 11
 - iPhone 11 Pro
