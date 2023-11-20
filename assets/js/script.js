@@ -144,7 +144,7 @@ async function gameLoop() {
  */
 async function playerTurn() {
     return new Promise((resolve) => {
-        // Prevent the buttons to be pressed several times
+        // Prevent the attack button to be pressed several times
         function onPlayerActionClick() {
             playerActionBtn.removeEventListener('click', onPlayerActionClick);
             playerAbilityBtn.removeEventListener('click', onPlayerAbilityClick);
@@ -162,7 +162,7 @@ async function playerTurn() {
                 resolve();
             });
         }
-        // Listener for attack and ability buttons
+        // Listeners for attack and ability buttons
         dimButtons();
         let playerActionBtn = document.getElementById('attack-btn');
         playerActionBtn.addEventListener('click', onPlayerActionClick);
@@ -190,10 +190,8 @@ async function playerAttack() {
     if (diceRoll === 20) {
         crit = true;
     }
-    // Add the players toHit to the attack roll
-    let attackRoll = diceRoll + player.toHit;
     // Check if it's enough to hit, Critical Hits always hits
-    if ((attackRoll >= currentMonster.armorClass) || (crit)) {
+    if ((diceRoll >= currentMonster.armorClass) || (crit)) {
         // Calculate Damage
         hit = true;
         damage = rollForDamage(player, crit);
@@ -204,7 +202,7 @@ async function playerAttack() {
     // Display the results
     displayResult(diceRoll, hit, crit, damage);
     await sleep(3000);
-    // Close the result card and brighten the background
+    // Close the result card and brighten the monster card
     document.getElementById("player-card").classList.remove("player-card-flip");
     document.getElementById("monster-card").classList.remove("dim");
     // If the attack hits, play the attack animation
@@ -229,7 +227,7 @@ async function playerAbility() {
     await sleep(700);
     document.getElementById('back-text-upper').textContent = `You drink a potion!`;
     await sleep(1000);
-    // Roll 4d4 + 4
+    // Roll a d20
     let healing = rollDice(20);
     diceAnimation(healing);
     player.currentHitPoints += healing;
@@ -237,7 +235,7 @@ async function playerAbility() {
     if (player.currentHitPoints > player.hitPoints) {
         player.currentHitPoints = player.hitPoints;
     }
-    // Display animation for healing
+    // Display animations for healing
     document.getElementById('back-roll').textContent = `${healing}`;
     await sleep(2000);
     document.getElementById("player-card").classList.remove("player-card-flip");
@@ -269,9 +267,9 @@ async function monsterTurn() {
         isPlayerTurn = true;
     } else {
         // It is now the monsters turn, it will attack you!
-        // Bring the monster card above the player's
+        // Bring the monster card above the player
         document.getElementById('top-area').classList.add('on-top');
-        // Reset the flags for hit, crit and damage
+        // Reset the flags for crit and damage
         let crit = false;
         let damage = 0;
         // Roll for attack
@@ -298,17 +296,16 @@ async function monsterTurn() {
     isPlayerTurn = true;
 }
 
-/**
- * Copies the stats from a monster in the monster array
+/** 
  * @param {*} monster 
- * @returns 
+ * @returns the stats from a monster in the monster array
  */
 function copyMonster(monster) {
     return Object.assign({}, monster);
 }
 
 /**
- * @returns the stats of a random monster from the monster array
+ * @returns a randomly selected monster from the monster array
  */
 function selectRandomMonster() {
     return monsters[Math.floor(Math.random() * monsters.length)];
@@ -354,15 +351,18 @@ function rollDice(dice) {
 function updateUI() {
     // Update players HP
     if (player.currentHitPoints <= 0){
+        // Prevent the HP to be lower than 0
         player.currentHitPoints = 0;
     }
     document.getElementById('player-hp').textContent = player.currentHitPoints;
     document.getElementById('player-ac').textContent = player.armorClass;
     // Update monsters HP
     if (currentMonster == null) {
+        // If no monster is present then show nothing
         document.getElementById('monster-hp').textContent = '';
         document.getElementById('monster-ac').textContent = '';
     } else {
+        // Prevent the HP to be lower than 0
         if (currentMonster.hitPoints <= 0) {
             currentMonster.hitPoints = 0;
         }
@@ -399,8 +399,9 @@ function dimButtons() {
  * @param {*} crit 
  */
 async function hitAnimation(isPlayerTurn, damage, crit)  {
-	let attacker = null; // Used to suppress JSHint warning for unused variable
-    let target = null; // Used to suppress JSHint warning for unused variable
+	let attacker = null;
+    let target = null;
+    // Set attack and target variables depending on who's turn it is
     if (isPlayerTurn) {
         attacker = "player";
         target = "monster";
@@ -412,6 +413,7 @@ async function hitAnimation(isPlayerTurn, damage, crit)  {
     document.getElementById(`${attacker}-card`).classList.add(`${attacker}-attack-animation`);
     await sleep(150);
     if (damage === 0) {
+        // Miss Animation
         damage = "MISS!";
         document.getElementById(`${target}-damage-taken`).textContent = `${damage}`;
         document.getElementById(`${target}-damage-taken`).classList.add("damage-taken");
@@ -422,9 +424,11 @@ async function hitAnimation(isPlayerTurn, damage, crit)  {
         document.getElementById(`${target}-damage-taken`).textContent = ``;
         document.getElementById(`${target}-damage-taken`).classList.remove("damage-taken");
     } else {
+        // Check if its a Critical Hit
         if (crit) {
             document.getElementById(`${target}-damage-taken`).classList.add('damage-taken-critical');
         }
+        // Hit Animation
         document.getElementById(`${target}-card`).classList.add("damage-animation");
         document.getElementById(`${target}-damage-taken`).textContent = `-${damage}`;
         document.getElementById(`${target}-damage-taken`).classList.add("damage-taken");
@@ -446,7 +450,7 @@ async function hitAnimation(isPlayerTurn, damage, crit)  {
  */
 async function diceAnimation(dice) {
     for (let i = 0; i < 10; i++) {
-        // Show a random number
+        // Show a random number for the dice animation
         document.getElementById('back-roll').textContent = rollDice(20);
         await sleep(100);
     }
