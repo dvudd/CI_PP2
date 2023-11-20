@@ -242,6 +242,7 @@ No errors were found when passing through the [JShint](https://jshint.com) analy
 #### Functional Testing
 | Feature | Expected Behavior | Outcome |
 | ------- | ------------------ | ------- |
+| Monsters | The monster array is imported from monsters.js | Confirmed |
 | Start Button | Starts the game | Confirmed |
 | Game Loop | Runs while the players HP is above 0 | Confirmed |
 | Game Loop | Selects a random encounter if none is present | Confirmed |
