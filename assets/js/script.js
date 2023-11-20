@@ -298,7 +298,7 @@ async function monsterTurn() {
 }
 
 /** 
- * @param {*} monster 
+ * @param {Object} monster 
  * @returns the stats from a monster in the monster array
  */
 function copyMonster(monster) {
@@ -314,7 +314,8 @@ function selectRandomMonster() {
 
 /**
  * Reads the hit dice(s) of the creature and adds them together
- * @param {*} creature 
+ * @param {Object} creature 
+ * @param {Boolean} crit
  * @returns a INT of the total damage dealt.
  */
 function rollForDamage(creature, crit) {
@@ -338,7 +339,7 @@ function rollForDamage(creature, crit) {
 
 /**
  * Simulates a roll of a dice
- * @param {*} dice 
+ * @param {Integrer} dice 
  * @returns random number between 1 and the input number
  */
 function rollDice(dice) {
@@ -395,9 +396,9 @@ function dimButtons() {
 
 /**
  * Function to play the attack animation
- * @param {*} isPlayerTurn 
- * @param {*} damage 
- * @param {*} crit 
+ * @param {Boolean} isPlayerTurn 
+ * @param {Integrer} damage 
+ * @param {Boolean} crit 
  */
 async function hitAnimation(isPlayerTurn, damage, crit)  {
 	let attacker = null;
@@ -447,7 +448,7 @@ async function hitAnimation(isPlayerTurn, damage, crit)  {
 
 /**
  * Function to animate the rolling of the dice
- * @param {*} dice 
+ * @param {Integrer} dice 
  */
 async function diceAnimation(dice) {
     for (let i = 0; i < 10; i++) {
@@ -461,10 +462,10 @@ async function diceAnimation(dice) {
 
 /**
  * Function to present the result to the user on the result card
- * @param {} dice 
- * @param {*} hit 
- * @param {*} crit 
- * @param {*} damage 
+ * @param {Integrer} dice 
+ * @param {Integrer} hit 
+ * @param {Boolean} crit 
+ * @param {Integrer} damage 
  */
 async function displayResult(dice, hit, crit, damage) {
     document.getElementById('back-title').textContent = `YOUR TURN`;
