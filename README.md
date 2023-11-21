@@ -81,15 +81,14 @@ During the player's turn they have two options, either attack the monster or dri
 ![Hit](readme-images/hit.webp)
 The effect of any action is decided by the roll of a dice. Will the attack hit? How much damage will it do?\
 ### Sound Effects
-
-All effects have an unique sound effect in a old-school RPG theme. In the top left corner of the screen there is a Toggle-switch to mute/unmute the sound.
+![Sound Effects](readme-images/sound-effects.webp)
+All effects have an unique sound effect in the style of and old-school RPG. In the top left corner of the screen there is a Toggle-switch to mute/unmute the sound.
 ### Game Over
 ![Game Over](readme-images/game-over.webp)\
 When the player's health reaches 0, the game is over. Here the collected points are shown and the current high score. The user also has the option to restart the game.\
 [Back to top](#contents)
 ## Future Features
 While the game is fully functional, there are many ways to improve the experience
-- Sound effects
 - Selectable characters, example:
 	- A Fighter with high defense but medium damage
 	- A Thief with a chance to dodge incoming damage
@@ -118,8 +117,7 @@ The visual theme of the cards continues in the theme of old-school RPGs where th
 
 To address the visual monotony that a one-color background might present, especially on larger screens, a play board-styled background image was added. The card frames and buttons are custom-designed to match the aesthetic of the background.
 
-To add to the user experience sound effects were added, following the theme of old-school RPG's. The Files
-was converted from .wav to .ogg to save space, this saved about 5,3MB.
+To add further to the user experience, sound effects were added. following the theme of old-school RPG's. The Files was converted from .wav to .mp3 to save space, this saved about 5,3MB.
 
 ### Color codes
 Colors were selected using [Coolors](https://coolors.co), matching them with the main colors of the background image and the background color. Every monster have a unique background color to difference them more than just their graphic image.
@@ -245,6 +243,7 @@ No errors were found when passing through the [JShint](https://jshint.com) analy
 | Game Over Screen | Shows the current highscore | Confirmed |
 | Game Over Screen | Shows that the highscore has been beaten | Confirmed |
 | Restart Button | Shows on the Game Over Screen | Confirmed |
+| Mute Button | Switches when pressed | Confirmed |
 #### Functional Testing
 | Feature | Expected Behavior | Outcome |
 | ------- | ------------------ | ------- |
@@ -275,6 +274,8 @@ No errors were found when passing through the [JShint](https://jshint.com) analy
 | Restart Button | Resets the players score | Confirmed |
 | Buttons | Can only be pressed once | Confirmed |
 | Buttons | Can only be pressed during the player's turn | Confirmed |
+| Sound Effects | Sound effects play correctly at intended triggers | Confirmed |
+| Sound Effects | Sound effects do not play when muted | Confirmed |
 #### Browser testing
 | Operating System | Browser | Version |
 | ------- | ------------------ | ------- |
