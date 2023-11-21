@@ -226,6 +226,12 @@ body {
     display: flex;
     justify-content: center;
 }
+
+.big-card {
+    width: 22rem;
+    height: 28.75rem;
+}
+
 /* Text styles on front card */
 .player-ui {
     top: 1.25rem;
@@ -239,18 +245,18 @@ body {
 
 #back-title {
     height: 2rem;
-    top: 1rem;
-    font-size: 1.3rem;
+    top: 1.2rem;
+    font-size: 2rem;
 }
 
 #back-subtitle {
     height: 1rem;
-    top: 3rem;
+    top: 3.5rem;
 }
 
 #back-text-upper {
     height: 30%;
-    top: 4.5rem;
+    top: 5rem;
 }
 
 #back-text-lower {
@@ -274,8 +280,8 @@ body {
     position: absolute;
     display: flex;
     height: 2.5rem;
-    width: 12.5rem;
-    top: 5rem;
+    width: 17.5rem;
+    top: 10rem;
     margin: 1rem;
     justify-content: center;
     color: var(--primary);
@@ -444,6 +450,11 @@ body {
         height: 23.75rem;
     }
 
+    .big-card {
+        width: 22rem;
+        height: 28.75rem;
+    }
+
     .monster-stats {
         bottom: 1.75rem;
     }
@@ -456,20 +467,6 @@ body {
     .player-ui {
         top: 1.5rem;
         font-size: 1.2rem;
-    }
-
-    #back-title {
-        top: 1.25rem;
-        font-size: 1.5rem;
-    }
-
-    #back-text {
-        top: 3.25rem;
-    }
-
-    #start-btn {
-        top: 7rem;
-        width: 15rem;
     }
 }
 /* Media query: Larger screens (1000px and up) */

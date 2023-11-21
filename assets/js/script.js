@@ -418,14 +418,9 @@ function resetResults() {
  * Waits for the player to press the start game buttoin
  */
 async function newGameScreen() {
-    // Set text on start screen
-    document.getElementById('back-title').textContent = `DUNGEONS & DICES`;
-    document.getElementById('back-subtitle').textContent = `Hello adventurer!`;
-    document.getElementById('back-text-upper').textContent = `Dwell into the dungeon, defeat as many monsters as you can.`;
-    document.getElementById('back-text-lower').textContent = `How to play: During your turn you can either attack with the sword or drink a healing potion`;
-    document.getElementById('start-btn').textContent = `START`;
     // Flip the player card
     document.getElementById("player-card").classList.add("player-card-flip");
+    document.getElementById("player-card").classList.add("big-card");
     await sleep(800);
     // Show the start button
     document.getElementById("start-btn").classList.add("button-fade");
@@ -437,6 +432,7 @@ async function newGameScreen() {
             newGame = false;
             // Flip the player card, hide the start button
             document.getElementById("player-card").classList.remove("player-card-flip");
+            document.getElementById("player-card").classList.remove("big-card");
             document.getElementById("start-btn").classList.remove("button-fade");
             document.getElementById("start-btn").classList.add("hidden");
             updateUI();
@@ -463,6 +459,7 @@ async function gameOver() {
     document.getElementById("ability-btn").classList.add("hidden");
     // flip the player card
     document.getElementById("player-card").classList.add("player-card-flip");
+    document.getElementById("player-card").classList.add("big-card");
     await sleep(850);
     document.getElementById("start-btn").classList.add("button-fade");
     // display the game over text and final score
@@ -497,6 +494,7 @@ async function resetGame() {
     score = 0;
     // Flip the player card down again and clear the card
     document.getElementById("player-card").classList.remove("player-card-flip");
+    document.getElementById("player-card").classList.remove("big-card");
     document.getElementById("start-btn").classList.add("hidden");
     await sleep(850);
     document.getElementById("attack-btn").classList.remove("hidden");
