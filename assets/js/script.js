@@ -24,18 +24,18 @@ const player = {
  * Sound Effects
  */
 const soundEffects = {
-    crit: 'assets/sounds/crit.ogg',
-    miss: 'assets/sounds/miss.ogg',
-    heal: 'assets/sounds/heal.ogg',
-    rollDice: 'assets/sounds/roll-dice.ogg',
-    rollHit: 'assets/sounds/roll-hit.ogg',
-    rollMiss: 'assets/sounds/roll-miss.ogg',
-    rollCrit: 'assets/sounds/roll-crit.ogg',
-    monsterHit: 'assets/sounds/monster-hit.ogg',
-    monsterSpawn: 'assets/sounds/monster-spawn.ogg',
-    monsterDeath: 'assets/sounds/monster-death.ogg',
-    playerHit: 'assets/sounds/player-hit.ogg',
-    playerDeath: 'assets/sounds/player-death.ogg'
+    crit: 'assets/sounds/crit.mp3',
+    miss: 'assets/sounds/miss.mp3',
+    heal: 'assets/sounds/heal.mp3',
+    rollDice: 'assets/sounds/roll-dice.mp3',
+    rollHit: 'assets/sounds/roll-hit.mp3',
+    rollMiss: 'assets/sounds/roll-miss.mp3',
+    rollCrit: 'assets/sounds/roll-crit.mp3',
+    monsterHit: 'assets/sounds/monster-hit.mp3',
+    monsterSpawn: 'assets/sounds/monster-spawn.mp3',
+    monsterDeath: 'assets/sounds/monster-death.mp3',
+    playerHit: 'assets/sounds/player-hit.mp3',
+    playerDeath: 'assets/sounds/player-death.mp3'
 };
 
 // Global variables
