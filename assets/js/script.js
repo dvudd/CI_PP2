@@ -19,13 +19,32 @@ const player = {
     hitDice: 10,
     plusDmg: 3,
 };
-  
+
+/**
+ * Sound Effects
+ */
+const soundeffects = {
+    crit: 'assets/sounds/crit.wav',
+    miss: 'assets/sounds/miss.wav',
+    heal: 'assets/sounds/heal.wav',
+    rollDice: 'assets/sounds/roll-dice.wav',
+    rollHit: 'assets/sounds/roll-hit.wav',
+    rollMiss: 'assets/sounds/roll-miss.wav',
+    rollCrit: 'assets/sounds/roll-crit.wav',
+    monsterHit: 'assets/sounds/monster-hit.wav',
+    monsterSpawn: 'assets/sounds/monster-spawn.wav',
+    monsterDeath: 'assets/sounds/monster-death.wav',
+    playerHit: 'assets/sounds/player-hit.wav',
+    playerDeath: 'assets/sounds/player-death.wav'
+};
+
 // Global variables
 let isPlayerTurn = true;
 let newGame = true;
 let currentMonster = null;
 let score = 0;
 let highscore = 0;
+let muted = false;
 
 /**
  * Main game loop
@@ -42,6 +61,7 @@ async function gameLoop() {
             document.getElementById("monster-card-front").classList.add(`monster-${currentMonster.cardImage}`);
             document.getElementById('monster-name').textContent = currentMonster.name;
             document.getElementById("monster-card").classList.remove("hide-monster");
+            playSound("monsterSpawn");
             updateUI();
           }
         if (isPlayerTurn) {
@@ -161,6 +181,7 @@ async function playerAbility() {
     await sleep(700);
     document.getElementById(`player-damage-taken`).textContent = `+${healing}`;
     document.getElementById(`player-damage-taken`).classList.add("damage-taken");
+    playSound("heal");
     await sleep(500);
     document.getElementById('player-hp').textContent = player.currentHitPoints;
     document.getElementById(`player-damage-taken`).textContent = ``;
@@ -178,6 +199,7 @@ async function playerAbility() {
 async function monsterTurn() {
     // Check if the monster is still alive.
     if (currentMonster.hitPoints <= 0) {
+        playSound("monsterDeath");
         document.getElementById("monster-card").classList.add("hide-monster");
         await sleep(2000);
         document.getElementById("monster-card-front").classList.remove(`monster-${currentMonster.cardImage}`);
@@ -312,6 +334,30 @@ function dimButtons() {
 }
 
 /**
+ * Toggle switch for mute button
+ * CREDIT: https://stackoverflow.com/questions/56040478/change-fa-icon-on-click
+ */
+const muter = document.querySelector("#sound-toggle");
+muter.addEventListener("click", (e) => {
+  ["fa-volume-high", "fa-volume-xmark"].forEach(
+    c => e.target.classList.toggle(c));
+    muted = !muted;
+});
+
+/**
+ * Plays sound from soundeffects array
+ * @param {String} effect 
+ * CREDIT: https://gomakethings.com/how-to-play-a-sound-with-javascript/
+ */
+function playSound(effect) {
+    let sound = new Audio(soundeffects[effect]);
+    // only play the sound if not muted
+    if (!muted) { 
+        sound.play();
+    } 	
+}
+
+/**
  * Function to play the attack animation
  * @param {Boolean} isPlayerTurn 
  * @param {Integrer} damage 
@@ -336,6 +382,7 @@ async function hitAnimation(isPlayerTurn, damage, crit)  {
         damage = "MISS!";
         document.getElementById(`${target}-damage-taken`).textContent = `${damage}`;
         document.getElementById(`${target}-damage-taken`).classList.add("damage-taken");
+        playSound("miss");
         await sleep(80);
         await sleep(100);
         document.getElementById(`${attacker}-card`).classList.remove(`${attacker}-attack-animation`);
@@ -349,6 +396,11 @@ async function hitAnimation(isPlayerTurn, damage, crit)  {
         }
         // Hit Animation
         document.getElementById(`${target}-card`).classList.add("damage-animation");
+        if (crit) {
+            playSound("crit");
+        } else {
+            playSound(`${attacker}Hit`);
+        }
         document.getElementById(`${target}-damage-taken`).textContent = `-${damage}`;
         document.getElementById(`${target}-damage-taken`).classList.add("damage-taken");
         await sleep(80);
@@ -368,6 +420,7 @@ async function hitAnimation(isPlayerTurn, damage, crit)  {
  * @param {Integrer} dice 
  */
 async function diceAnimation(dice) {
+    playSound("rollDice");
     for (let i = 0; i < 10; i++) {
         // Show a random number for the dice animation
         document.getElementById('back-roll').textContent = rollDice(20);
@@ -392,11 +445,14 @@ async function displayResult(dice, hit, crit) {
         if (crit) {
             document.getElementById('back-hit').classList.add('back-hit-critical');
             document.getElementById('back-hit').textContent = `CRITICAL HIT!`;
+            playSound("rollCrit");
         } else {
             document.getElementById('back-hit').textContent = `HIT!`;
+            playSound("rollHit");
         }
     } else {
         document.getElementById('back-hit').textContent = `MISS!`;
+        playSound("miss");
     }
     await sleep(1000);
 }
@@ -453,6 +509,7 @@ async function newGameScreen() {
  * Displays the game over screen with the players final score.
  */
 async function gameOver() {
+    playSound("playerDeath");
     // remove the monster card
     document.getElementById("monster-card").classList.add("hide-monster");
     document.getElementById("attack-btn").classList.add("hidden");

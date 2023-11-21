@@ -493,6 +493,8 @@ $ git clone https://github.com/dvudd/CI_PP2
 	- [Card RPG) UI&Characters](https://sagak-art-pururu.itch.io/cardrpg-ui)
 	- [Card RPG) Items](https://sagak-art-pururu.itch.io/cardrpg-items)
 - Background image were created by [TornioDuva](https://tornioduva.itch.io/tornioduva-card-pack)
+- Sound Effects were created by [Lephpax](https://leohpaz.itch.io/rpg-essentials-sfx-free)
+- Sound effect for the dice roll were created by [Halfwits & Failed Crits](https://halfwitsfailedcrits.itch.io/sfx-pack-rolling-dice)
 - Favicon was downloaded from [flaticon](https://www.flaticon.com/)
 ### Code:
 - Sleep function: https://stackoverflow.com/questions/951021/what-is-the-javascript-version-of-sleep
@@ -501,6 +503,8 @@ $ git clone https://github.com/dvudd/CI_PP2
 - Card Shake: https://www.w3schools.com/howto/howto_css_shake_image.asp
 - Prevent scrolling: https://stackoverflow.com/questions/28411499/disable-scrolling-on-body
 - Button design: https://codepen.io/Brandon-Stoyles/pen/RajYmd
+- Mute Button: https://stackoverflow.com/questions/56040478/change-fa-icon-on-click
+- Play Sound: https://gomakethings.com/how-to-play-a-sound-with-javascript/
 ### Acknowledgements	
 - I want to thank my friends and family for testing my game and giving feedback.
 - Thank you to my mentor Jack Wachira.\
