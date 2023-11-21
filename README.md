@@ -502,7 +502,7 @@ $ git clone https://github.com/dvudd/CI_PP2
 - Prevent scrolling: https://stackoverflow.com/questions/28411499/disable-scrolling-on-body
 - Button design: https://codepen.io/Brandon-Stoyles/pen/RajYmd
 ### Acknowledgements	
-- I want to thank my friends and family for testing and giving feedback.
+- I want to thank my friends and family for testing my game and giving feedback.
 - Thank you to my mentor Jack Wachira
 ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)\
 This is my Portfolio Project 2 as part of the Full Stack Software Developer program at [Code Institute](https://codeinstitute.net/).\
