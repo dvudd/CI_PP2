@@ -23,19 +23,19 @@ const player = {
 /**
  * Sound Effects
  */
-const soundeffects = {
-    crit: 'assets/sounds/crit.wav',
-    miss: 'assets/sounds/miss.wav',
-    heal: 'assets/sounds/heal.wav',
-    rollDice: 'assets/sounds/roll-dice.wav',
-    rollHit: 'assets/sounds/roll-hit.wav',
-    rollMiss: 'assets/sounds/roll-miss.wav',
-    rollCrit: 'assets/sounds/roll-crit.wav',
-    monsterHit: 'assets/sounds/monster-hit.wav',
-    monsterSpawn: 'assets/sounds/monster-spawn.wav',
-    monsterDeath: 'assets/sounds/monster-death.wav',
-    playerHit: 'assets/sounds/player-hit.wav',
-    playerDeath: 'assets/sounds/player-death.wav'
+const soundEffects = {
+    crit: 'assets/sounds/crit.ogg',
+    miss: 'assets/sounds/miss.ogg',
+    heal: 'assets/sounds/heal.ogg',
+    rollDice: 'assets/sounds/roll-dice.ogg',
+    rollHit: 'assets/sounds/roll-hit.ogg',
+    rollMiss: 'assets/sounds/roll-miss.ogg',
+    rollCrit: 'assets/sounds/roll-crit.ogg',
+    monsterHit: 'assets/sounds/monster-hit.ogg',
+    monsterSpawn: 'assets/sounds/monster-spawn.ogg',
+    monsterDeath: 'assets/sounds/monster-death.ogg',
+    playerHit: 'assets/sounds/player-hit.ogg',
+    playerDeath: 'assets/sounds/player-death.ogg'
 };
 
 // Global variables
@@ -350,7 +350,7 @@ muter.addEventListener("click", (e) => {
  * CREDIT: https://gomakethings.com/how-to-play-a-sound-with-javascript/
  */
 function playSound(effect) {
-    let sound = new Audio(soundeffects[effect]);
+    let sound = new Audio(soundEffects[effect]);
     // only play the sound if not muted
     if (!muted) { 
         sound.play();
