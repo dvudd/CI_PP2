@@ -66,23 +66,26 @@
 	- Similar to the Attack Roll, Healing is determinated by a roll of a d20.
 	- The result is then added to the players Health Points (HP).
 ### Start Screen
-The game starts with a short description on how the game works.\
 ![Start Screen](readme-images/start-screen.webp)
+The game starts with a short description on how the game works.\
 ### Player Card
-This is the player character, besides a visual representation of the player, this is where the player's health and armor are shown.\
 ![Player Card](readme-images/player-card.webp)
+This is the player character, besides a visual representation of the player, this is where the player's health and armor are shown.\
 ### Monster Cards
-There are 8 different monster encounters, all with different strengths and weaknesses.\
 ![Monster cards](readme-images/monsters.webp)
+There are 8 different monster encounters, all with different strengths and weaknesses.\
 ### Ability Buttons
-During the player's turn they have two options, either attack the monster or drink a healing potion to regain some health points.\
 ![Ability Buttons](readme-images/player-buttons.webp)
+During the player's turn they have two options, either attack the monster or drink a healing potion to regain some health points.\
 ### Rolling the dice
-The effect of any action is decided by the roll of a dice. Will the attack hit? How much damage will it do?\
 ![Hit](readme-images/hit.webp)
+The effect of any action is decided by the roll of a dice. Will the attack hit? How much damage will it do?\
+### Sound Effects
+
+All effects have an unique sound effect in a old-school RPG theme. In the top left corner of the screen there is a Toggle-switch to mute/unmute the sound.
 ### Game Over
-When the player's health reaches 0, the game is over. Here the collected points are shown and the current high score. The user also has the option to restart the game.\
 ![Game Over](readme-images/game-over.webp)\
+When the player's health reaches 0, the game is over. Here the collected points are shown and the current high score. The user also has the option to restart the game.\
 [Back to top](#contents)
 ## Future Features
 While the game is fully functional, there are many ways to improve the experience
@@ -114,6 +117,9 @@ To add visual feedback to the game, animations were created with tabletop cards 
 The visual theme of the cards continues in the theme of old-school RPGs where the graphical assets are pixelated and the reason why the retro-styled fonts (DotGothic16 and VT323) were selected.
 
 To address the visual monotony that a one-color background might present, especially on larger screens, a play board-styled background image was added. The card frames and buttons are custom-designed to match the aesthetic of the background.
+
+To add to the user experience sound effects were added, following the theme of old-school RPG's. The Files
+was converted from .wav to .ogg to save space, this saved about 5,3MB.
 
 ### Color codes
 Colors were selected using [Coolors](https://coolors.co), matching them with the main colors of the background image and the background color. Every monster have a unique background color to difference them more than just their graphic image.
@@ -446,6 +452,7 @@ No known bugs remaining.\
 - Image upscaler: [Lospec](https://lospec.com/pixel-art-scaler/)
 - Color palette picker: [Coolors](https://coolors.co)
 - Favicon generator: [favicon.io](https://favicon.io/favicon-converter/)
+- Sound converter: [VLC](https://www.videolan.org/vlc/)
 ### Languages
 - HTML5
 - CSS
