@@ -74,16 +74,17 @@ The game starts with a short description on how the game works. Here the player 
 This is the player character, besides a visual representation of the player, this is where the player's health and armor are shown.
 ### Monster Cards
 ![Monster cards](readme-images/monsters.webp)
-There are 8 different monster encounters, all with different strengths and weaknesses.
+There are 8 different monster encounters, all with a unique design and different strengths/weaknesses.
 ### Ability Buttons
 ![Ability Buttons](readme-images/player-buttons.webp)
-During the player's turn they have two options, either attack the monster or drink a healing potion to regain some health points.
+During the player's turn they have two options, either to attack the monster or drink a healing potion to regain some health points.
 ### Rolling the dice
 ![Hit](readme-images/hit.webp)
 The effect of any action is decided by the roll of a dice. Will the attack hit? How much damage will it do?
 ### Sound Effects
 ![Sound Effects](readme-images/sound-effects.webp)
-All effects have an unique sound effect in the style of an old-school RPG. In the top left corner of the screen there is a Toggle-switch to mute/unmute the sound.
+All effects have an unique sound effect in the style of an old-school RPG. In the top left corner of the screen there is a Toggle-switch to mute/unmute the sound. The icons for the switch are designed to be discrete
+and but still be visible for the user.
 ### Game Over
 ![Game Over](readme-images/game-over.webp)
 When the player's health reaches 0, the game is over. Here the collected points are shown and the current high score. The user also has the option to restart the game.
