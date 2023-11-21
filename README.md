@@ -83,8 +83,7 @@ During the player's turn they have two options, either to attack the monster or 
 The effect of any action is decided by the roll of a dice. Will the attack hit? How much damage will it do?
 ### Sound Effects
 ![Sound Effects](readme-images/sound-effects.webp)
-All effects have an unique sound effect in the style of an old-school RPG. In the top left corner of the screen there is a Toggle-switch to mute/unmute the sound. The icons for the switch are designed to be discrete
-and but still be visible for the user.
+All effects have a unique sound effect in the style of an old-school RPG. In the top left corner of the screen, there is a Toggle-switch to mute/unmute the sound. The icons for the switch are designed to be discrete but still be visible for the user.
 ### Game Over
 ![Game Over](readme-images/game-over.webp)
 When the player's health reaches 0, the game is over. Here the collected points are shown and the current high score. The user also has the option to restart the game.
@@ -120,7 +119,7 @@ The visual theme of the cards continues in the theme of old-school RPGs where th
 
 To address the visual monotony that a one-color background might present, especially on larger screens, a play board-styled background image was added. The card frames and buttons are custom-designed to match the aesthetic of the background.
 
-To add further on the user experience, sound effects were added following the theme of old-school RPG's. The files was converted from .wav to .mp3 to save space which saved about 5,3MB.
+To add further to the user experience, sound effects were added, following the theme of old-school RPG's. The files were converted from .wav to .mp3 to save space, which saved about 5,3MB.
 
 ### Color codes
 Colors were selected using [Coolors](https://coolors.co), matching them with the main colors of the background image and the background color. Every monster have a unique background color to difference them more than just their graphic image.
@@ -453,6 +452,12 @@ Turns out that Safari does not support .ogg files. This was fixed by converting 
 
 
 ### Known Bugs
+<details><summary>Bug: Sometimes sound effects aren't playing on iOS Safari</summary>
+
+Sometimes the sound effect does not play in iOS Safari, seems to happen randomly. It did not occur to me on any other browser, and I have not been able to understand why it happens.
+
+</details>
+
 No known bugs remaining.\
 [Back to top](#contents)
 ## Technologies used
