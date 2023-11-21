@@ -113,7 +113,7 @@ After a layout was decided, the basics were created with HTML and CSS to make a 
 Once the site started to look like the wireframe layout, work began on the JavaScript where the main focus was on getting the basic gameplay to work, inspiration for the game rules came from [D&D BASIC RULES](https://media.wizards.com/2018/dnd/downloads/DnD_BasicRules_2018.pdf). To make sure the game mechanics worked as intended, work relied heavily on console logs to output what was happening under the hood.
 ![Console Outputs](readme-images/console.webp)
 ### Look and Feel
-To add visual feedback to the game, animations were created with tabletop cards in mind, but also how battles in old RPG's work. With this in mind and to save screen real estate, the card-flip animation was created, this creates a natural space where the d20 roll animation could be shown to the player. The damage animation was created to make the attack animation feel like it has impact. 
+To add visual feedback to the game, animations were created with tabletop cards in mind, but also how battles in old RPG's work. With this in mind and to save screen real estate, the card-flip animation was created, this created a natural space where the dice roll animation could be shown to the player. The damage animation was created to make the attack animation feel like it has impact. 
 
 The visual theme of the cards continues in the theme of old-school RPGs where the graphical assets are pixelated and the reason why the retro-styled fonts (DotGothic16 and VT323) were selected.
 
@@ -158,7 +158,7 @@ No errors were returned when passing through the [W3C Markup validator](https://
 #### CSS
 No errors were found when passing through the [W3C CSS Validator](https://jigsaw.w3.org/css-validator/).
 #### JavaScript
-No errors were found when passing through the [JShint](https://jshint.com) analysis tool.
+No errors were found when passing through the [JShint](https://jshint.com) analysis tool using `esversion: 8`.
 #### Google Chrome Lighthouse Reports
 ##### Desktop
 ![Lightouse Desktop](readme-images/lighthouse-desktop.webp)
@@ -298,7 +298,7 @@ No errors were found when passing through the [JShint](https://jshint.com) analy
 - Windows 10 PC
 \
 [Back to top](#contents)
-### Bugs
+## Bugs
 <details><summary>Bug: No new monster is picked after the player defeats the current one</summary>
 
 This was fixed by creating a function to make a copy of the randomly selected monster.
@@ -454,7 +454,7 @@ Turns out that Safari does not support .ogg files. This was fixed by converting 
 ### Known Bugs
 <details><summary>Bug: Sometimes sound effects aren't playing on iOS Safari</summary>
 
-Sometimes the sound effect does not play in iOS Safari, seems to happen randomly. It did not occur to me on any other browser, and I have not been able to understand why it happens.
+Sometimes a sound effect does not play in iOS Safari, seems to happen randomly. It did not occur to me on any other browser, and I have not been able to understand why it happens.
 
 </details>
 
