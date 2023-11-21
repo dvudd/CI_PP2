@@ -11,6 +11,7 @@
   - [Monster Cards](#monster-cards)
   - [Ability Buttons](#ability-buttons)
   - [Rolling the dice](#rolling-the-dice)
+  - [Sound Effects](#sound-effects)
   - [Game Over](#game-over)
 - [Future Features](#future-features)
 - [Development](#development)
@@ -67,28 +68,29 @@
 	- The result is then added to the players Health Points (HP).
 ### Start Screen
 ![Start Screen](readme-images/start-screen.webp)
-The game starts with a short description on how the game works.\
+The game starts with a short description on how the game works. Here the player has the option to start the game.
 ### Player Card
 ![Player Card](readme-images/player-card.webp)
-This is the player character, besides a visual representation of the player, this is where the player's health and armor are shown.\
+This is the player character, besides a visual representation of the player, this is where the player's health and armor are shown.
 ### Monster Cards
 ![Monster cards](readme-images/monsters.webp)
-There are 8 different monster encounters, all with different strengths and weaknesses.\
+There are 8 different monster encounters, all with different strengths and weaknesses.
 ### Ability Buttons
 ![Ability Buttons](readme-images/player-buttons.webp)
-During the player's turn they have two options, either attack the monster or drink a healing potion to regain some health points.\
+During the player's turn they have two options, either attack the monster or drink a healing potion to regain some health points.
 ### Rolling the dice
 ![Hit](readme-images/hit.webp)
-The effect of any action is decided by the roll of a dice. Will the attack hit? How much damage will it do?\
+The effect of any action is decided by the roll of a dice. Will the attack hit? How much damage will it do?
 ### Sound Effects
 ![Sound Effects](readme-images/sound-effects.webp)
-All effects have an unique sound effect in the style of and old-school RPG. In the top left corner of the screen there is a Toggle-switch to mute/unmute the sound.
+All effects have an unique sound effect in the style of an old-school RPG. In the top left corner of the screen there is a Toggle-switch to mute/unmute the sound.
 ### Game Over
-![Game Over](readme-images/game-over.webp)\
-When the player's health reaches 0, the game is over. Here the collected points are shown and the current high score. The user also has the option to restart the game.\
+![Game Over](readme-images/game-over.webp)
+When the player's health reaches 0, the game is over. Here the collected points are shown and the current high score. The user also has the option to restart the game.
 [Back to top](#contents)
 ## Future Features
 While the game is fully functional, there are many ways to improve the experience
+- Music
 - Selectable characters, example:
 	- A Fighter with high defense but medium damage
 	- A Thief with a chance to dodge incoming damage
@@ -117,7 +119,7 @@ The visual theme of the cards continues in the theme of old-school RPGs where th
 
 To address the visual monotony that a one-color background might present, especially on larger screens, a play board-styled background image was added. The card frames and buttons are custom-designed to match the aesthetic of the background.
 
-To add further to the user experience, sound effects were added. following the theme of old-school RPG's. The Files was converted from .wav to .mp3 to save space, this saved about 5,3MB.
+To add further on the user experience, sound effects were added following the theme of old-school RPG's. The files was converted from .wav to .mp3 to save space which saved about 5,3MB.
 
 ### Color codes
 Colors were selected using [Coolors](https://coolors.co), matching them with the main colors of the background image and the background color. Every monster have a unique background color to difference them more than just their graphic image.
@@ -442,6 +444,12 @@ if ((attackRoll >= player.armorClass) || (crit)) {...}
 ```
 
 </details>
+<details><summary>Bug: Sound effects does not work in Safari</summary>
+
+Turns out that Safari does not support .ogg files. This was fixed by converting the original .wav files to .mp3
+
+</details>
+
 
 ### Known Bugs
 No known bugs remaining.\
