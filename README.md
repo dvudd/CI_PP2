@@ -458,7 +458,6 @@ Sometimes a sound effect does not play in iOS Safari, seems to happen randomly. 
 
 </details>
 
-No known bugs remaining.\
 [Back to top](#contents)
 ## Technologies used
 - IDE: Microsoft VS Code
@@ -519,14 +518,24 @@ $ git clone https://github.com/dvudd/CI_PP2
 - Sound effect for the dice roll were created by [Halfwits & Failed Crits](https://halfwitsfailedcrits.itch.io/sfx-pack-rolling-dice)
 - Favicon was downloaded from [flaticon](https://www.flaticon.com/)
 ### Code:
+#### CSS:
+- Card flip: [w3schools](https://www.w3schools.com/howto/howto_css_flip_card.asp)
+- Card Shake: [w3schools](https://www.w3schools.com/howto/howto_css_shake_image.asp)
+- Prevent scrolling: [Stack Overflow](https://stackoverflow.com/questions/28411499/disable-scrolling-on-body)
+- Button design: [Codepen](https://codepen.io/Brandon-Stoyles/pen/RajYmd)
+- Text outline: [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/-webkit-text-stroke)
+- While working on the animations I referenced the [Animation](https://developer.mozilla.org/en-US/docs/Web/CSS/animation), [Transforms](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_transforms/Using_CSS_transforms) and [Transistions](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_transitions/Using_CSS_transitions) sections from [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/CSS) and this [Tutorial](https://www.youtube.com/watch?v=AF6vGYIyV8M)
+#### JavaScript:
 - Sleep function: https://stackoverflow.com/questions/951021/what-is-the-javascript-version-of-sleep
-- Card Animations: https://www.youtube.com/watch?v=AF6vGYIyV8M
-- Card flip: https://www.w3schools.com/howto/howto_css_flip_card.asp
-- Card Shake: https://www.w3schools.com/howto/howto_css_shake_image.asp
-- Prevent scrolling: https://stackoverflow.com/questions/28411499/disable-scrolling-on-body
-- Button design: https://codepen.io/Brandon-Stoyles/pen/RajYmd
 - Mute Button: https://stackoverflow.com/questions/56040478/change-fa-icon-on-click
 - Play Sound: https://gomakethings.com/how-to-play-a-sound-with-javascript/
+- While working on bugs in script.js I referenced these sections from [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference)
+	- [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
+	- [function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)
+	- [async function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)
+	- [export](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export)
+	- [import](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import)
+	- [Object.assign()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign)
 ### Acknowledgements	
 - I want to thank my friends and family for testing my game and giving feedback.
 - Thank you to my mentor Jack Wachira.\
