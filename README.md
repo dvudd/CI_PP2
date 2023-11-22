@@ -151,10 +151,28 @@ Colors were selected using [Coolors](https://coolors.co), matching them with the
 ### Validator testing
 #### HTML
 No errors were returned when passing through the [W3C Markup validator](https://validator.w3.org/).
+<details><summary>Results</summary>
+
+![HTML Validator Results](readme-images/validator-html.webp)
+
+</details>
+
 #### CSS
 No errors were found when passing through the [W3C CSS Validator](https://jigsaw.w3.org/css-validator/).
+<details><summary>Results</summary>
+
+![CSS Validator Results](readme-images/validator-css.webp)
+
+</details>
+
 #### JavaScript
 No errors were found when passing through the [JShint](https://jshint.com) analysis tool using `esversion: 8`.
+<details><summary>Results</summary>
+
+![JavaScript Validator Results](readme-images/validator-js.webp)
+
+</details>
+
 #### Google Chrome Lighthouse Reports
 ##### Desktop
 ![Lightouse Desktop](readme-images/lighthouse-desktop.webp)
