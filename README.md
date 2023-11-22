@@ -44,8 +44,6 @@
 - As a user, I want to encounter different types of monsters, so the game feels fresh and challenging each time
 - As a returning user, I want to quickly start a new game
 - As a returning user, I want to beat my highscore from this session
-\
-[Back to top](#contents)
 ## Features
 ![Screenshot](readme-images/screenshot.webp)
 ### Game Mechanics
@@ -87,7 +85,6 @@ All effects have a unique sound effect in the style of an old-school RPG. In the
 ### Game Over
 ![Game Over](readme-images/game-over.webp)
 When the player's health reaches 0, the game is over. Here the collected points are shown and the current high score. The user also has the option to restart the game.
-[Back to top](#contents)
 ## Future Features
 While the game is fully functional, there are many ways to improve the experience
 - Music
@@ -150,7 +147,6 @@ Colors were selected using [Coolors](https://coolors.co), matching them with the
 
 </details>
 
-[Back to top](#contents)
 ## Testing
 ### Validator testing
 #### HTML
@@ -206,7 +202,6 @@ No errors were found when passing through the [JShint](https://jshint.com) analy
 
 </details>
 
-[Back to top](#contents)
 ### Manual testing
 #### UI Testing
 | Element | Expected Behavior | Outcome |
@@ -296,8 +291,6 @@ No errors were found when passing through the [JShint](https://jshint.com) analy
 - iPad Air
 - MacBook Air
 - Windows 10 PC
-\
-[Back to top](#contents)
 ## Bugs
 <details><summary>Bug: No new monster is picked after the player defeats the current one</summary>
 
@@ -458,7 +451,6 @@ Sometimes a sound effect does not play in iOS Safari, seems to happen randomly. 
 
 </details>
 
-[Back to top](#contents)
 ## Technologies used
 - IDE: Microsoft VS Code
 - Repository: GitHub
@@ -505,8 +497,6 @@ $ git clone https://github.com/dvudd/CI_PP2
 ```
 7. Press Enter. Your local clone will be created.
 8. Open `index.html` in your browser.
-\
-[Back to top](#contents)
 ## Credits
 ### Media:
 -  Monster Assets were created by [Sagak art](https://sagak-art-pururu.itch.io)
@@ -536,8 +526,6 @@ $ git clone https://github.com/dvudd/CI_PP2
 	- [export](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export)
 	- [import](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import)
 	- [Object.assign()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign)
-\
-[Back to top](#contents)
 ### Acknowledgements	
 - I want to thank my friends and family for testing my game and giving feedback.
 - Thank you to my mentor Jack Wachira.\
